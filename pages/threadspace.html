@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../js/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../js/image-slot.js"></script>
+<script src="../js/cursor-dot.js"></script>
+<style>
+  html, body { margin:0; padding:0; box-sizing:border-box; cursor:none; }
+  *, *::before, *::after { box-sizing:inherit; }
+  a, button, [draggable="true"], [role="button"] { cursor:none; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+  }
+  @media (max-width:700px) {
+    [style*="grid-template-columns: 200px 1fr"] { grid-template-columns:1fr !important; gap:10px !important; }
+    [style*="grid-template-columns: 120px 1fr"] { grid-template-columns:1fr !important; }
+    [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns:1fr !important; }
+  }
+  @keyframes hcc-in { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes pom-breathe-ts { 0% { transform:scale(1); opacity:0.5; } 70% { transform:scale(1.12); opacity:0; } 100% { opacity:0; } }
+</style>
+</helmet>
+
+<div style="min-height:100vh; width:100%; background:oklch(0.985 0.002 90); color:oklch(0.12 0 0); font-family:Helvetica,Arial,sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; padding:clamp(16px,2.4vh,28px) clamp(20px,3vw,40px) clamp(80px,10vh,120px);">
+
+    <header style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-bottom:clamp(16px,2.4vh,28px); border-bottom:1px solid oklch(0.12 0 0); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both;">
+      <a href="human-centred-concepts.html" style="display:flex; align-items:center; gap:10px; color:inherit; text-decoration:none; font-weight:500; font-size:clamp(16px,1.6vw,20px); letter-spacing:-0.8px;" style-hover="color:oklch(0.75 0.22 40);" style-focus="outline:2px solid currentColor; outline-offset:3px;">
+        <span aria-hidden="true">←</span> 01 — Human-Centred Concepts
+      </a>
+      <nav style="display:flex; gap:18px; font-size:12px; letter-spacing:0.05em; text-transform:uppercase;">
+        <a href="https://www.linkedin.com/in/shruthi" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:#5B6EE8; color:#5B6EE8;" style-focus="outline:2px solid currentColor; outline-offset:3px;">LinkedIn ↗</a>
+        <a href="mailto:hello@brutalmuse.studio" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:#5B6EE8; color:#5B6EE8;" style-focus="outline:2px solid currentColor; outline-offset:3px;">Email ↗</a>
+      </nav>
+    </header>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0 clamp(24px,3.5vh,40px); border-bottom:1px solid oklch(0.12 0 0); display:flex; flex-direction:column; gap:16px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.2s;">
+      <span style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">02 — Human-Centred Concepts</span>
+      <h1 style="margin:0; font-weight:300; font-size:clamp(32px,5.4vw,64px); letter-spacing:-0.01em; line-height:1.02;">ThreadSpace</h1>
+      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.55; color:oklch(0.3 0 0);">A memory-based way to organize scattered email discussions. ThreadSpace is a concept feature for Outlook that helps users collect related emails into one persistent discussion space.</p>
+      <div style="display:flex; gap:28px; flex-wrap:wrap; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0); padding-top:6px;">
+        <span>Role: Product Designer</span>
+        <span>Year: 2026</span>
+        <span>Type: Concept UX</span>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.4s;">
+      <div style="width:100%; aspect-ratio:16/9; overflow:hidden; border-radius:14px 14px 0 0; position:relative; background:#0A0A0D; padding:44px; box-sizing:border-box; display:flex; flex-direction:column;">
+        <div style="position:absolute; inset:0; background:radial-gradient(ellipse 60% 70% at 42% 30%, rgba(99,91,232,0.55) 0%, rgba(45,38,110,0.35) 35%, rgba(10,10,13,0) 68%);"></div>
+
+        <div style="position:relative; z-index:1; display:flex; align-items:center; justify-content:space-between;">
+          <span style="display:flex; align-items:center; gap:10px; font-size:13px; color:rgba(255,255,255,0.6);">
+            <svg width="20" height="20" viewBox="0 0 24 24" style="flex-shrink:0;">
+              <rect x="8" y="2" width="16" height="20" rx="2" fill="#0A2767"></rect>
+              <path d="M8 6 L20 6 L20 18 L8 18 Z" fill="#0364B8"></path>
+              <path d="M8 4 L24 6.4 L24 17.6 L8 20 Z" fill="#0A2767" opacity="0"></path>
+              <circle cx="9" cy="12" r="7" fill="#28A8EA"></circle>
+              <path d="M9 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill="#fff"></path>
+              <rect x="0" y="8" width="9" height="9.5" fill="#0078D4" opacity="0"></rect>
+            </svg>
+            <span style="width:1px; height:14px; background:rgba(255,255,255,0.25);"></span>
+            What's New
+          </span>
+          <span style="display:flex; align-items:center; gap:6px; font-size:11px; font-weight:500; letter-spacing:0.04em; color:#B8C2FF; border:1px solid rgba(129,140,248,0.4); background:rgba(99,91,232,0.12); border-radius:999px; padding:7px 14px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#B8C2FF"><path d="M12 2 L14.2 9.2 L21 12 L14.2 14.8 L12 22 L9.8 14.8 L3 12 L9.8 9.2 Z"></path></svg>
+            New in Outlook · June 2026
+          </span>
+        </div>
+
+        <div style="position:relative; z-index:1; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center;">
+          <span style="font-size:12px; font-weight:500; letter-spacing:0.18em; color:#8C97F5;">INTRODUCING</span>
+          <h2 style="margin:0; font-size:clamp(36px,6.4vw,84px); font-weight:500; letter-spacing:-0.02em; line-height:1; background:linear-gradient(90deg,#C7CFFF 0%,#9DB4FF 45%,#5B8CFF 100%); -webkit-background-clip:text; background-clip:text; color:transparent;">ThreadSpace</h2>
+          <p style="margin:0; font-size:clamp(13px,1.4vw,16px); line-height:1.6; color:rgba(226,229,255,0.72); max-width:46ch;">Organise scattered email discussions into focused workspaces — drag, drop, and never lose context again.</p>
+        </div>
+
+        <div style="position:relative; z-index:1; display:flex; justify-content:flex-end;">
+          <a href="#ts-try-it" style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#7C8CF5,#5B6EE8); color:#fff; font-size:13px; font-weight:500; padding:12px 22px; border-radius:10px; text-decoration:none; box-shadow:0 8px 24px rgba(91,110,232,0.4);" style-hover="filter:brightness(1.08);">
+            Try ThreadSpace <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div style="background:#0A0A0D; border-radius:0; margin-top:-2px; padding:clamp(40px,6vh,64px) clamp(20px,4vw,48px); display:flex; flex-direction:column; align-items:center; gap:56px;">
+
+
+        <div style="display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; max-width:640px;">
+          <span style="font-size:11px; font-weight:500; letter-spacing:0.14em; color:#8C97F5;">CORE CAPABILITIES</span>
+          <h3 style="margin:0; font-size:clamp(24px,3vw,36px); font-weight:500; color:#fff; letter-spacing:-0.01em;">Everything your inbox was missing</h3>
+          <p style="margin:0; font-size:13px; line-height:1.6; color:rgba(226,229,255,0.65);">ThreadSpace is built into Outlook — no plugins, no extra apps. Just a smarter way to work with email.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; width:100%; max-width:1000px;">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:22px; display:flex; flex-direction:column; gap:10px;">
+            <span style="width:34px; height:34px; border-radius:8px; background:rgba(99,91,232,0.18); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9DAAFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg></span>
+            <h4 style="margin:0; font-size:15px; font-weight:500; color:#fff;">Drag to organise</h4>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:rgba(226,229,255,0.6);">Select any combination of emails and drag them into a ThreadSpace — just like organising files into folders.</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:22px; display:flex; flex-direction:column; gap:10px;">
+            <span style="width:34px; height:34px; border-radius:8px; background:rgba(99,91,232,0.18); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9DAAFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.9-.94L3 20l1.06-4.14A8.5 8.5 0 1 1 21 11.5z"></path></svg></span>
+            <h4 style="margin:0; font-size:15px; font-weight:500; color:#fff;">Context, always intact</h4>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:rgba(226,229,255,0.6);">Every email added keeps its full thread — replies, attachments, and history. Nothing is moved, only referenced.</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:22px; display:flex; flex-direction:column; gap:10px;">
+            <span style="width:34px; height:34px; border-radius:8px; background:rgba(99,91,232,0.18); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9DAAFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg></span>
+            <h4 style="margin:0; font-size:15px; font-weight:500; color:#fff;">Pick up instantly</h4>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:rgba(226,229,255,0.6);">ThreadSpaces remember exactly where you left off — open a folder and the conversation is right there.</p>
+          </div>
+        </div>
+
+        <div style="width:100%; max-width:920px; background:linear-gradient(160deg, rgba(99,91,232,0.28), rgba(20,18,38,0.6)); border:1px solid rgba(129,140,248,0.3); border-radius:16px; padding:clamp(28px,4vw,48px); display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;">
+          <span style="font-size:11px; font-weight:500; letter-spacing:0.1em; color:#B8C2FF; border:1px solid rgba(129,140,248,0.4); border-radius:999px; padding:6px 14px;">✦ AVAILABLE NOW</span>
+          <h3 style="margin:0; font-size:clamp(24px,3.4vw,38px); font-weight:500; color:#fff; letter-spacing:-0.01em;">ThreadSpace is ready for you</h3>
+          <p style="margin:0; font-size:13px; line-height:1.6; color:rgba(226,229,255,0.65); max-width:44ch;">Download ThreadSpace for Mac and Windows. Available here.</p>
+          <div style="display:flex; gap:12px; margin-top:6px; flex-wrap:wrap; justify-content:center;">
+            <a href="#ts-try-it" style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#7C8CF5,#5B6EE8); color:#fff; font-size:13px; font-weight:500; padding:12px 22px; border-radius:10px; text-decoration:none;" style-hover="filter:brightness(1.08);">Download for Mac <span aria-hidden="true">→</span></a>
+            <a href="#ts-try-it" style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:#fff; font-size:13px; font-weight:500; padding:12px 22px; border-radius:10px; text-decoration:none;" style-hover="background:rgba(255,255,255,0.1);">Download for Windows</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.5s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Issue Mapping</h2>
+      <div style="display:flex; flex-direction:column; gap:16px; max-width:68ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0);">
+        <p style="margin:0;">Outlook search works well when users remember the exact keyword, sender, or subject line. But in real work situations, people often remember conversations through context — a project, decision, meeting, client, or task — rather than a precise search term.</p>
+        <p style="margin:0;">When related emails appear scattered across dates, senders, and threads, users are forced to manually scan results and rebuild the discussion themselves. This creates friction, repeated searching, and a higher chance of losing important context.</p>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.6s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Design Opportunity</h2>
+      <p style="margin:0; max-width:68ch; font-size:20px; font-weight:300; line-height:1.4; color:oklch(0.15 0 0);">How might Outlook help users collect scattered but related emails into one persistent discussion space, so they can return to the full context without searching again? Outlook is not just where emails arrive — it is where work gets remembered.</p>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:flex; flex-direction:column; gap:28px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.7s;">
+      <span style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">Today — searching "offer" in Outlook, no ThreadSpace</span>
+      <div ref="{{ beforeScaleRef }}" style="width:100%; max-width:560px; margin:0 auto; aspect-ratio:560/470; position:relative;">
+      <div style="position:absolute; top:0; left:0; width:560px; height:470px; transform-origin:top left; transform:{{ beforeScaleTransform }};">
+      <x-import component-from-global-scope="ChromeWindow" from="../js/browser-window.jsx" url="outlook.com/search?q=offer" width="560px" height="470px" hint-size="560px,470px">
+      <div style="font-family:Helvetica,Arial,sans-serif; background:#fff; height:100%; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:center; gap:8px; padding:10px 14px; border-bottom:1px solid oklch(0.88 0 0); background:oklch(0.97 0 0);">
+          <span style="flex:1; font-size:12px; color:oklch(0.3 0 0); background:#fff; border:1px solid oklch(0.85 0 0); border-radius:4px; padding:6px 10px;">offer</span>
+          <span style="font-size:11px; color:oklch(0.5 0 0); white-space:nowrap;">14 results</span>
+        </div>
+        <div style="display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; gap:10px; padding:10px 14px; border-bottom:1px solid oklch(0.92 0 0);">
+            <div style="min-width:0;"><div style="font-size:12px; font-weight:500; color:#171018;">Airbnb Talent Team</div><div style="font-size:11px; color:oklch(0.4 0 0); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Congratulations — your <mark style="background:#FDE68A;">offer</mark> from Airbnb</div></div>
+            <span style="font-size:10px; color:oklch(0.55 0 0); flex-shrink:0;">Jul 21</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; gap:10px; padding:10px 14px; border-bottom:1px solid oklch(0.92 0 0);">
+            <div style="min-width:0;"><div style="font-size:12px; font-weight:500; color:#171018;">Webflow Careers</div><div style="font-size:11px; color:oklch(0.4 0 0); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Reminder: your <mark style="background:#FDE68A;">offer</mark> expires soon</div></div>
+            <span style="font-size:10px; color:oklch(0.55 0 0); flex-shrink:0;">Jul 15</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; gap:10px; padding:10px 14px; border-bottom:1px solid oklch(0.92 0 0);">
+            <div style="min-width:0;"><div style="font-size:12px; font-weight:500; color:#171018;">LinkedIn Premium</div><div style="font-size:11px; color:oklch(0.4 0 0); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Special <mark style="background:#FDE68A;">offer</mark>: 50% off Premium</div></div>
+            <span style="font-size:10px; color:oklch(0.55 0 0); flex-shrink:0;">Jul 12</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; gap:10px; padding:10px 14px; border-bottom:1px solid oklch(0.92 0 0);">
+            <div style="min-width:0;"><div style="font-size:12px; font-weight:500; color:#171018;">Webflow Careers</div><div style="font-size:11px; color:oklch(0.4 0 0); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Your <mark style="background:#FDE68A;">offer</mark> details enclosed</div></div>
+            <span style="font-size:10px; color:oklch(0.55 0 0); flex-shrink:0;">Jul 10</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; gap:10px; padding:10px 14px; border-bottom:1px solid oklch(0.92 0 0);">
+            <div style="min-width:0;"><div style="font-size:12px; font-weight:500; color:#171018;">Superhuman</div><div style="font-size:11px; color:oklch(0.4 0 0); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Limited-time <mark style="background:#FDE68A;">offer</mark> for early access</div></div>
+            <span style="font-size:10px; color:oklch(0.55 0 0); flex-shrink:0;">Jun 28</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; gap:10px; padding:10px 14px;">
+            <div style="min-width:0;"><div style="font-size:12px; font-weight:500; color:#171018;">Airbnb Talent Team</div><div style="font-size:11px; color:oklch(0.4 0 0); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Re: <mark style="background:#FDE68A;">offer</mark> — signing bonus question</div></div>
+            <span style="font-size:10px; color:oklch(0.55 0 0); flex-shrink:0;">Jul 22</span>
+          </div>
+        </div>
+      </div>
+      </x-import>
+      </div>
+      </div>
+      <span style="font-size:11px; line-height:1.5; max-width:56ch; color:oklch(0.45 0 0);">The real Airbnb and Webflow offers are scattered between unrelated promotional emails — no grouping, no way to tell which result is the one that matters.</span>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.8s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Design Principles</h2>
+      <div style="display:flex; flex-direction:column; gap:22px; max-width:68ch;">
+        <div>
+          <h3 style="margin:0 0 6px; font-size:16px; font-weight:400;">Reduce search dependency</h3>
+          <p style="margin:0; font-size:15px; line-height:1.55; color:oklch(0.25 0 0);">Move beyond keyword-based search by helping users group related emails into one discussion space.</p>
+        </div>
+        <div>
+          <h3 style="margin:0 0 6px; font-size:16px; font-weight:400;">Preserve discussion context</h3>
+          <p style="margin:0; font-size:15px; line-height:1.55; color:oklch(0.25 0 0);">Keep scattered emails connected so users can return to the full conversation without rebuilding it manually.</p>
+        </div>
+        <div>
+          <h3 style="margin:0 0 6px; font-size:16px; font-weight:400;">Make grouping feel familiar</h3>
+          <p style="margin:0; font-size:15px; line-height:1.55; color:oklch(0.25 0 0);">Use drag-and-drop folder behaviour to make organizing discussions feel natural and low effort.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.9s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Initial Direction</h2>
+      <p style="margin:0; max-width:68ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0);">Selected emails are dragged into ThreadSpace, turning scattered search results into one organized discussion folder. This reduces repeated search and helps users rebuild context faster — designed for users who remember context, not exact keywords.</p>
+    </div>
+
+    <div id="ts-try-it" style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:flex; flex-direction:column; gap:28px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:1s; scroll-margin-top:24px;">
+      <span style="font-size:14px; letter-spacing:0.06em; text-transform:uppercase; color:#5B6EE8; font-weight:400;">Try It — Live Prototype</span>
+      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.6; color:oklch(0.3 0 0);">Select a few emails in the Inbox, add them to a ThreadSpace, then click that ThreadSpace folder above the list to revisit the grouped discussion.</p>
+      <div ref="{{ toolScaleRef }}" style="width:100%; max-width:1300px; margin:0 auto; aspect-ratio:1300/820; position:relative;">
+      <div style="position:absolute; top:0; left:0; width:1300px; height:820px; transform-origin:top left; transform:{{ toolScaleTransform }};">
+      <x-import component-from-global-scope="ChromeWindow" from="../js/browser-window.jsx" url="outlook.com/mail" width="1300px" height="820px" hint-size="1300px,820px">
+
+<div style="height:100%; width:100%; background:#fff; color:#171018; font-family:Helvetica,Arial,sans-serif; display:flex; flex-direction:row; overflow:hidden;">
+
+  <div style="width:48px; flex-shrink:0; background:#E9EBFF; border-right:1px solid #EDEDED; display:flex; flex-direction:column; align-items:center; gap:18px; padding:16px 0;">
+    <span style="width:30px; height:30px; border-radius:50%; background:#3965FA; color:#fff; display:flex; align-items:center; justify-content:center;">
+      <svg width="15" height="12" viewBox="0 0 20 16"><path d="M1 1h18l-2 8h-4l-1.5 2h-3L7 9H3L1 1z" fill="#fff" opacity="0.95"></path></svg>
+    </span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.4 0 0)" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M3 9h18M8 2v4M16 2v4"></path></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.4 0 0)" stroke-width="1.6"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.6"></circle><path d="M3.5 20c0-3 2.5-5.2 5.5-5.2s5.5 2.2 5.5 5.2M14.8 15.4c2.4.4 4.2 2.2 4.2 4.6"></path></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.4 0 0)" stroke-width="1.6"><path d="M12 2l2.2 6.8H21l-5.6 4.2L17.6 20 12 15.8 6.4 20l2.2-7-5.6-4.2h6.8z"></path></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.4 0 0)" stroke-width="1.6"><polyline points="4 12 9 17 20 6"></polyline></svg>
+  </div>
+
+  <div style="width:180px; flex-shrink:0; background:#fff; border-right:1px solid #EDEDED; display:flex; flex-direction:column; padding:14px 10px; gap:2px; overflow-y:auto; box-sizing:border-box;">
+    <button style="all:unset; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; background:#3965FA; color:#fff; font-size:12px; font-weight:500; border-radius:6px; padding:8px 0; margin-bottom:12px;">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg>
+      New Mail
+    </button>
+    <span style="font-size:12px; font-weight:500; color:#171018; padding:6px 8px;">Favorites</span>
+    <span style="font-size:11px; font-weight:500; color:oklch(0.5 0 0); letter-spacing:0.02em; padding:10px 8px 4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">you@outlook.com</span>
+    <span style="display:flex; align-items:center; gap:8px; font-size:12.5px; font-weight:500; color:#3965FA; background:#E9EBFF; border-radius:6px; padding:7px 8px;">
+      <svg width="13" height="13" viewBox="0 0 20 16"><path d="M1 1h18l-2 8h-4l-1.5 2h-3L7 9H3L1 1z" fill="#3965FA"></path></svg>
+      Inbox
+    </span>
+    <span style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:#171018; padding:7px 8px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="4" rx="1"></rect><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8M10 13h4"></path></svg>
+      Archive
+    </span>
+    <span style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:#171018; padding:7px 8px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l3-11 13-5-5 13-11 3z"></path></svg>
+      Drafts
+    </span>
+    <span style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:#171018; padding:7px 8px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"></path></svg>
+      Sent
+    </span>
+    <span style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:#171018; padding:7px 8px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6M10 11v6M14 11v6"></path></svg>
+      Deleted Items
+    </span>
+    <span style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:#171018; padding:7px 8px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"></path><path d="M4 8h16"></path></svg>
+      Junk Email
+    </span>
+  </div>
+
+  <div style="flex:1; min-width:0; display:flex; flex-direction:column; overflow:hidden;">
+
+  <div style="flex:0 0 auto; height:48px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; border-bottom:1px solid oklch(0.88 0 0);">
+    <span style="font-size:15px; font-weight:500;">Outlook</span>
+    <div style="display:flex; align-items:center; gap:8px; width:280px; height:30px; border-radius:6px; background:oklch(0.95 0 0); padding:0 12px;">
+      <span style="font-size:12px; color:oklch(0.55 0 0);">Search mail</span>
+    </div>
+  </div>
+
+  <div style="flex:0 0 auto; display:flex; align-items:center; gap:10px; padding:12px 20px; border-bottom:1px solid oklch(0.88 0 0); overflow-x:auto; box-sizing:border-box;">
+    <button onClick="{{ ts.onShowInbox }}" onDragOver="{{ ts.onInboxDragOver }}" onDrop="{{ ts.onInboxDrop }}" style="{{ ts.inboxItemStyle }}">
+      <svg viewBox="0 0 20 16" width="20" height="16" style="flex-shrink:0;"><path d="M1 1h18l-2 8h-4l-1.5 2h-3L7 9H3L1 1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path></svg>
+      <span>Inbox</span>
+      <span style="{{ ts.inboxCountStyle }}">{{ ts.inboxCount }}</span>
+    </button>
+
+    <sc-for list="{{ ts.spaces }}" as="sp" hint-placeholder-count="4">
+      <button onClick="{{ sp.onSelect }}" onDragOver="{{ sp.onDragOver }}" onDragLeave="{{ sp.onDragLeave }}" onDrop="{{ sp.onDrop }}" style="{{ sp.itemStyle }}">
+        <svg viewBox="0 0 20 16" width="22" height="18" style="{{ sp.dotStyle }}"><path d="M1 3a2 2 0 0 1 2-2h4.2l1.8 2H17a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3z"></path></svg>
+        <span style="white-space:nowrap;">{{ sp.label }}</span>
+        <span style="{{ sp.countStyle }}">{{ sp.count }}</span>
+      </button>
+    </sc-for>
+
+    <button onClick="{{ ts.onStartNewFromSidebar }}" aria-label="New ThreadSpace" style="all:unset; cursor:pointer; display:flex; align-items:center; gap:7px; padding:7px 12px; border-radius:999px; border:1.5px dashed #5B6EE8; background:transparent; font-size:12px; font-weight:500; color:#C7CFFF; white-space:nowrap; flex-shrink:0;">
+      <span style="background:linear-gradient(90deg,#C7CFFF,#5B8CFF); -webkit-background-clip:text; background-clip:text; color:transparent;">New ThreadSpace</span>
+    </button>
+
+    <sc-if value="{{ ts.newSpaceMode }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; align-items:center; gap:6px; flex-shrink:0;">
+        <input value="{{ ts.newSpaceName }}" onChange="{{ ts.onNewSpaceNameChange }}" onKeyDown="{{ ts.onNewSpaceKeyDown }}" placeholder="ThreadSpace name" style="width:150px; border:1px solid oklch(0.8 0 0); border-radius:4px; padding:6px 8px; font-size:12px; outline:none; box-sizing:border-box;"></input>
+        <button onClick="{{ ts.onConfirmNewSpace }}" style="all:unset; cursor:pointer; font-size:12px; color:#3965FA; font-weight:500;">Add</button>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="flex:1; min-height:0; display:flex;">
+
+    <div style="width:460px; flex-shrink:0; border-right:1px solid oklch(0.88 0 0); display:flex; flex-direction:column; min-height:0;">
+      <div style="flex:0 0 auto; height:44px; display:flex; align-items:center; justify-content:space-between; padding:0 14px; border-bottom:1px solid oklch(0.9 0 0); box-sizing:border-box;">
+        <span style="font-size:13px; font-weight:500;">{{ ts.listTitle }}</span>
+        <sc-if value="{{ ts.hasSelection }}" hint-placeholder-val="{{ false }}">
+          <div style="position:relative;">
+            <button onClick="{{ ts.onToggleAddMenu }}" style="font-size:11px; font-weight:500; color:#fff; background:#3965FA; border:none; border-radius:5px; padding:7px 10px; cursor:pointer; display:flex; align-items:center; gap:4px;">Add to ThreadSpace ▾</button>
+            <sc-if value="{{ ts.addMenuOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; top:32px; right:0; background:#fff; border:1px solid oklch(0.85 0 0); border-radius:6px; box-shadow:0 8px 20px rgba(0,0,0,0.16); min-width:170px; z-index:5; overflow:hidden;">
+                <sc-for list="{{ ts.spaces }}" as="sp2" hint-placeholder-count="4">
+                  <button onClick="{{ sp2.onAssign }}" style="all:unset; display:flex; align-items:center; gap:8px; width:100%; box-sizing:border-box; cursor:pointer; padding:9px 12px; font-size:12px;">
+                    <svg viewBox="0 0 20 16" width="18" height="15" style="{{ sp2.dotSmallStyle }}"><path d="M1 3a2 2 0 0 1 2-2h4.2l1.8 2H17a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3z"></path></svg>{{ sp2.label }}
+                  </button>
+                </sc-for>
+                <button onClick="{{ ts.onStartNewFromMenu }}" style="all:unset; display:block; width:100%; box-sizing:border-box; cursor:pointer; padding:9px 12px; font-size:12px; color:#3965FA; font-weight:500; border-top:1px solid oklch(0.9 0 0);">+ New ThreadSpace…</button>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+        <sc-if value="{{ ts.noSelection }}" hint-placeholder-val="{{ true }}">
+          <span style="font-size:11px; color:oklch(0.5 0 0);">{{ ts.countLabel }}</span>
+        </sc-if>
+      </div>
+      <div style="flex:1; min-height:0; overflow-y:auto;">
+        <sc-for list="{{ ts.emails }}" as="em" hint-placeholder-count="10">
+          <div draggable="true" onDragStart="{{ em.onDragStart }}" style="{{ em.rowStyle }}">
+            <span onClick="{{ em.onToggleSelect }}" style="{{ em.checkboxStyle }}">{{ em.checkMark }}</span>
+            <sc-if value="{{ em.hasAvatar }}" hint-placeholder-val="{{ false }}">
+              <img src="{{ em.avatarSrc }}" style="width:26px; height:26px; border-radius:50%; flex-shrink:0; margin-top:1px; object-fit:cover;">
+            </sc-if>
+            <div onClick="{{ em.onOpen }}" style="flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; cursor:pointer;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:8px;">
+                <span style="{{ em.senderStyle }}">{{ em.from }}</span>
+                <span style="font-size:10px; color:oklch(0.55 0 0); flex-shrink:0;">{{ em.date }}</span>
+              </div>
+              <span style="{{ em.subjectStyle }}">{{ em.subject }}</span>
+              <span style="font-size:11px; color:oklch(0.5 0 0); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ em.snippet }}</span>
+              <sc-if value="{{ em.hasTag }}" hint-placeholder-val="{{ false }}">
+                <span style="{{ em.tagStyle }}">{{ em.tagLabel }}</span>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+        <sc-if value="{{ ts.emptyFiltered }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:40px 20px; text-align:center; font-size:12px; color:oklch(0.55 0 0);">No emails in this ThreadSpace yet. Select emails from Inbox and add them here.</div>
+        </sc-if>
+      </div>
+    </div>
+
+    <div style="flex:1; min-width:0; min-height:0; overflow-y:auto; box-sizing:border-box; display:flex; flex-direction:column;">
+      <sc-if value="{{ ts.hasOpenEmail }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:0 0 auto; padding:18px 22px 14px; border-bottom:1px solid oklch(0.9 0 0);">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:16px;">
+            <h2 style="margin:0; font-size:19px; font-weight:500; color:#171018; line-height:1.3;">{{ ts.openEmail.subject }}</h2>
+            <div style="display:flex; align-items:center; gap:4px; flex-shrink:0; margin-top:2px;">
+              <span style="width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:oklch(0.4 0 0);" style-hover="background:oklch(0.94 0 0);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 17 4 12 9 7"></polyline><path d="M4 12h11a5 5 0 0 1 5 5v1"></path></svg>
+              </span>
+              <span style="width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:oklch(0.4 0 0);" style-hover="background:oklch(0.94 0 0);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"></polyline><polyline points="17 17 12 12 17 7"></polyline></svg>
+              </span>
+              <span style="width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:oklch(0.4 0 0);" style-hover="background:oklch(0.94 0 0);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 17 20 12 15 7"></polyline><path d="M20 12H9a5 5 0 0 0-5 5v1"></path></svg>
+              </span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:12px;">
+            <sc-if value="{{ ts.openEmail.hasAvatar }}" hint-placeholder-val="{{ false }}">
+              <img src="{{ ts.openEmail.avatarSrc }}" style="width:42px; height:42px; border-radius:50%; flex-shrink:0; object-fit:cover;">
+            </sc-if>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:2px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px;">
+                <span style="font-size:13px; color:#171018;"><span style="font-weight:500;">{{ ts.openEmail.from }}</span></span>
+                <span style="display:flex; align-items:center; gap:5px; font-size:11px; color:oklch(0.5 0 0); flex-shrink:0;">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+                  Today at {{ ts.openEmail.date }}
+                </span>
+              </div>
+              <span style="font-size:11.5px; color:oklch(0.55 0 0);">To: You</span>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin:0; padding:22px 22px 32px; font-size:13.5px; line-height:1.75; color:oklch(0.2 0 0); max-width:60ch;">{{ ts.openEmail.body }}</p>
+      </sc-if>
+      <sc-if value="{{ ts.noOpenEmail }}" hint-placeholder-val="{{ true }}">
+        <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:12px; color:oklch(0.6 0 0);">Select a message to read</div>
+      </sc-if>
+    </div>
+
+  </div>
+
+  </div>
+</div>
+      </x-import>
+      </div>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:1.1s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Concept Iteration</h2>
+      <div style="display:flex; flex-direction:column; gap:16px; max-width:68ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0);">
+        <p style="margin:0;"><strong>Refined direction:</strong> Simplified UI to drag selected emails into ThreadSpace, grouping scattered results into one reusable discussion. Grouped emails now appear as visual folders that are easier to find, revisit, and manage.</p>
+        <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px; font-size:15px; color:oklch(0.25 0 0);">
+          <li>Added visible ThreadSpace folder cards below search</li>
+          <li>Used color-coded folders for quick recognition</li>
+          <li>Created a pinned discussion area for faster revisit</li>
+          <li>Synced top folder cards with the sidebar ThreadSpaces list</li>
+          <li>Filtered the email list by selected ThreadSpace</li>
+          <li>Added email counts to show folder contents</li>
+          <li>Kept the reading pane visible to preserve message context</li>
+          <li>Added a clear "New ThreadSpace" entry point</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:1.2s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Final Direction</h2>
+      <p style="margin:0; max-width:68ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0);">Grouped emails become persistent ThreadSpace folders, making important discussions easier to revisit without repeated search.</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  toolScaleRef = React.createRef();
+  beforeScaleRef = React.createRef();
+  DEFAULT_SPACES = [
+    { key: 'interview', label: 'Interview Calls', color: '#215452' },
+    { key: 'pending', label: 'Pending', color: '#FFD16B' },
+    { key: 'offer', label: 'Job Offer', color: '#8CC63E' },
+    { key: 'rejection', label: 'Rejections', color: '#6F3432' }
+  ];
+  CUSTOM_PALETTE = ['#3965FA', '#99B7FC', '#FF6D47', '#6F3432'];
+
+  state = {
+    scaleTool: 1,
+    scaleBefore: 1,
+    customSpaces: [],
+    emails: [
+      { id: 11, from: 'Google Careers', avatar: '../assets/images/avatar-1.png', subject: 'Interview Confirmed — Product Designer', snippet: 'Congratulations! Your interview for the Product Designer role is confirmed for next week.', date: 'Jul 23', body: 'Congratulations, and thank you for your interest in Google! We\u2019re pleased to confirm your interview for the Product Designer role next week. Your recruiter will follow up shortly with the full schedule and interviewer details.', threadSpace: null },
+      { id: 1, from: 'Figma Recruiting', avatar: '../assets/images/avatar-2.png', subject: 'Interview Confirmation — Product Designer, Round 2', snippet: "We're excited to move forward with your application and would like to schedule a second-round interview.", date: 'Jul 22', body: "Hi, thanks for your patience — we'd love to move forward with a second-round interview with our design team next week. Let us know a few times that work for you.", threadSpace: null },
+      { id: 2, from: 'Notion Careers', avatar: '../assets/images/avatar-3.png', subject: 'Thanks for applying to Notion', snippet: 'We have received your application for the Product Designer role and will be in touch soon.', date: 'Jul 21', body: 'Thank you for applying to the Product Designer role at Notion. Our team is currently reviewing applications and will follow up within two weeks.', threadSpace: null },
+      { id: 3, from: 'Airbnb Talent Team', avatar: '../assets/images/avatar-4.png', subject: 'Congratulations — your offer from Airbnb', snippet: "We're thrilled to offer you the Senior Product Designer position. Details enclosed.", date: 'Jul 20', body: 'Congratulations! Following your final round, the team would like to extend an offer for the Senior Product Designer role. We\u2019ve attached the full offer details for your review.', threadSpace: null },
+      { id: 4, from: 'Duolingo Recruiting', avatar: '../assets/images/avatar-5.png', subject: 'Update on your application', snippet: 'After careful consideration, we have decided to move forward with other candidates at this time.', date: 'Jul 18', body: 'Thank you for your interest in Duolingo. After careful review, we\u2019ve decided to move forward with other candidates for this role. We\u2019d love for you to apply again in the future.', threadSpace: null },
+      { id: 5, from: 'Stripe People Team', avatar: '../assets/images/avatar-6.png', subject: 'Scheduling your onsite interview', snippet: 'We would like to schedule your onsite for next week — a few time slots enclosed.', date: 'Jul 17', body: 'We enjoyed speaking with you and would like to schedule an onsite interview with the team. Below are a few available time slots for next week.', threadSpace: null },
+      { id: 6, from: 'Canva Talent', avatar: '../assets/images/avatar-7.png', subject: 'Application received', snippet: 'Thanks for applying for the Product Designer role at Canva — here is what happens next.', date: 'Jul 16', body: 'This is a confirmation that we\u2019ve received your application for the Product Designer role. Our recruiting team will review it and reach out within 10 business days.', threadSpace: null },
+      { id: 7, from: 'Linear', avatar: '../assets/images/avatar-8.png', subject: 'Following up after your interview', snippet: 'Thank you for taking the time to speak with our team last week — an update on next steps.', date: 'Jul 15', body: 'It was great speaking with you last week. We\u2019re finalizing our decision internally and will follow up with next steps by the end of this week.', threadSpace: null },
+      { id: 8, from: 'Spotify People Team', avatar: '../assets/images/avatar-9.png', subject: "We won't be moving forward", snippet: 'Thank you for your interest in the Product Designer role at Spotify.', date: 'Jul 12', body: 'After careful consideration, we\u2019ve decided to move forward with other candidates for this role. We appreciate the time you invested in the process.', threadSpace: null },
+      { id: 9, from: 'Webflow Careers', avatar: '../assets/images/avatar-10.png', subject: 'Your offer details enclosed', snippet: 'Attached are the details of your offer for the Product Designer role at Webflow.', date: 'Jul 10', body: 'We\u2019re excited to formally offer you the Product Designer position at Webflow. Please find the full offer letter attached, along with next steps.', threadSpace: null },
+      { id: 10, from: 'Superhuman', avatar: '../assets/images/avatar-11.png', subject: 'Application under review', snippet: 'Your application is currently under review by our hiring team.', date: 'Jul 8', body: 'Thanks for applying! Your application is currently being reviewed by our hiring team and we\u2019ll be in touch as soon as we have an update.', threadSpace: null }
+    ],
+    selected: {},
+    activeSpace: null,
+    openEmailId: null,
+    addMenuOpen: false,
+    newSpaceMode: false,
+    newSpaceName: '',
+    pendingAssignAfterCreate: false,
+    dragOverKey: null,
+    testimonialIndex: 0,
+    closingDark: false,
+    closingFolder: null,
+    closingOpenRow: null
+  };
+
+  CLOSING_ROWS = [
+    { id: 'r1', folder: 'interview', avatar: '../assets/images/avatar-1.png', from: 'Google Careers', subject: 'Interview Confirmed — Product Designer' },
+    { id: 'r2', folder: 'offer', avatar: '../assets/images/avatar-4.png', from: 'Airbnb Talent Team', subject: 'Congratulations — your offer from Airbnb' },
+    { id: 'r3', folder: 'interview', avatar: '../assets/images/avatar-6.png', from: 'Stripe People Team', subject: 'Scheduling your onsite interview' }
+  ];
+
+  TESTIMONIALS = [
+    { quote: 'ThreadSpace changed how our team handles client emails. What used to take ten minutes to reconstruct now takes seconds.', name: 'Sarah Mitchell', role: 'Senior Program Manager · Microsoft', initials: 'SM' },
+    { quote: "I used to keep a spreadsheet just to track which emails belonged to which deal. ThreadSpace replaced that entirely.", name: 'Jason Carter', role: 'Product Manager · Microsoft', initials: 'JC' },
+    { quote: 'Onboarding new teammates got so much easier — I just point them at the ThreadSpace instead of forwarding twelve emails.', name: 'Megan Reyes', role: 'Group Engineering Manager · Microsoft', initials: 'MR' }
+  ];
+
+  componentDidMount() {
+    const el = this.toolScaleRef.current;
+    if (el) {
+      const update = () => {
+        const w = el.getBoundingClientRect().width;
+        if (w > 0) this.setState({ scaleTool: w / 1300 });
+      };
+      update();
+      this._toolRO = new ResizeObserver(update);
+      this._toolRO.observe(el);
+    }
+    const el2 = this.beforeScaleRef.current;
+    if (el2) {
+      const update2 = () => {
+        const w = el2.getBoundingClientRect().width;
+        if (w > 0) this.setState({ scaleBefore: w / 560 });
+      };
+      update2();
+      this._beforeRO = new ResizeObserver(update2);
+      this._beforeRO.observe(el2);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this._toolRO) this._toolRO.disconnect();
+    if (this._beforeRO) this._beforeRO.disconnect();
+  }
+
+  toggleSelect = (id) => {
+    this.setState((s) => ({ selected: { ...s.selected, [id]: !s.selected[id] } }));
+  };
+
+  openEmail = (id) => {
+    this.setState({ openEmailId: id });
+  };
+
+  toggleAddMenu = () => {
+    this.setState((s) => ({ addMenuOpen: !s.addMenuOpen }));
+  };
+
+  assignSelectedTo = (key) => {
+    this.setState((s) => ({
+      emails: s.emails.map((e) => (s.selected[e.id] ? { ...e, threadSpace: key } : e)),
+      selected: {},
+      addMenuOpen: false
+    }));
+  };
+
+  assignIdsTo = (ids, key) => {
+    const idSet = new Set(ids.map(Number));
+    this.setState((s) => ({
+      emails: s.emails.map((e) => (idSet.has(e.id) ? { ...e, threadSpace: key } : e)),
+      selected: {}, dragOverKey: null
+    }));
+  };
+
+  onEmailDragStart = (e, id) => {
+    const ids = this.state.selected[id] ? Object.keys(this.state.selected).filter((k) => this.state.selected[k]) : [id];
+    e.dataTransfer.setData('text/plain', JSON.stringify(ids));
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  onFolderDragOver = (e, key) => {
+    e.preventDefault();
+    if (this.state.dragOverKey !== key) this.setState({ dragOverKey: key });
+  };
+
+  onFolderDragLeave = () => {
+    this.setState({ dragOverKey: null });
+  };
+
+  onFolderDrop = (e, key) => {
+    e.preventDefault();
+    const raw = e.dataTransfer.getData('text/plain');
+    if (!raw) return;
+    try { this.assignIdsTo(JSON.parse(raw), key); } catch (err) {}
+  };
+
+  selectSpace = (key) => {
+    this.setState({ activeSpace: key, addMenuOpen: false, newSpaceMode: false, selected: {} });
+  };
+
+  startNewSpace = (fromMenu) => {
+    this.setState({ newSpaceMode: true, addMenuOpen: false, pendingAssignAfterCreate: !!fromMenu });
+  };
+
+  confirmNewSpace = () => {
+    this.setState((s) => {
+      const name = s.newSpaceName.trim();
+      if (!name) return { newSpaceMode: false };
+      const key = 'custom-' + Date.now();
+      const color = this.CUSTOM_PALETTE[s.customSpaces.length % this.CUSTOM_PALETTE.length];
+      const emails = s.pendingAssignAfterCreate
+        ? s.emails.map((e) => (s.selected[e.id] ? { ...e, threadSpace: key } : e))
+        : s.emails;
+      return {
+        customSpaces: [...s.customSpaces, { key, label: name, color }],
+        emails, selected: {}, newSpaceMode: false, newSpaceName: '', pendingAssignAfterCreate: false
+      };
+    });
+  };
+
+  renderVals() {
+    const s = this.state;
+    const testimonial = this.TESTIMONIALS[s.testimonialIndex];
+    const testimonialDots = this.TESTIMONIALS.map((t, i) => ({
+      onSelect: () => this.setState({ testimonialIndex: i }),
+      style: { width: '7px', height: '7px', borderRadius: '50%', border: 'none', cursor: 'pointer', background: i === s.testimonialIndex ? '#9DAAFF' : 'rgba(255,255,255,0.2)', padding: 0 }
+    }));
+    const allSpaces = [...this.DEFAULT_SPACES, ...s.customSpaces];
+    const counts = {};
+    allSpaces.forEach((sp) => { counts[sp.key] = s.emails.filter((e) => e.threadSpace === sp.key).length; });
+    const filteredEmails = s.activeSpace ? s.emails.filter((e) => e.threadSpace === s.activeSpace) : s.emails;
+    const activeSpaceDef = allSpaces.find((sp) => sp.key === s.activeSpace);
+    const hasSelection = Object.values(s.selected).some(Boolean);
+
+    const spaces = allSpaces.map((sp) => {
+      const isActive = s.activeSpace === sp.key;
+      const isDragOver = s.dragOverKey === sp.key;
+      return {
+        label: sp.label,
+        count: counts[sp.key] || 0,
+        onSelect: () => this.selectSpace(sp.key),
+        onAssign: () => this.assignSelectedTo(sp.key),
+        onDragOver: (e) => this.onFolderDragOver(e, sp.key),
+        onDragLeave: this.onFolderDragLeave,
+        onDrop: (e) => this.onFolderDrop(e, sp.key),
+        itemStyle: {
+          all: 'unset', display: 'flex', alignItems: 'center', gap: '7px', boxSizing: 'border-box', flexShrink: 0,
+          cursor: 'pointer', padding: '8px 5px', borderRadius: '6px', fontSize: '15px', fontWeight: isActive ? 700 : 400,
+          background: isDragOver ? `${sp.color}22` : 'transparent',
+          outline: isDragOver ? `1.5px dashed ${sp.color}` : 'none',
+          borderBottom: isActive ? `2px solid ${sp.color}` : '2px solid transparent', color: '#171018'
+        },
+        dotStyle: { flexShrink: 0, fill: sp.color },
+        dotSmallStyle: { flexShrink: 0, fill: sp.color },
+        countStyle: { fontSize: '11px', color: 'oklch(0.55 0 0)' }
+      };
+    });
+
+    const emails = filteredEmails.map((e) => {
+      const isSelected = !!s.selected[e.id];
+      const isOpen = s.openEmailId === e.id;
+      const tagDef = allSpaces.find((sp) => sp.key === e.threadSpace);
+      return {
+        from: e.from, subject: e.subject, snippet: e.snippet, date: e.date, avatarSrc: e.avatar, hasAvatar: !!e.avatar,
+        onOpen: () => this.openEmail(e.id),
+        onDragStart: (ev) => this.onEmailDragStart(ev, e.id),
+        onToggleSelect: (ev) => { ev.stopPropagation(); this.toggleSelect(e.id); },
+        checkMark: isSelected ? '✓' : '',
+        checkboxStyle: {
+          width: '16px', height: '16px', borderRadius: '4px', flexShrink: 0, marginTop: '2px', cursor: 'pointer',
+          border: isSelected ? '1.5px solid #3965FA' : '1.5px solid oklch(0.8 0 0)',
+          background: isSelected ? '#3965FA' : 'transparent', color: '#fff', fontSize: '11px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center'
+        },
+        rowStyle: {
+          display: 'flex', gap: '10px', padding: '12px 14px', borderBottom: '1px solid oklch(0.93 0 0)',
+          background: isOpen ? 'oklch(0.95 0.01 240)' : (isSelected ? 'oklch(0.97 0.005 240)' : 'transparent')
+        },
+        senderStyle: { fontSize: '12.5px', fontWeight: 700, color: '#171018' },
+        subjectStyle: { fontSize: '12.5px', color: '#171018', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' },
+        hasTag: !s.activeSpace && !!tagDef,
+        tagLabel: tagDef ? tagDef.label : '',
+        tagStyle: tagDef ? {
+          alignSelf: 'flex-start', fontSize: '10px', fontWeight: 600, color: tagDef.color,
+          background: `${tagDef.color}1a`, borderRadius: '999px', padding: '2px 8px', marginTop: '2px'
+        } : {}
+      };
+    });
+
+    const openEmailData = s.emails.find((e) => e.id === s.openEmailId);
+
+    return {
+      toolScaleRef: this.toolScaleRef, toolScaleTransform: `scale(${s.scaleTool})`,
+      beforeScaleRef: this.beforeScaleRef, beforeScaleTransform: `scale(${s.scaleBefore})`,
+      ts: {
+        spaces, emails,
+        inboxCount: s.emails.length,
+        inboxItemStyle: {
+          all: 'unset', display: 'flex', alignItems: 'center', gap: '7px', boxSizing: 'border-box', flexShrink: 0,
+          cursor: 'pointer', padding: '8px 5px', borderRadius: '6px', fontSize: '15px',
+          fontWeight: !s.activeSpace ? 700 : 400,
+          background: s.dragOverKey === '__inbox__' ? 'oklch(0.93 0 0)' : 'transparent',
+          outline: s.dragOverKey === '__inbox__' ? '1.5px dashed oklch(0.5 0 0)' : 'none',
+          borderBottom: !s.activeSpace ? '2px solid #3965FA' : '2px solid transparent', color: '#171018'
+        },
+        inboxCountStyle: { fontSize: '11px', color: 'oklch(0.55 0 0)' },
+        onShowInbox: () => this.selectSpace(null),
+        onInboxDragOver: (e) => this.onFolderDragOver(e, '__inbox__'),
+        onInboxDrop: (e) => this.onFolderDrop(e, null),
+        onStartNewFromSidebar: () => this.startNewSpace(false),
+        onStartNewFromMenu: () => this.startNewSpace(true),
+        newSpaceMode: s.newSpaceMode, newSpaceName: s.newSpaceName,
+        onNewSpaceNameChange: (e) => this.setState({ newSpaceName: e.target.value }),
+        onNewSpaceKeyDown: (e) => { if (e.key === 'Enter') this.confirmNewSpace(); },
+        onConfirmNewSpace: this.confirmNewSpace,
+        listTitle: activeSpaceDef ? activeSpaceDef.label : 'Inbox',
+        hasSelection, noSelection: !hasSelection,
+        addMenuOpen: s.addMenuOpen, onToggleAddMenu: this.toggleAddMenu,
+        countLabel: `${filteredEmails.length} message${filteredEmails.length === 1 ? '' : 's'}`,
+        emptyFiltered: !!s.activeSpace && filteredEmails.length === 0,
+        hasOpenEmail: !!openEmailData, noOpenEmail: !openEmailData,
+        openEmail: openEmailData ? { ...openEmailData, initial: openEmailData.from.charAt(0), avatarSrc: openEmailData.avatar, hasAvatar: !!openEmailData.avatar } : null,
+        testimonial, testimonialDots
+      },
+      closingIsDark: s.closingDark,
+      closing: (() => {
+        const dark = s.closingDark;
+        const text = dark ? '#F2F2F5' : '#171018';
+        const muted = dark ? '#9B9BA5' : 'oklch(0.5 0 0)';
+        const accent = dark ? '#99B7FC' : '#3965FA';
+        const border = dark ? '#33333a' : 'oklch(0.9 0 0)';
+        const rowHoverBg = dark ? '#25252B' : 'oklch(0.97 0 0)';
+        const rows = this.CLOSING_ROWS
+          .filter((r) => !s.closingFolder || r.folder === s.closingFolder)
+          .map((r) => {
+            const isOpen = s.closingOpenRow === r.id;
+            return {
+              ...r,
+              onClick: () => this.setState((st) => ({ closingOpenRow: st.closingOpenRow === r.id ? null : r.id })),
+              rowStyle: {
+                display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 18px', borderBottom: `1px solid ${border}`,
+                cursor: 'pointer', background: isOpen ? (dark ? '#2A2A33' : '#E9EBFF') : 'transparent', transition: 'background 0.2s ease, border-color 0.35s ease'
+              },
+              mobileRowStyle: {
+                display: 'flex', alignItems: 'center', gap: '12px', padding: '14px 20px', borderBottom: `1px solid ${border}`,
+                cursor: 'pointer', background: isOpen ? rowHoverBg : 'transparent'
+              },
+              isOpen
+            };
+          });
+        const folderChip = (key, label, color, iconFill) => ({
+          key, label, active: s.closingFolder === key,
+          onClick: () => this.setState((st) => ({ closingFolder: st.closingFolder === key ? null : key, closingOpenRow: null })),
+          style: {
+            all: 'unset', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 700,
+            color: s.closingFolder === key ? accent : muted, paddingBottom: '2px',
+            borderBottom: s.closingFolder === key ? `2px solid ${accent}` : '2px solid transparent'
+          },
+          iconFill: s.closingFolder === key ? accent : iconFill
+        });
+        return {
+          onLight: () => this.setState({ closingDark: false }),
+          onDark: () => this.setState({ closingDark: true }),
+          lightBtnStyle: {
+            all: 'unset', cursor: 'pointer', fontSize: '12px', fontWeight: 600, padding: '8px 16px', borderRadius: '999px',
+            background: dark ? 'transparent' : '#fff', color: dark ? 'oklch(0.5 0 0)' : '#171018',
+            boxShadow: dark ? 'none' : '0 2px 6px rgba(0,0,0,0.12)'
+          },
+          darkBtnStyle: {
+            all: 'unset', cursor: 'pointer', fontSize: '12px', fontWeight: 600, padding: '8px 16px', borderRadius: '999px',
+            background: dark ? '#202020' : 'transparent', color: dark ? '#fff' : 'oklch(0.5 0 0)',
+            boxShadow: dark ? '0 2px 6px rgba(0,0,0,0.3)' : 'none'
+          },
+          panelBg: dark ? '#1B1B1F' : '#fff', border, fieldBg: dark ? '#2A2A30' : '#EDEDED',
+          text, muted, accent, rowHoverBg,
+          inboxChip: folderChip(null, 'Inbox', accent, muted),
+          interviewChip: folderChip('interview', 'Interview Calls', '#215452', '#215452'),
+          offerChip: folderChip('offer', 'Job Offer', '#8CC63E', '#8CC63E'),
+          rows,
+          desktopMockupSrc: dark ? '../assets/images/ts-desktop-dark.png' : '../assets/images/ts-desktop-light.png',
+          mobileMockupSrc: dark ? '../assets/images/ts-mobile-dark.png' : '../assets/images/ts-mobile-light.png',
+          hint: s.closingFolder ? `Showing ${s.closingFolder === 'interview' ? 'Interview Calls' : 'Job Offer'}` : 'Click a folder to filter, or a message to open it'
+        };
+      })()
+    };
+  }
+}
+
+</script>
+</body>
+</html>

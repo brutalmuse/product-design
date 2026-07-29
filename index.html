@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="js/cursor-dot.js"></script>
+<style>
+  html, body { margin:0; padding:0; box-sizing:border-box; cursor:none; }
+  *, *::before, *::after { box-sizing:inherit; }
+  a, button, [draggable="true"], [role="button"] { cursor:none; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+  }
+  @media (max-width:700px) {
+    [style*="grid-template-columns: 120px 1fr"] { grid-template-columns:1fr !important; }
+  }
+  @keyframes cc1-pulse {
+    0% { transform:scale(1); opacity:0.6; }
+    100% { transform:scale(2.8); opacity:0; }
+  }
+  @keyframes cc1-piece-in {
+    0% { transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(0.85); opacity:0; }
+    100% { transform:translate(0,0) rotate(0deg) scale(1); opacity:1; }
+  }
+  @keyframes cc1-text-in { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</helmet>
+
+<div style="height:100svh; width:100%; background:oklch(0.985 0.002 90); color:oklch(0.12 0 0); font-family:Helvetica,Arial,sans-serif; padding:clamp(10px,1.5vh,18px); overflow:hidden;">
+  <div style="height:100%; width:100%; border:1px solid oklch(0.12 0 0); display:flex; flex-direction:column;">
+
+    <div style="flex:0 0 auto; display:flex; align-items:center; justify-content:space-between; padding:clamp(10px,1.4vh,16px) clamp(16px,2vw,24px); border-bottom:1px solid oklch(0.12 0 0); gap:16px; flex-wrap:wrap; animation:cc1-text-in 1.2s cubic-bezier(0.16,1,0.3,1) both;">
+      <h1 style="margin: 0; font-family: Helvetica,Arial,sans-serif; font-weight: 700; font-size: clamp(22px,1.6vw,20px); letter-spacing: -0.8px">Brutal Muse.</h1>
+      <div style="display:flex; align-items:center; gap:8px; font-size:clamp(11px,1.1vw,14px); letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap;">
+        <span>SHRUTHI / PRODUCT DESIGNER / VIETNAM /</span>
+        <a href="about.html" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent; padding-bottom:1px;" style-hover="border-bottom-color:oklch(0.75 0.22 40); color:oklch(0.75 0.22 40);" style-focus="outline:2px solid currentColor; outline-offset:3px;">ABOUT ↗</a>
+      </div>
+    </div>
+
+    <div style="flex:2 1 0; display:flex; min-height:0; border-bottom:1px solid oklch(0.12 0 0); flex-wrap:wrap;">
+      <div style="flex:1 1 220px; min-width:220px; display:flex; flex-direction:column; justify-content:center; gap:clamp(14px,2.2vh,24px); padding:clamp(16px,2vh,24px) clamp(16px,2vw,24px);">
+        <p style="margin: 0; max-width: 46ch; font-size: 13px; letter-spacing: 0.02em; line-height: 1.3; color: oklch(0.3 0 0); font-weight: 300; animation:cc1-text-in 1.6s cubic-bezier(0.16,1,0.3,1) both;">Designing digital experiences where human behaviour, visual culture, interaction and emerging technology meet.</p><div style="display:flex; flex-direction:column; gap:2px; font-size:clamp(12px,1.1vw,15px); letter-spacing:0.05em; text-transform:uppercase;">
+          
+          
+          
+        </div>
+        
+      </div>
+      <div style="flex:1 1 220px; min-width:200px; min-height:0; display:flex; align-items:center; justify-content:center; padding:clamp(12px,1.6vh,20px) clamp(16px,2vw,24px); border-left:1px solid oklch(0.12 0 0); position:relative; animation:cc1-text-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.15s;">
+        <div style="width:auto; height:100%; aspect-ratio:1122/1402; max-width:100%; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:0; background:transparent; position:relative;">
+          <div aria-hidden="true" style="position:absolute; bottom:-14px; left:-14px; width:28px; height:28px; border-radius:50%; background:oklch(0.75 0.22 40); pointer-events:none; z-index:2;">
+            <span style="position:absolute; inset:0; border-radius:50%; background:oklch(0.75 0.22 40); opacity:0.7; animation:cc1-pulse 1.8s ease-out infinite;"></span>
+          </div>
+          <sc-for list="{{ puzzlePieces }}" as="piece" hint-placeholder-count="9">
+            <div draggable="true" onDragStart="{{ piece.onDragStart }}" onDragOver="{{ piece.onDragOver }}" onDrop="{{ piece.onDrop }}" onClick="{{ piece.onClick }}" onKeyDown="{{ piece.onKeyDown }}" role="button" tabIndex="0" aria-label="{{ piece.ariaLabel }}" style="width:100%; height:100%; background-image:url('assets/images/shruthi.png'); background-size:300% 300%; background-position:{{ piece.bgPos }}; cursor:none; outline:1px solid oklch(0.75 0.22 40 / 0.5); outline-offset:-0.5px; box-shadow:{{ piece.selectShadow }}; animation:{{ piece.entranceAnim }}; animation-delay:{{ piece.entranceDelay }}; --dx:{{ piece.dx }}; --dy:{{ piece.dy }}; --rot:{{ piece.rot }};"></div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <nav aria-label="Practice areas" onMouseLeave="{{ onLeaveAll }}" style="flex:1 1 0; min-height:0; display:flex; flex-direction:column;">
+      <div style="flex:1 1 0; min-height:0; display:flex; border-bottom:1px solid oklch(0.12 0 0); flex-wrap:wrap; overflow:hidden; animation:cc1-text-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.3s;">
+        <sc-for list="{{ rowOneCategories }}" as="cat" hint-placeholder-count="2">
+          <a href="{{ cat.route }}" aria-label="{{ cat.ariaLabel }}" onMouseEnter="{{ cat.onEnter }}" onFocus="{{ cat.onEnter }}" onBlur="{{ onLeaveAll }}" style="flex:1 1 0; min-width:220px; min-height:0; display:flex; flex-direction:column; justify-content:center; gap:6px; text-decoration:none; color:{{ cat.textColor }}; padding:clamp(8px,1.4vh,16px) clamp(16px,2vw,24px); border-right:{{ cat.rightBorder }}; background:{{ cat.background }}; transition:background 0.6s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease, color 0.5s ease; overflow:hidden;" style-focus="outline:2px solid oklch(0.12 0 0); outline-offset:-6px;">
+            <span style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:{{ cat.numberColor }}; transition:color 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1); transform:{{ cat.numberTransform }};">{{ cat.number }}</span>
+            <h2 style="margin: 0; font-family: Helvetica,Arial,sans-serif; font-weight: 300; font-size: clamp(22px,2.1vw,27px); letter-spacing: -0.01em; line-height: 1.05; transition:transform 0.6s cubic-bezier(0.16,1,0.3,1); transform:{{ cat.titleTransform }};">{{ cat.title }}</h2>
+          </a>
+        </sc-for>
+      </div>
+      <div style="flex:1 1 0; min-height:0; display:flex; flex-wrap:wrap; overflow:hidden; animation:cc1-text-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.45s;">
+        <a href="{{ thirdCategory.route }}" aria-label="{{ thirdCategory.ariaLabel }}" onMouseEnter="{{ thirdCategory.onEnter }}" onFocus="{{ thirdCategory.onEnter }}" onBlur="{{ onLeaveAll }}" style="flex:3 1 320px; min-width:220px; min-height:0; display:flex; flex-direction:column; justify-content:flex-start; gap:4px; text-decoration:none; color:{{ thirdCategory.textColor }}; padding:clamp(6px,1vh,14px) clamp(16px,2vw,24px); border-right:1px solid oklch(0.12 0 0); background:{{ thirdCategory.background }}; transition:background 0.6s cubic-bezier(0.16,1,0.3,1), color 0.5s ease; overflow:hidden; box-sizing:border-box;" style-focus="outline:2px solid oklch(0.12 0 0); outline-offset:-6px;">
+          <span style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:{{ thirdCategory.numberColor }}; transition:color 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1); transform:{{ thirdCategory.numberTransform }};">{{ thirdCategory.number }}</span>
+          <h2 style="margin: 0; font-family: Helvetica,Arial,sans-serif; font-weight: 300; font-size: clamp(20px,2.1vw,24px); letter-spacing: -0.01em; line-height: 1.05; transition:transform 0.6s cubic-bezier(0.16,1,0.3,1); transform:{{ thirdCategory.titleTransform }};">{{ thirdCategory.title }}</h2>
+        </a>
+        <div style="flex:1 1 160px; min-width:160px; min-height:0; display:flex; flex-direction:column; justify-content:center; gap:8px; padding:clamp(8px,1.4vh,16px) clamp(16px,2vw,24px); font-size:12px; letter-spacing:0.05em; text-transform:uppercase; overflow:hidden;">
+          <a href="about.html" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent; width:fit-content;" style-hover="border-bottom-color:oklch(0.75 0.22 40); color:oklch(0.75 0.22 40);" style-focus="outline:2px solid currentColor; outline-offset:3px;">About</a>
+          <a href="https://www.linkedin.com/in/thaiveppilgopishruthi" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent; width:fit-content;" style-hover="border-bottom-color:oklch(0.75 0.22 40); color:oklch(0.75 0.22 40);" style-focus="outline:2px solid currentColor; outline-offset:3px;">LinkedIn ↗</a>
+          <a href="mailto:thaiveppil.gopi.shruthi@gmail.com" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent; width:fit-content;" style-hover="border-bottom-color:oklch(0.75 0.22 40); color:oklch(0.75 0.22 40);" style-focus="outline:2px solid currentColor; outline-offset:3px;">Email ↗</a>
+        </div>
+      </div>
+    </nav>
+
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+function shuffledOrder() {
+  const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  do {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  } while (arr.every((v, i) => v === i));
+  return arr;
+}
+
+class Component extends DCLogic {
+  state = { activeIndex: null, order: shuffledOrder(), selected: null };
+
+  swap(a, b) {
+    if (a === b) return;
+    this.setState((s) => {
+      const order = [...s.order];
+      [order[a], order[b]] = [order[b], order[a]];
+      return { order, selected: null };
+    });
+  }
+
+  selectOrSwap(slotIdx) {
+    const sel = this.state.selected;
+    if (sel === null) this.setState({ selected: slotIdx });
+    else if (sel === slotIdx) this.setState({ selected: null });
+    else this.swap(sel, slotIdx);
+  }
+
+  categories = [
+    {
+      number: '01',
+      title: 'Human-Centred Concepts',
+      description: 'UX concepts, product thinking, design research, and speculative interfaces.',
+      route: 'pages/human-centred-concepts.html'
+    },
+    {
+      number: '02',
+      title: 'Interactive Systems',
+      description: 'Interactive websites, motion, gesture-based and spatial experiences.',
+      route: 'pages/interactive-systems.html'
+    },
+    {
+      number: '03',
+      title: 'Emerging Intelligence',
+      description: 'AI-assisted design, generative media, and intelligent interfaces.',
+      route: 'pages/emerging-intelligence.html'
+    }
+  ];
+
+  setActive(i) {
+    this.setState({ activeIndex: i });
+  }
+
+  renderVals() {
+    const { activeIndex } = this.state;
+    const ink = 'oklch(0.12 0 0)';
+
+    const offWhite = 'oklch(0.96 0.004 90)';
+    const pulseColor = 'oklch(0.75 0.22 40)';
+    const categoriesView = this.categories.map((c, i) => {
+      const isActive = activeIndex === i;
+      return {
+        ...c,
+        ariaLabel: `${c.number} — ${c.title}. ${c.description}`,
+        rightBorder: `1px solid ${ink}`,
+        background: isActive ? pulseColor : 'transparent',
+        textColor: ink,
+        numberColor: isActive ? ink : 'oklch(0.4 0 0)',
+        numberTransform: isActive ? 'translateX(4px)' : 'translateX(0)',
+        titleTransform: isActive ? 'translateX(10px)' : 'translateX(0)',
+        onEnter: () => this.setActive(i)
+      };
+    });
+
+    const accentB = 'oklch(0.62 0.14 40)';
+    const entranceOffsets = [
+      { dx: '-70px', dy: '-50px', rot: '-10deg' },
+      { dx: '10px', dy: '-80px', rot: '7deg' },
+      { dx: '80px', dy: '-40px', rot: '-8deg' },
+      { dx: '-90px', dy: '15px', rot: '9deg' },
+      { dx: '0px', dy: '-20px', rot: '12deg' },
+      { dx: '85px', dy: '10px', rot: '-11deg' },
+      { dx: '-65px', dy: '65px', rot: '8deg' },
+      { dx: '5px', dy: '80px', rot: '-7deg' },
+      { dx: '70px', dy: '55px', rot: '10deg' }
+    ];
+    const puzzlePieces = this.state.order.map((pieceId, slotIdx) => {
+      const row = Math.floor(pieceId / 3), col = pieceId % 3;
+      const isSelected = this.state.selected === slotIdx;
+      const off = entranceOffsets[slotIdx];
+      return {
+        bgPos: `${col * 50}% ${row * 50}%`,
+        ariaLabel: `Puzzle piece in slot ${slotIdx + 1} of 9`,
+        selectShadow: isSelected ? `inset 0 0 0 2px ${accentB}` : 'none',
+        entranceAnim: 'cc1-piece-in 2.2s cubic-bezier(0.22,1,0.36,1) both',
+        entranceDelay: `${slotIdx * 0.14}s`,
+        dx: off.dx,
+        dy: off.dy,
+        rot: off.rot,
+        onDragStart: (e) => { e.dataTransfer.setData('text/plain', String(slotIdx)); },
+        onDragOver: (e) => { e.preventDefault(); },
+        onDrop: (e) => { e.preventDefault(); this.swap(Number(e.dataTransfer.getData('text/plain')), slotIdx); },
+        onClick: () => this.selectOrSwap(slotIdx),
+        onKeyDown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.selectOrSwap(slotIdx); } }
+      };
+    });
+
+    return {
+      rowOneCategories: categoriesView.slice(0, 2),
+      thirdCategory: categoriesView[2],
+      onLeaveAll: () => this.setActive(null),
+      puzzlePieces
+    };
+  }
+}
+
+</script>
+</body>
+</html>
