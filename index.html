@@ -57,7 +57,7 @@
             <span style="position:absolute; inset:0; border-radius:50%; background:oklch(0.75 0.22 40); opacity:0.7; animation:cc1-pulse 1.8s ease-out infinite;"></span>
           </div>
           <sc-for list="{{ puzzlePieces }}" as="piece" hint-placeholder-count="9">
-            <div draggable="true" onDragStart="{{ piece.onDragStart }}" onDragOver="{{ piece.onDragOver }}" onDrop="{{ piece.onDrop }}" onClick="{{ piece.onClick }}" onKeyDown="{{ piece.onKeyDown }}" role="button" tabIndex="0" aria-label="{{ piece.ariaLabel }}" style="width:100%; height:100%; background-image:url('assets/images/shruthi.png'); background-size:300% 300%; background-position:{{ piece.bgPos }}; cursor:none; border-right:{{ piece.gridBorderRight }}; border-bottom:{{ piece.gridBorderBottom }}; box-shadow:{{ piece.selectShadow }}; animation:{{ piece.entranceAnim }}; animation-delay:{{ piece.entranceDelay }}; --dx:{{ piece.dx }}; --dy:{{ piece.dy }}; --rot:{{ piece.rot }};"></div>
+            <div draggable="true" onDragStart="{{ piece.onDragStart }}" onDragOver="{{ piece.onDragOver }}" onDrop="{{ piece.onDrop }}" onClick="{{ piece.onClick }}" onKeyDown="{{ piece.onKeyDown }}" role="button" tabIndex="0" aria-label="{{ piece.ariaLabel }}" style="width:100%; height:100%; background-image:url('assets/images/shruthi.png'); background-size:300% 300%; background-position:{{ piece.bgPos }}; cursor:none; outline:1px solid oklch(0.75 0.22 40 / 0.5); outline-offset:-0.5px; box-shadow:{{ piece.selectShadow }}; animation:{{ piece.entranceAnim }}; animation-delay:{{ piece.entranceDelay }}; --dx:{{ piece.dx }}; --dy:{{ piece.dy }}; --rot:{{ piece.rot }};"></div>
           </sc-for>
         </div>
       </div>
@@ -183,12 +183,8 @@ class Component extends DCLogic {
       const row = Math.floor(pieceId / 3), col = pieceId % 3;
       const isSelected = this.state.selected === slotIdx;
       const off = entranceOffsets[slotIdx];
-      const slotCol = slotIdx % 3, slotRow = Math.floor(slotIdx / 3);
-      const gridLine = '1px solid oklch(0.75 0.22 40 / 0.5)';
       return {
         bgPos: `${col * 50}% ${row * 50}%`,
-        gridBorderRight: slotCol < 2 ? gridLine : 'none',
-        gridBorderBottom: slotRow < 2 ? gridLine : 'none',
         ariaLabel: `Puzzle piece in slot ${slotIdx + 1} of 9`,
         selectShadow: isSelected ? `inset 0 0 0 2px ${accentB}` : 'none',
         entranceAnim: 'cc1-piece-in 2.2s cubic-bezier(0.22,1,0.36,1) both',
