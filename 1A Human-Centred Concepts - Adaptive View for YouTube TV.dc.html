@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./image-slot.js"></script>
+<script src="./cursor-dot.js"></script>
+<style>
+  html, body { margin:0; padding:0; box-sizing:border-box; cursor:none; }
+  *, *::before, *::after { box-sizing:inherit; }
+  a, button, [draggable="true"], [role="button"] { cursor:none; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+  }
+  @keyframes hcc-in { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes av-drift { from { transform:scale(1) translate(0,0); } to { transform:scale(1.15) translate(-2%,2%); } }
+  @keyframes av-wave { from { transform:scaleY(0.4); } to { transform:scaleY(1); } }
+  @keyframes av-pulse { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
+  @keyframes av-ping { 0% { transform:scale(1); opacity:0.55; } 100% { transform:scale(3.2); opacity:0; } }
+</style>
+</helmet>
+
+<div style="min-height:100vh; width:100%; background:oklch(0.985 0.002 90); color:oklch(0.12 0 0); font-family:Helvetica,Arial,sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; padding:clamp(16px,2.4vh,28px) clamp(20px,3vw,40px) clamp(80px,10vh,120px);">
+
+    <header style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-bottom:clamp(16px,2.4vh,28px); border-bottom:1px solid oklch(0.12 0 0); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both;">
+      <a href="01 Human-Centred Concepts.dc.html" style="display:flex; align-items:center; gap:10px; color:inherit; text-decoration:none; font-weight:500; font-size:clamp(16px,1.6vw,20px); letter-spacing:-0.8px;" style-hover="color:#E5262B;" style-focus="outline:2px solid currentColor; outline-offset:3px;">
+        <span aria-hidden="true">←</span> 01 — Human-Centred Concepts
+      </a>
+      <nav style="display:flex; gap:18px; font-size:12px; letter-spacing:0.05em; text-transform:uppercase;">
+        <a href="https://www.linkedin.com/in/shruthi" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:#E5262B; color:#E5262B;" style-focus="outline:2px solid currentColor; outline-offset:3px;">LinkedIn ↗</a>
+        <a href="mailto:hello@brutalmuse.studio" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:#E5262B; color:#E5262B;" style-focus="outline:2px solid currentColor; outline-offset:3px;">Email ↗</a>
+      </nav>
+    </header>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0 clamp(24px,3.5vh,40px); border-bottom:1px solid oklch(0.12 0 0); display:flex; flex-direction:column; gap:16px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.2s;">
+      <span style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">01 — Human-Centred Concepts</span>
+      <h1 style="margin:0; font-weight:300; font-size:clamp(32px,5.4vw,64px); letter-spacing:-0.01em; line-height:1.02;">Adaptive View <span style="color:#000;">for YouTube TV</span></h1>
+      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.55; color:oklch(0.3 0 0);">A concept for YouTube TV's video player: one player that adjusts itself to how attentively you're actually watching.</p>
+      <div style="display:flex; gap:28px; flex-wrap:wrap; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0); padding-top:6px;">
+        <span>Role: Product Designer</span>
+        <span>Year: 2026</span>
+        <span>Type: Concept UX</span>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.5s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Overview</h2>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <p style="margin:0; max-width:68ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">Not every video session is active watching. People leave a video playing while cooking, cleaning, half-listening from another room, or drifting off to sleep. Adaptive View explores a single player that recognises this and adjusts its own brightness, layout, and controls to match — instead of showing the same high-stimulation interface no matter how someone is actually using it.</p>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.6s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">The Problem</h2>
+      <div style="display:flex; flex-direction:column; gap:16px; max-width:68ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">
+        <p style="margin:0;">Most video players are built for one mode: someone sitting, watching, fully attentive. Bright thumbnails, dense recommendations, sudden scene changes, and high-contrast controls all compete for attention even when nobody's actually looking.</p>
+        <p style="margin:0;">That mismatch is most obvious on a TV — where the screen is often on in the background, across a room, or in a dark bedroom — but the same interface intensity plays out identically every time. YouTube TV in particular is built for the living room, where these looser, lower-attention moments are common, not the exception.</p>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:flex; flex-direction:column; gap:14px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.65s;">
+      <span style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">Today vs. Adaptive View</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:920px; align-items:start;">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="position:relative;">
+          <div style="width:100%; aspect-ratio:16/10; border-radius:6px; overflow:hidden; background:#f4f4f2; border:1px solid oklch(0.85 0 0); position:relative; display:flex; flex-direction:column;">
+            <div style="display:flex; align-items:center; gap:6px; padding:6px 8px; border-bottom:1px solid oklch(0.85 0 0); background:#fff;">
+              <span style="width:14px; height:14px; border-radius:3px; background:oklch(0.75 0 0);"></span>
+              <span style="width:36px; height:6px; border-radius:3px; background:oklch(0.8 0 0);"></span>
+              <span style="flex:1;"></span>
+              <span style="font-size:6.5px; font-weight:500; letter-spacing:0.04em; color:#E5262B; border:1px solid #E5262B; border-radius:3px; padding:1px 4px;">LIVE</span>
+              <span style="width:10px; height:10px; border-radius:50%; background:oklch(0.8 0 0);"></span>
+              <span style="width:10px; height:10px; border-radius:50%; background:oklch(0.8 0 0);"></span>
+              <span style="width:10px; height:10px; border-radius:50%; background:oklch(0.8 0 0);"></span>
+            </div>
+            <div style="flex:1; display:flex; gap:4px; padding:6px 8px; min-height:0;">
+              <div style="flex:1; border-radius:4px; background:linear-gradient(135deg, oklch(0.85 0.14 90), oklch(0.78 0.16 55)); position:relative;">
+                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:8px;">
+                  <span style="width:16px; height:16px; border-radius:50%; background:oklch(1 0 0 / 0.7);"></span>
+                </div>
+              </div>
+              <div style="width:26%; display:flex; flex-direction:column; gap:4px;">
+                <div style="flex:1; border-radius:3px; background:oklch(0.88 0 0);"></div>
+                <div style="flex:1; border-radius:3px; background:oklch(0.88 0 0);"></div>
+                <div style="flex:1; border-radius:3px; background:oklch(0.88 0 0);"></div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px; padding:6px 8px; border-top:1px solid oklch(0.85 0 0); background:#fff;">
+              <span style="width:14px; height:14px; border-radius:50%; background:oklch(0.6 0 0);"></span>
+              <span style="width:14px; height:14px; border-radius:50%; background:#171018;"></span>
+              <span style="width:14px; height:14px; border-radius:50%; background:oklch(0.6 0 0);"></span>
+              <span style="flex:1; height:4px; border-radius:2px; background:oklch(0.85 0 0);"></span>
+              <span style="width:12px; height:12px; border-radius:2px; background:oklch(0.75 0 0);"></span>
+              <span style="width:12px; height:12px; border-radius:2px; background:oklch(0.75 0 0);"></span>
+              <span style="width:12px; height:12px; border-radius:2px; background:oklch(0.75 0 0);"></span>
+            </div>
+          </div>
+            <span style="position:absolute; top:-9px; right:56px; width:18px; height:18px; border-radius:50%; background:#E5262B; color:#fff; font-size:10px; font-weight:500; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 4px rgba(0,0,0,0.25); z-index:2;">1</span>
+            <span style="position:absolute; top:38%; left:44%; width:18px; height:18px; border-radius:50%; background:#E5262B; color:#fff; font-size:10px; font-weight:500; display:flex; align-items:center; justify-content:center;">2</span>
+            <span style="position:absolute; top:38%; right:8%; width:18px; height:18px; border-radius:50%; background:#E5262B; color:#fff; font-size:10px; font-weight:500; display:flex; align-items:center; justify-content:center;">3</span>
+            <span style="position:absolute; bottom:6px; left:44%; width:18px; height:18px; border-radius:50%; background:#E5262B; color:#fff; font-size:10px; font-weight:500; display:flex; align-items:center; justify-content:center;">4</span>
+          </div>
+          <div>
+            <div style="font-size:13px; font-weight:500; letter-spacing:0.02em; line-height:1.6; color:oklch(0.15 0 0);">Today</div>
+            <div style="font-size:11.5px; line-height:1.6; color:oklch(0.4 0 0);">Same bright, high-density interface whether someone's watching closely or just half-listening from across the room.</div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; background:#fff; border:1px solid oklch(0.9 0 0); border-radius:10px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+          <div style="display:flex; gap:12px; padding:16px 18px; border-bottom:1px solid oklch(0.93 0 0);"><span style="width:20px; height:20px; border-radius:50%; background:#E5262B; color:#fff; font-size:10.5px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">1</span><span style="font-size:12px; line-height:1.6; color:oklch(0.25 0 0); padding-top:1px;">Channel identity and LIVE badge stay on screen even when no one's actively watching.</span></div>
+          <div style="display:flex; gap:12px; padding:16px 18px; border-bottom:1px solid oklch(0.93 0 0);"><span style="width:20px; height:20px; border-radius:50%; background:#E5262B; color:#fff; font-size:10.5px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</span><span style="font-size:12px; line-height:1.6; color:oklch(0.25 0 0); padding-top:1px;">Video plays at full brightness regardless of whether it's the focus or background noise.</span></div>
+          <div style="display:flex; gap:12px; padding:16px 18px; border-bottom:1px solid oklch(0.93 0 0);"><span style="width:20px; height:20px; border-radius:50%; background:#E5262B; color:#fff; font-size:10.5px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</span><span style="font-size:12px; line-height:1.6; color:oklch(0.25 0 0); padding-top:1px;">Dense up-next rail stays visible, competing for attention even when nobody's browsing.</span></div>
+          <div style="display:flex; gap:12px; padding:16px 18px;"><span style="width:20px; height:20px; border-radius:50%; background:#E5262B; color:#fff; font-size:10.5px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">4</span><span style="font-size:12px; line-height:1.6; color:oklch(0.25 0 0); padding-top:1px;">Full control row (scrub, skip, volume) shown at all times, cluttering low-attention moments.</span></div>
+          <div style="display:flex; gap:12px; padding:16px 18px; background:oklch(0.97 0.025 25); border-top:1px solid oklch(0.9 0.03 25);"><span style="width:20px; height:20px; border-radius:50%; background:transparent; border:1.5px solid #E5262B; color:#E5262B; font-size:11px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">!</span><span style="font-size:12px; line-height:1.6; color:oklch(0.25 0 0); padding-top:1px;"><strong style="font-weight:500;">Note:</strong> YouTube does have an existing "Ambient Mode" — but it's only a cosmetic glow that colors the screen edges to match the video, with no change to brightness, layout, or controls. It doesn't address the attention problem this concept targets.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.7s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Design Opportunity</h2>
+      <p style="margin:0; max-width:68ch; font-size:12px; font-weight:300; line-height:1.4; color:oklch(0.15 0 0);">How might a player recognise different levels of attention — focused, background, listening, night-time — and adjust itself accordingly, instead of asking the viewer to constantly manage brightness, volume, and clutter by hand?</p>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.8s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">The Concept</h2>
+      <div style="display:flex; flex-direction:column; gap:18px; max-width:68ch;">
+        <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">Adaptive View adds one control to the player: a view mode. Three modes sit alongside normal Active viewing, each tuned to a different way people actually watch.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px;">
+          <div style="border:1px solid oklch(0.85 0 0); padding:14px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-size:11.5px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; color:#E5262B;">Ambient</span>
+            <span style="font-size:11.5px; line-height:1.5; color:oklch(0.3 0 0);">Dimmer, quieter, glanceable — for background viewing while doing something else.</span>
+          </div>
+          <div style="border:1px solid oklch(0.85 0 0); padding:14px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-size:11.5px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; color:#E5262B;">Audio</span>
+            <span style="font-size:11.5px; line-height:1.5; color:oklch(0.3 0 0);">Video steps back, captions step forward — for listening-first content.</span>
+          </div>
+          <div style="border:1px solid oklch(0.85 0 0); padding:14px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-size:11.5px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; color:#E5262B;">Sleep</span>
+            <span style="font-size:11.5px; line-height:1.5; color:oklch(0.3 0 0);">Near-dark, near-silent chrome — for drifting off with something on.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.85s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Making It Adaptive</h2>
+      <div style="display:flex; flex-direction:column; gap:26px; max-width:68ch;">
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"></path><circle cx="12" cy="12" r="2.6"></circle></svg></span>
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Detecting the mode</h3>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">No new hardware — just signals a connected TV already has: time since the last remote press, time of day, an ambient-light reading if the TV exposes one, and whether the app is in the foreground. Together they suggest Ambient, Audio, or Sleep without the viewer doing anything.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5a4 4 0 00-4 4v2.6c0 1.3-.5 2.6-1.6 3.9h11.2c-1.1-1.3-1.6-2.6-1.6-3.9V8.5a4 4 0 00-4-4z"></path><path d="M9.6 18.5a2.6 2.6 0 004.8 0"></path></svg></span>
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Suggested, never forced</h3>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">A detected change surfaces as a brief, dismissible prompt — "Settling in for the night? Switch to Sleep" — never an automatic takeover. The same view-mode switch shown in the prototype below is always there to pick a mode directly.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="6" opacity="0.45"></circle><circle cx="15" cy="12" r="6"></circle></svg></span>
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Transitions fade, they don't snap</h3>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">Brightness and chrome cross-fade over a couple of seconds rather than cutting instantly, so the switch itself never becomes the kind of jarring, attention-grabbing moment the concept is trying to remove.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.9s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Design Principles</h2>
+      <div style="display:flex; flex-direction:column; gap:26px; max-width:68ch;">
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.3 8.3 0 119.6 4.2a6.7 6.7 0 0010.4 10.3z"></path></svg></span>
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">A real sleep timer, not just a dim screen</h3>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">Sleep mode also overrides the TV's own inactivity auto-off and puts a visible, extendable countdown in its place, so the video (and its sound) stops on the viewer's terms instead of the TV's.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><circle cx="15" cy="12" r="3" fill="#E5262B" stroke="none"></circle></svg></span>
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">One control, not three settings menus</h3>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">A single view-mode switch, always in the same place, instead of separate brightness/caption/layout settings.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 4.5-8 4.5-8-4.5L12 4z"></path><path d="M4 13.5L12 18l8-4.5"></path></svg></span>
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Reduce, don't remove</h3>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">Every mode keeps the essentials — play state, progress, title — and only sheds what isn't needed for that context.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.6"></circle><path d="M6.5 12a5.5 5.5 0 0111 0"></path><path d="M3 12a9 9 0 0118 0"></path></svg></span>
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Legible from across the room</h3>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">Every mode is designed to be understood at a glance, from a couch or a doorway, not just up close.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="try-it" style="padding:clamp(28px,4.5vh,56px) 0; display:flex; flex-direction:column; gap:20px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:1s;">
+      <h2 style="margin:0; font-weight:300; font-size:clamp(22px,2.8vw,32px); letter-spacing:-0.01em; line-height:1.15;">One player, four ways of watching</h2>
+      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">Click a mode below, then use the seek bar, skip, and mute controls — they respond just like the real player.</p>
+      <span style="display:inline-flex; align-items:center; gap:8px; width:fit-content; font-size:12px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:#E5262B; background:transparent; border:1px solid oklch(0.9 0.05 25); border-radius:999px; padding:6px 14px;"><span style="position:relative; display:inline-flex; width:6px; height:6px; flex-shrink:0;"><span style="position:absolute; inset:0; border-radius:50%; background:#E5262B; animation:av-ping 1.8s cubic-bezier(0,0,0.2,1) infinite;"></span><span style="position:relative; width:6px; height:6px; border-radius:50%; background:#E5262B;"></span></span>Try It — Live Prototype</span>
+
+      <div style="display:flex; gap:6px; background:oklch(0.94 0 0); border-radius:8px; padding:4px; width:fit-content; flex-wrap:wrap;">
+        <sc-for list="{{ modeTabs }}" as="tab" hint-placeholder-count="4">
+          <button onClick="{{ tab.onSelect }}" style="{{ tab.style }}">{{ tab.label }}</button>
+        </sc-for>
+      </div>
+
+      <div id="tv-bezel" style="background:linear-gradient(160deg, #1c1c1f, #0a0a0c); border-radius:18px; padding:14px 14px 22px; box-shadow:0 30px 60px -20px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05);">
+      <div onClick="{{ startTutorial }}" style="width:100%; aspect-ratio:16/9; overflow:hidden; position:relative; background:#0A0A0D; border-radius:8px;">
+        <video ref="{{ videoRef }}" autoplay="{{ true }}" loop="{{ true }}" muted="{{ isMuted }}" playsinline="{{ true }}" src="asmr_converted.webm" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:{{ player.videoFilter }}; transition:filter 0.6s ease;"></video>
+        <div style="position:absolute; inset:0; background:#000; opacity:{{ player.scrim }}; transition:opacity 0.6s ease; pointer-events:none;"></div>
+
+        <sc-if value="{{ isActive }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; top:20px; left:20px; right:20px; display:flex; justify-content:space-between; align-items:center;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <image-slot id="av-avatar" shape="circle" placeholder="Avatar" src="Screenshot 2026-07-27 at 23.15.29.png" style="width:24px; height:24px; flex-shrink:0;"></image-slot>
+              <span style="font-size:12px; font-weight:500; color:#fff;">Whispers &amp; Triggers ASMR</span>
+            </div>
+            <span onClick="{{ toggleSettings }}" style="width:26px; height:26px; border-radius:50%; background:oklch(1 0 0 / 0.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; cursor:pointer;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 9a3 3 0 100 6 3 3 0 000-6z"></path><path d="M19.4 13.5a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-1.87-.34 1.7 1.7 0 00-1.04 1.56V19a2 2 0 11-4 0v-.09a1.7 1.7 0 00-1.04-1.56 1.7 1.7 0 00-1.87.34l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.7 1.7 0 00.34-1.87 1.7 1.7 0 00-1.56-1.04H4.5a2 2 0 110-4h.09a1.7 1.7 0 001.56-1.04 1.7 1.7 0 00-.34-1.87l-.06-.06a2 2 0 112.83-2.83l.06.06a1.7 1.7 0 001.87.34H10a1.7 1.7 0 001.04-1.56V4.5a2 2 0 114 0v.09a1.7 1.7 0 001.04 1.56 1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-.34 1.87V10a1.7 1.7 0 001.56 1.04h.09a2 2 0 110 4h-.09a1.7 1.7 0 00-1.56 1.04z"></path></svg>
+            </span>
+          </div>
+
+          <div style="position:absolute; top:56px; right:20px; width:140px; display:flex; flex-direction:column; gap:8px;">
+            <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(1 0 0 / 0.55);">Up next</span>
+            <sc-for list="{{ upNextCards }}" as="card" hint-placeholder-count="3">
+              <div style="display:flex; gap:6px; align-items:center;">
+                <div style="width:44px; height:26px; border-radius:3px; background-image:url('{{ card.image }}'); background-size:cover; background-position:center; flex-shrink:0;"></div>
+                <div style="display:flex; flex-direction:column; gap:2px; flex:1; min-width:0;">
+                  <span style="font-size:10px; color:oklch(1 0 0 / 0.85); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ card.title }}</span>
+                  <span style="font-size:9px; color:oklch(1 0 0 / 0.5);">{{ card.subtitle }}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="position:absolute; left:20px; right:20px; bottom:18px; display:flex; flex-direction:column; gap:10px;">
+            <div style="max-width:60%;">
+              <div style="font-size:15px; font-weight:500; color:#fff; margin-bottom:3px;">Mic Triggers for Deep Sleep</div>
+              <div style="font-size:11px; color:oklch(0.85 0 0 / 0.75); line-height:1.4;">Soft-spoken tapping, scratching, and trigger sounds.</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:10px; color:oklch(1 0 0 / 0.7); flex-shrink:0;">{{ currentTimeLabel }}</span>
+              <div onClick="{{ seek }}" style="flex:1; height:3px; border-radius:2px; background:oklch(1 0 0 / 0.22); overflow:hidden; cursor:pointer;">
+                <div style="height:100%; width:{{ progressPercent }}; background:#E5262B;"></div>
+              </div>
+              <span style="font-size:10px; color:oklch(1 0 0 / 0.7); flex-shrink:0;">{{ durationLabel }}</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:16px;">
+              <span onClick="{{ skipBack }}" style="cursor:pointer; display:flex;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M19 20L9 12l10-8v16z"></path><rect x="5" y="4" width="2.4" height="16"></rect></svg></span>
+              <span onClick="{{ togglePlay }}" style="width:32px; height:32px; border-radius:50%; background:oklch(1 0 0 / 0.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; cursor:pointer;">
+                <sc-if value="{{ isPlaying }}" hint-placeholder-val="{{ true }}">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><rect x="6" y="5" width="4" height="14"></rect><rect x="14" y="5" width="4" height="14"></rect></svg>
+                </sc-if>
+                <sc-if value="{{ isPaused }}" hint-placeholder-val="{{ false }}">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"></path></svg>
+                </sc-if>
+              </span>
+              <span onClick="{{ skipForward }}" style="cursor:pointer; display:flex;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M5 4l10 8-10 8V4z"></path><rect x="16.6" y="4" width="2.4" height="16"></rect></svg></span>
+              <span style="flex:1;"></span>
+              <span onClick="{{ toggleLike }}" style="cursor:pointer; display:flex;">
+                <sc-if value="{{ liked }}" hint-placeholder-val="{{ false }}">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#E5262B"><path d="M20.8 8.6c0 3.5-4.4 6.5-8.8 10.4C7.6 15.1 3.2 12.1 3.2 8.6 3.2 5.9 5.3 4 7.8 4c1.5 0 3 .7 4.2 2 1.2-1.3 2.7-2 4.2-2 2.5 0 4.6 1.9 4.6 4.6z"></path></svg>
+                </sc-if>
+                <sc-if value="{{ notLiked }}" hint-placeholder-val="{{ true }}">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M20.8 8.6c0 3.5-4.4 6.5-8.8 10.4C7.6 15.1 3.2 12.1 3.2 8.6 3.2 5.9 5.3 4 7.8 4c1.5 0 3 .7 4.2 2 1.2-1.3 2.7-2 4.2-2 2.5 0 4.6 1.9 4.6 4.6z"></path></svg>
+                </sc-if>
+              </span>
+              <span onClick="{{ toggleMute }}" style="cursor:pointer; display:flex;">
+                <sc-if value="{{ isMuted }}" hint-placeholder-val="{{ true }}">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 10v4h4l5 5V5L7 10H3z" fill="#fff" stroke="none"></path><line x1="16" y1="9" x2="21" y2="14"></line><line x1="21" y1="9" x2="16" y2="14"></line></svg>
+                </sc-if>
+                <sc-if value="{{ isUnmuted }}" hint-placeholder-val="{{ false }}">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 10v4h4l5 5V5L7 10H3z" fill="#fff" stroke="none"></path><path d="M16 9a4 4 0 010 6"></path></svg>
+                </sc-if>
+              </span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 9V5h4M20 9V5h-4M4 15v4h4M20 15v4h-4"></path></svg>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isAmbient }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; inset:0; background:oklch(0.8 0.12 85 / 0.22); mix-blend-mode:overlay; pointer-events:none;"></div>
+          <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 50% 45%, transparent 35%, oklch(0.12 0.02 40 / 0.55) 100%); pointer-events:none;"></div>
+          <div style="position:absolute; top:18px; left:20px; right:20px; display:flex; justify-content:space-between; align-items:flex-start;">
+            <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(1 0 0 / 0.55); border:1px solid oklch(1 0 0 / 0.3); border-radius:999px; padding:4px 10px;">Ambient mode</span>
+            <div style="display:flex; align-items:flex-start; gap:10px;">
+              <div onMouseEnter="{{ onPlaylistEnter }}" onMouseLeave="{{ onPlaylistLeave }}" style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+              <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(1 0 0 / 0.4); cursor:pointer;">Playlist</span>
+              <div style="width:120px; display:flex; flex-direction:column; gap:8px; opacity:{{ playlistOpacity }}; filter:blur({{ playlistBlur }}); background:{{ playlistBg }}; border-radius:8px; padding:8px; transition:opacity 0.3s ease, filter 0.3s ease, background 0.3s ease;">
+                <sc-for list="{{ upNextCards }}" as="card" hint-placeholder-count="1">
+                  <div style="display:flex; gap:6px; align-items:center;">
+                    <div style="width:44px; height:26px; border-radius:3px; background-image:url('{{ card.image }}'); background-size:cover; background-position:center; flex-shrink:0;"></div>
+                    <div style="display:flex; flex-direction:column; gap:2px; flex:1; min-width:0;">
+                      <span style="font-size:10px; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ card.title }}</span>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+              </div>
+              <span onClick="{{ toggleSettings }}" style="width:26px; height:26px; border-radius:50%; background:oklch(1 0 0 / 0.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; cursor:pointer;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 9a3 3 0 100 6 3 3 0 000-6z"></path><path d="M19.4 13.5a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-1.87-.34 1.7 1.7 0 00-1.04 1.56V19a2 2 0 11-4 0v-.09a1.7 1.7 0 00-1.04-1.56 1.7 1.7 0 00-1.87.34l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.7 1.7 0 00.34-1.87 1.7 1.7 0 00-1.56-1.04H4.5a2 2 0 110-4h.09a1.7 1.7 0 001.56-1.04 1.7 1.7 0 00-.34-1.87l-.06-.06a2 2 0 112.83-2.83l.06.06a1.7 1.7 0 001.87.34H10a1.7 1.7 0 001.04-1.56V4.5a2 2 0 114 0v.09a1.7 1.7 0 001.04 1.56 1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-.34 1.87V10a1.7 1.7 0 001.56 1.04h.09a2 2 0 110 4h-.09a1.7 1.7 0 00-1.56 1.04z"></path></svg>
+              </span>
+            </div>
+          </div>
+          <div style="position:absolute; left:20px; right:20px; bottom:18px; display:flex; flex-direction:column; gap:10px;">
+            <div style="font-size:12px; color:oklch(1 0 0 / 0.65); line-height:1.4;">Mic Triggers for Deep Sleep</div>
+            <div style="display:flex; align-items:center; gap:14px;">
+              <span onClick="{{ togglePlay }}" style="width:32px; height:32px; border-radius:50%; background:oklch(1 0 0 / 0.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; cursor:pointer;">
+                <sc-if value="{{ isPlaying }}" hint-placeholder-val="{{ true }}">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><rect x="6" y="5" width="4" height="14"></rect><rect x="14" y="5" width="4" height="14"></rect></svg>
+                </sc-if>
+                <sc-if value="{{ isPaused }}" hint-placeholder-val="{{ false }}">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"></path></svg>
+                </sc-if>
+              </span>
+              <span style="font-size:10px; color:oklch(1 0 0 / 0.55); flex-shrink:0;">{{ currentTimeLabel }}</span>
+              <div onClick="{{ seek }}" style="flex:1; height:2px; border-radius:2px; background:oklch(1 0 0 / 0.16); overflow:hidden; cursor:pointer;">
+                <div style="height:100%; width:{{ progressPercent }}; background:oklch(1 0 0 / 0.5);"></div>
+              </div>
+              <span style="font-size:10px; color:oklch(1 0 0 / 0.55); flex-shrink:0;">{{ durationLabel }}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(1 0 0 / 0.55)" stroke-width="1.6" style="flex-shrink:0;"><path d="M3 10v4h4l5 5V5L7 10H3z" fill="oklch(1 0 0 / 0.55)" stroke="none"></path><path d="M15.5 9a4 4 0 010 6"></path></svg>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isAudio }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, oklch(0.4 0.07 55) 0%, oklch(0.24 0.06 45) 65%, oklch(0.15 0.04 40) 100%);"></div>
+          <div style="position:absolute; top:18px; left:20px; right:20px; display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(1 0 0 / 0.55); border:1px solid oklch(1 0 0 / 0.3); border-radius:999px; padding:4px 10px;">Audio mode</span>
+            <span onClick="{{ toggleSettings }}" style="width:26px; height:26px; border-radius:50%; background:oklch(1 0 0 / 0.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; cursor:pointer;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 9a3 3 0 100 6 3 3 0 000-6z"></path><path d="M19.4 13.5a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-1.87-.34 1.7 1.7 0 00-1.04 1.56V19a2 2 0 11-4 0v-.09a1.7 1.7 0 00-1.04-1.56 1.7 1.7 0 00-1.87.34l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.7 1.7 0 00.34-1.87 1.7 1.7 0 00-1.56-1.04H4.5a2 2 0 110-4h.09a1.7 1.7 0 001.56-1.04 1.7 1.7 0 00-.34-1.87l-.06-.06a2 2 0 112.83-2.83l.06.06a1.7 1.7 0 001.87.34H10a1.7 1.7 0 001.04-1.56V4.5a2 2 0 114 0v.09a1.7 1.7 0 001.04 1.56 1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-.34 1.87V10a1.7 1.7 0 001.56 1.04h.09a2 2 0 110 4h-.09a1.7 1.7 0 00-1.56 1.04z"></path></svg>
+            </span>
+          </div>
+          <div style="position:absolute; left:0; right:0; top:0; bottom:74px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
+            <div style="width:96px; height:96px; border-radius:10px; overflow:hidden; box-shadow:0 12px 28px rgba(0,0,0,0.4); background-image:url('Screenshot 2026-07-27 at 23.15.29.png'); background-size:cover; background-position:center;"></div>
+            <div style="text-align:center; background:oklch(1 0 0 / 0.1); backdrop-filter:blur(16px); border:1px solid oklch(1 0 0 / 0.16); border-radius:12px; padding:10px 18px;">
+              <div style="font-size:14px; font-weight:500; color:#fff; margin-bottom:2px;">Mic Triggers for Deep Sleep</div>
+              <div style="font-size:11px; color:oklch(1 0 0 / 0.6);">Whispers &amp; Triggers ASMR</div>
+            </div>
+          </div>
+          <div style="position:absolute; left:0; right:0; bottom:74px; display:flex; justify-content:center;">
+            <span style="color:#fff; font-size:18px; padding:8px 16px; max-width:70%; text-align:center; line-height:1.45; text-shadow:0 1px 6px rgba(0,0,0,0.6);">"Just relax, and let the sounds do the rest."</span>
+          </div>
+          <div style="position:absolute; left:20px; right:20px; bottom:18px; display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M19 20L9 12l10-8v16z"></path><rect x="5" y="4" width="2.4" height="16"></rect></svg>
+              <span onClick="{{ togglePlay }}" style="width:32px; height:32px; border-radius:50%; background:oklch(1 0 0 / 0.14); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                <sc-if value="{{ isPlaying }}" hint-placeholder-val="{{ true }}">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><rect x="5" y="4" width="4" height="16"></rect><rect x="15" y="4" width="4" height="16"></rect></svg>
+                </sc-if>
+                <sc-if value="{{ isPaused }}" hint-placeholder-val="{{ false }}">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"></path></svg>
+                </sc-if>
+              </span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M5 4l10 8-10 8V4z"></path><rect x="16.6" y="4" width="2.4" height="16"></rect></svg>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:10px; color:oklch(1 0 0 / 0.65); flex-shrink:0;">{{ currentTimeLabel }}</span>
+              <div onClick="{{ seek }}" style="flex:1; height:2px; border-radius:2px; background:oklch(1 0 0 / 0.2); overflow:hidden; cursor:pointer;">
+                <div style="height:100%; width:{{ progressPercent }}; background:#fff;"></div>
+              </div>
+              <span style="font-size:10px; color:oklch(1 0 0 / 0.65); flex-shrink:0;">{{ durationLabel }}</span>
+            </div>
+          </div>
+          <span onClick="{{ toggleTranscript }}" style="position:absolute; bottom:96px; right:20px; display:flex; align-items:center; justify-content:center; width:28px; height:28px; color:oklch(1 0 0 / 0.85); background:oklch(1 0 0 / 0.08); backdrop-filter:blur(16px); border:1px solid oklch(1 0 0 / 0.16); border-radius:50%; cursor:pointer;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h9l4 4v12H6z"></path><path d="M9 11h6M9 15h6"></path></svg>
+          </span>
+
+          <sc-if value="{{ showTranscript }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; top:0; right:0; bottom:0; width:46%; background:oklch(0.06 0 0 / 0.88); backdrop-filter:blur(6px); padding:18px 16px; display:flex; flex-direction:column; gap:14px; overflow-y:auto;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:11px; letter-spacing:0.04em; text-transform:uppercase; color:oklch(1 0 0 / 0.6);">Transcript</span>
+                <div style="display:flex; align-items:center; gap:14px;">
+                  <span onClick="{{ copyTranscript }}" style="cursor:pointer; display:flex; align-items:center; gap:5px; color:oklch(1 0 0 / 0.6); font-size:10px; letter-spacing:0.03em; text-transform:uppercase;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="12" height="12" rx="1.5"></rect><path d="M5 16H4a1 1 0 01-1-1V5a1 1 0 011-1h10a1 1 0 011 1v1"></path></svg>
+                    <sc-if value="{{ copied }}" hint-placeholder-val="{{ false }}">Copied</sc-if>
+                    <sc-if value="{{ notCopied }}" hint-placeholder-val="{{ true }}">Copy</sc-if>
+                  </span>
+                  <span onClick="{{ toggleTranscript }}" style="cursor:pointer; color:oklch(1 0 0 / 0.6); font-size:14px; line-height:1;">✕</span>
+                </div>
+              </div>
+              <sc-for list="{{ transcriptLines }}" as="line" hint-placeholder-count="5">
+                <div style="display:flex; gap:10px;">
+                  <span style="font-size:10px; color:oklch(1 0 0 / 0.4); flex-shrink:0; padding-top:1px;">{{ line.time }}</span>
+                  <span style="font-size:12px; color:oklch(1 0 0 / 0.85); line-height:1.5;">{{ line.text }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ isSleep }}" hint-placeholder-val="{{ false }}">
+          <span onClick="{{ toggleSettings }}" style="position:absolute; top:18px; right:20px; width:26px; height:26px; border-radius:50%; background:oklch(1 0 0 / 0.08); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="oklch(1 0 0 / 0.5)" stroke-width="1.6"><path d="M12 9a3 3 0 100 6 3 3 0 000-6z"></path><path d="M19.4 13.5a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-1.87-.34 1.7 1.7 0 00-1.04 1.56V19a2 2 0 11-4 0v-.09a1.7 1.7 0 00-1.04-1.56 1.7 1.7 0 00-1.87.34l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.7 1.7 0 00.34-1.87 1.7 1.7 0 00-1.56-1.04H4.5a2 2 0 110-4h.09a1.7 1.7 0 001.56-1.04 1.7 1.7 0 00-.34-1.87l-.06-.06a2 2 0 112.83-2.83l.06.06a1.7 1.7 0 001.87.34H10a1.7 1.7 0 001.04-1.56V4.5a2 2 0 114 0v.09a1.7 1.7 0 001.04 1.56 1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-.34 1.87V10a1.7 1.7 0 001.56 1.04h.09a2 2 0 110 4h-.09a1.7 1.7 0 00-1.56 1.04z"></path></svg>
+          </span>
+          <span onClick="{{ togglePlay }}" style="position:absolute; right:20px; bottom:14px; width:28px; height:28px; border-radius:50%; background:oklch(1 0 0 / 0.1); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+            <sc-if value="{{ isPlaying }}" hint-placeholder-val="{{ true }}">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="oklch(1 0 0 / 0.6)"><rect x="6" y="5" width="4" height="14"></rect><rect x="14" y="5" width="4" height="14"></rect></svg>
+            </sc-if>
+            <sc-if value="{{ isPaused }}" hint-placeholder-val="{{ false }}">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="oklch(1 0 0 / 0.6)"><path d="M8 5v14l11-7z"></path></svg>
+            </sc-if>
+          </span>
+          <div style="position:absolute; left:20px; bottom:16px; display:flex; align-items:center; gap:10px;">
+            <span style="font-size:10px; letter-spacing:0.04em; text-transform:uppercase; color:oklch(1 0 0 / 0.4);">Sleeps in {{ sleepLabel }}</span>
+            <span onClick="{{ extendSleepTimer }}" style="font-size:10px; letter-spacing:0.04em; text-transform:uppercase; color:oklch(1 0 0 / 0.55); border:1px solid oklch(1 0 0 / 0.25); border-radius:999px; padding:3px 9px; cursor:pointer;">+15 min</span>
+          </div>
+          <div onClick="{{ seek }}" style="position:absolute; left:0; right:0; bottom:0; height:6px; background:oklch(1 0 0 / 0.08); overflow:hidden; cursor:pointer; display:flex; align-items:flex-end;">
+            <div style="height:2px; width:{{ progressPercent }}; background:oklch(1 0 0 / 0.3);"></div>
+          </div>
+        </sc-if>
+
+        <sc-for list="{{ annotations }}" as="note" hint-placeholder-count="3">
+          <div style="position:absolute; top:{{ note.top }}; left:{{ note.left }}; z-index:30;">
+            <span onClick="{{ note.onToggle }}" style="width:20px; height:20px; border-radius:50%; background:#E5262B; color:#fff; font-size:10.5px; font-weight:500; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 0 0 4px oklch(1 0 0 / 0.18); flex-shrink:0;">{{ note.number }}</span>
+            <sc-if value="{{ note.open }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; top:26px; left:0; width:180px; background:#fff; color:#14141a; font-size:11px; line-height:1.5; padding:10px 12px; border-radius:8px; box-shadow:0 14px 28px rgba(0,0,0,0.3);">{{ note.text }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+
+        <sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:52px; right:20px; width:160px; background:oklch(0.08 0 0 / 0.9); backdrop-filter:blur(10px); border-radius:10px; padding:6px; display:flex; flex-direction:column; gap:2px;">
+            <span style="font-size:9px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(1 0 0 / 0.4); padding:6px 10px 2px;">View mode</span>
+            <sc-for list="{{ settingsItems }}" as="item" hint-placeholder-count="4">
+              <span onClick="{{ item.onSelect }}" style="display:flex; align-items:center; justify-content:space-between; font-size:12px; color:#fff; padding:8px 10px; border-radius:6px; cursor:pointer;" style-hover="background:oklch(1 0 0 / 0.1);">
+                {{ item.label }}
+                <sc-if value="{{ item.isCurrent }}" hint-placeholder-val="{{ false }}">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12l5 5L20 7"></path></svg>
+                </sc-if>
+              </span>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+        <div style="display:flex; justify-content:center; padding-top:10px;"><span style="width:6px; height:6px; border-radius:50%; background:oklch(1 0 0 / 0.15);"></span></div>
+      </div>
+
+      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.6; color:oklch(0.35 0 0);">{{ player.description }}</p>
+
+
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; display:flex; flex-direction:column; gap:20px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both;">
+      <span style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">See It In The Room</span>
+      <h2 style="margin:0; font-weight:300; font-size:clamp(22px,2.8vw,32px); letter-spacing:-0.01em; line-height:1.15;">How each mode feels in a real space</h2>
+      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">Pick a mode to play its room recording.</p>
+
+      <div style="display:flex; gap:6px; background:oklch(0.94 0 0); border-radius:8px; padding:4px; width:fit-content; flex-wrap:wrap;">
+        <sc-for list="{{ modeTabs }}" as="tab" hint-placeholder-count="4">
+          <button onClick="{{ tab.onSelect }}" style="{{ tab.style }}">{{ tab.label }}</button>
+        </sc-for>
+      </div>
+
+      <div style="width:100%; aspect-ratio:16/9; border-radius:14px; overflow:hidden; background:#141821; position:relative;">
+        <sc-for list="{{ roomVideos }}" as="rv" hint-placeholder-count="4">
+          <video src="{{ rv.src }}" autoplay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsinline="{{ true }}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:{{ rv.opacity }}; transition:opacity 1s cubic-bezier(0.4,0,0.2,1); display:block;"></video>
+        </sc-for>
+      </div>
+      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.6; color:oklch(0.35 0 0);">{{ roomCaption }}</p>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mode: 'active', isPlaying: true, muted: true, hoverPlaylist: false, showTranscript: false, copied: false, liked: false, currentTime: 0, duration: 0, settingsOpen: false, sleepMinutesRemaining: 14.5, tutorialOpen: true, manualOpenId: null };
+  ANNOTATIONS = {
+    active: [
+      { top: '10%', left: '5%', text: 'Full channel identity + settings stay visible — everything expected for focused viewing.' },
+      { top: '46%', left: '68%', text: 'Rich up-next thumbnails — dense browsing is fine when someone is paying attention.' },
+      { top: '72%', left: '36%', text: 'Complete transport: scrub, skip, like, mute, share, fullscreen — nothing trimmed.' }
+    ],
+    ambient: [
+      { top: '12%', left: '52%', text: 'Warm, low-glare tint dims the room without going fully dark.' },
+      { top: '28%', left: '76%', text: 'One ghosted recommendation instead of a full rail — hover to reveal it.' },
+      { top: '80%', left: '18%', text: 'Just play/pause and a muted progress bar — nothing else competes for attention.' }
+    ],
+    audio: [
+      { top: '12%', left: '8%', text: 'Video steps back to a static thumbnail — nothing moving to glance at.' },
+      { top: '58%', left: '18%', text: 'Captions surface as large, readable text instead of small burned-in captions.' },
+      { top: '76%', left: '78%', text: 'Full transcript, one tap away, for scanning back through what was said.' }
+    ],
+    sleep: [
+      { top: '18%', left: '48%', text: 'Dimmed, not dark — video stays legible without lighting the room.' },
+      { top: '78%', left: '14%', text: 'An extendable sleep timer replaces the TV\u2019s auto-off, so playback ends on your terms.' },
+      { top: '68%', left: '80%', text: 'Only play/pause remains — every other control fades away.' }
+    ]
+  };
+  toggleAnnotation = (id) => this.setState((s) => ({ manualOpenId: s.manualOpenId === id ? null : id }));
+  startTutorial = () => {
+    clearTimeout(this._tutorialTimer);
+    this.setState({ tutorialOpen: true, manualOpenId: null });
+    this._tutorialTimer = setTimeout(() => this.setState({ tutorialOpen: false }), 4500);
+  };
+  extendSleepTimer = () => this.setState((s) => ({ sleepMinutesRemaining: Math.min(60, s.sleepMinutesRemaining + 15) }));
+  seek = (e) => {
+    const v = this.videoRef.current;
+    if (!v || !v.duration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    v.currentTime = ratio * v.duration;
+  };
+  skipBack = () => { const v = this.videoRef.current; if (!v) return; v.currentTime = Math.max(0, v.currentTime - 10); };
+  skipForward = () => { const v = this.videoRef.current; if (!v) return; v.currentTime = Math.min(v.duration || 0, v.currentTime + 10); };
+  toggleMute = () => { const v = this.videoRef.current; if (!v) return; v.muted = !v.muted; this.setState({ muted: v.muted }); };
+  toggleSettings = () => this.setState((s) => ({ settingsOpen: !s.settingsOpen }));
+  selectModeFromSettings = (key) => { this.setState({ mode: key, settingsOpen: false }); this.startTutorial(); };
+  toggleLike = () => this.setState((s) => ({ liked: !s.liked }));
+  videoRef = React.createRef();
+  ROOM_IMAGES = { active: 'room-active.png', ambient: 'room-ambient.png', audio: 'room-audio.png', sleep: 'room-sleep.png' };
+  ROOM_RECTS = {
+    active: { left: '37.6%', top: '21.7%', width: '34.4%', height: '33.9%' },
+    ambient: { left: '37.7%', top: '17%', width: '34.8%', height: '37%' },
+    audio: { left: '30.5%', top: '14.5%', width: '41%', height: '45%' },
+    sleep: { left: '37.5%', top: '17%', width: '35%', height: '37%' }
+  };
+  ROOM_VIDEOS = { active: 'room-active.webm', ambient: 'room-ambient.webm', audio: 'room-audio.webm', sleep: 'room-sleep.webm' };
+  ROOM_CAPTIONS = {
+    active: 'Bright, neutral daylight — the room reads normally, no mood applied.',
+    ambient: 'The overhead brightness drops, a corner lamp comes up warm — a background-viewing room, not a spotlighted one.',
+    audio: 'Most of the room fades toward dark; the screen itself becomes the dimmest thing in view since it isn\u2019t the focus.',
+    sleep: 'Near-dark, with just a faint warm ember of lamp glow — a room set up to fall asleep in, not to watch in.'
+  };
+
+  setPlaylistHover = (v) => this.setState({ hoverPlaylist: v });
+
+  componentDidMount() {
+    const v = this.videoRef.current;
+    if (!v) return;
+    v.loop = true;
+    v.addEventListener('play', () => this.setState({ isPlaying: true }));
+    v.addEventListener('pause', () => this.setState({ isPlaying: false }));
+    v.addEventListener('timeupdate', () => this.setState({ currentTime: v.currentTime, duration: v.duration || 0 }));
+    v.addEventListener('loadedmetadata', () => this.setState({ duration: v.duration }));
+    if (v.readyState >= 1) this.setState({ duration: v.duration });
+    this._tutorialTimer = setTimeout(() => this.setState({ tutorialOpen: false }), 4500);
+    this.playAllVideos();
+    setTimeout(this.playAllVideos, 500);
+  }
+  componentWillUnmount() { clearTimeout(this._tutorialTimer); }
+  componentDidUpdate() { this.playAllVideos(); }
+  playAllVideos = () => {
+    document.querySelectorAll('video').forEach((v) => { v.muted = true; v.play().catch(() => {}); });
+  };
+
+  fmtTime = (s) => {
+    if (!isFinite(s) || s < 0) s = 0;
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  };
+  toggleTranscript = () => this.setState((s) => ({ showTranscript: !s.showTranscript }));
+  copyTranscript = () => {
+    const text = this.TRANSCRIPT.map((l) => `${l.time}  ${l.text}`).join('\n');
+    if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
+    this.setState({ copied: true });
+    clearTimeout(this._copyTimer);
+    this._copyTimer = setTimeout(() => this.setState({ copied: false }), 1500);
+  };
+
+  TRANSCRIPT = [
+    { time: '0:00', text: 'Hi everyone, welcome back for another relaxing session.' },
+    { time: '0:24', text: 'Tonight we\u2019re starting with some soft tapping on wood.' },
+    { time: '1:10', text: 'Now moving into a slower scratching sound, up close.' },
+    { time: '2:02', text: 'Just relax, and let the sounds do the rest.' },
+    { time: '3:15', text: 'We\u2019ll finish with some gentle whispering to close out.' }
+  ];
+
+  togglePlay = () => {
+    const v = this.videoRef.current;
+    if (!v) return;
+    if (v.paused) { v.play(); this.setState({ isPlaying: true }); }
+    else { v.pause(); this.setState({ isPlaying: false }); }
+  };
+
+  MODES = {
+    active: {
+      label: 'Active', videoFilter: 'brightness(1) saturate(1)', scrim: 0,
+      description: 'Active — full chrome: channel identity, an up-next rail, and standard transport controls. The default state for focused watching.'
+    },
+    ambient: {
+      label: 'Ambient', videoFilter: 'brightness(0.7) saturate(1.15) hue-rotate(-8deg)', scrim: 0,
+      description: 'Ambient — a warm, low-glare glow with one ghosted recommendation instead of a full rail and a single glanceable play toggle. Built for background viewing while doing something else in the room.'
+    },
+    audio: {
+      label: 'Audio', videoFilter: 'brightness(0.4) saturate(0.35)', scrim: 0.35,
+      description: 'Audio — the video is replaced by a static thumbnail and title, captions step forward, and transcript access sits one tap away. Built for listening-first content.'
+    },
+    sleep: {
+      label: 'Sleep', videoFilter: 'brightness(0.75) saturate(0.75)', scrim: 0.12,
+      description: 'Sleep — dimmed just enough to stay easy on the eyes at night while the video stays clearly watchable, with an extendable sleep timer standing in for the TV\'s own auto-off, and only a hairline progress track left. Built for drifting off with something on.'
+    }
+  };
+
+  selectMode = (key) => { this.setState({ mode: key }); this.startTutorial(); };
+
+  renderVals() {
+    const { mode } = this.state;
+    const player = this.MODES[mode];
+    const modeTabs = Object.keys(this.MODES).map((key) => {
+      const active = key === mode;
+      return {
+        label: this.MODES[key].label,
+        onSelect: () => this.selectMode(key),
+        style: {
+          all: 'unset', cursor: 'pointer', fontSize: '12px', fontWeight: 500, padding: '8px 16px', borderRadius: '6px',
+          background: active ? '#fff' : 'transparent', color: active ? '#171018' : 'oklch(0.45 0 0)',
+          boxShadow: active ? '0 2px 6px rgba(0,0,0,0.12)' : 'none'
+        }
+      };
+    });
+    const settingsItems = Object.keys(this.MODES).map((key) => ({
+      label: this.MODES[key].label, isCurrent: key === mode,
+      onSelect: () => this.selectModeFromSettings(key)
+    }));
+    return {
+      modeTabs, player, settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, settingsItems,
+      isActive: mode === 'active', isAmbient: mode === 'ambient', isAudio: mode === 'audio', isSleep: mode === 'sleep',
+      isPlaying: this.state.isPlaying, isPaused: !this.state.isPlaying, videoRef: this.videoRef, togglePlay: this.togglePlay,
+      onPlaylistEnter: () => this.setPlaylistHover(true), onPlaylistLeave: () => this.setPlaylistHover(false),
+      playlistOpacity: this.state.hoverPlaylist ? 1 : 0.18, playlistBlur: this.state.hoverPlaylist ? '0px' : '2px',
+      playlistBg: this.state.hoverPlaylist ? 'oklch(0.08 0 0 / 0.7)' : 'transparent',
+      showTranscript: this.state.showTranscript, toggleTranscript: this.toggleTranscript, transcriptLines: this.TRANSCRIPT,
+      copyTranscript: this.copyTranscript, copied: this.state.copied, notCopied: !this.state.copied,
+      toggleLike: this.toggleLike, liked: this.state.liked, notLiked: !this.state.liked,
+      progressPercent: this.state.duration ? (this.state.currentTime / this.state.duration * 100) + '%' : '0%',
+      currentTimeLabel: this.fmtTime(this.state.currentTime), durationLabel: this.fmtTime(this.state.duration),
+      upNextCards: [
+        { image: 'Screenshot 2026-07-27 at 23.05.18.png', title: 'Neon Static Triggers', subtitle: '18:40' },
+        { image: 'Screenshot 2026-07-27 at 23.05.52.png', title: 'Ink & Shadow Whispers', subtitle: '24:12' },
+        { image: 'Screenshot 2026-07-27 at 23.06.27.png', title: 'Projected Light Tapping', subtitle: '21:05' }
+      ],
+      sleepLabel: this.fmtTime(this.state.sleepMinutesRemaining * 60), extendSleepTimer: this.extendSleepTimer,
+      seek: this.seek, skipBack: this.skipBack, skipForward: this.skipForward, toggleMute: this.toggleMute,
+      isMuted: this.state.muted, isUnmuted: !this.state.muted,
+      startTutorial: this.startTutorial, roomCaption: this.ROOM_CAPTIONS[mode], notAudio: mode !== 'audio',
+      roomVideos: Object.keys(this.ROOM_VIDEOS).map((key) => ({ key, src: this.ROOM_VIDEOS[key], opacity: mode === key ? 1 : 0 })),
+      roomRect: this.ROOM_RECTS[mode],
+      annotations: this.ANNOTATIONS[mode].map((a, i) => ({
+        ...a, number: i + 1,
+        open: this.state.tutorialOpen || this.state.manualOpenId === (mode + i),
+        onToggle: () => this.toggleAnnotation(mode + i)
+      })),
+      waveformBars: [40, 70, 45, 90, 55, 75, 35, 60, 50].map((h, i) => ({ height: h + '%', delay: (i * 0.12) + 's' }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>
