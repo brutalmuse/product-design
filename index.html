@@ -157,7 +157,7 @@ class Component extends DCLogic {
       return {
         ...c,
         ariaLabel: `${c.number} — ${c.title}. ${c.description}`,
-        rightBorder: `1px solid ${ink}`,
+        rightBorder: i === 1 ? 'none' : `1px solid ${ink}`,
         background: isActive ? pulseColor : 'transparent',
         textColor: ink,
         numberColor: isActive ? ink : 'oklch(0.4 0 0)',
