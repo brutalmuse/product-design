@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../js/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../js/image-slot.js"></script>
+<script src="../js/cursor-dot.js"></script>
+<style>
+  html, body { margin:0; padding:0; box-sizing:border-box; cursor:none; }
+  *, *::before, *::after { box-sizing:inherit; }
+  a, button, [draggable="true"], [role="button"] { cursor:none; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+  }
+  @keyframes hcc-in { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes rl-ping { 0% { transform:scale(1); opacity:0.55; } 100% { transform:scale(3.2); opacity:0; } }
+  @keyframes rl-fade { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes rl-glow { 0%,100% { box-shadow:0 0 0 0 rgba(0,120,212,0.45); } 50% { box-shadow:0 0 0 7px rgba(0,120,212,0); } }
+</style>
+</helmet>
+
+<div style="min-height:100vh; width:100%; background:oklch(0.985 0.002 90); color:oklch(0.12 0 0); font-family:Helvetica,Arial,sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; padding:clamp(16px,2.4vh,28px) clamp(20px,3vw,40px) clamp(80px,10vh,120px);">
+
+    <header style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-bottom:clamp(16px,2.4vh,28px); border-bottom:1px solid oklch(0.12 0 0); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both;">
+      <a href="human-centred-concepts.html" style="display:flex; align-items:center; gap:10px; color:inherit; text-decoration:none; font-weight:500; font-size:clamp(16px,1.6vw,20px); letter-spacing:-0.8px;" style-hover="color:#0078D4;" style-focus="outline:2px solid currentColor; outline-offset:3px;">
+        <span aria-hidden="true">←</span> 01 — Human-Centred Concepts
+      </a>
+      <nav style="display:flex; gap:18px; font-size:12px; letter-spacing:0.05em; text-transform:uppercase;">
+        <a href="https://www.linkedin.com/in/shruthi" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:#0078D4; color:#0078D4;" style-focus="outline:2px solid currentColor; outline-offset:3px;">LinkedIn ↗</a>
+        <a href="mailto:hello@brutalmuse.studio" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:#0078D4; color:#0078D4;" style-focus="outline:2px solid currentColor; outline-offset:3px;">Email ↗</a>
+      </nav>
+    </header>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0 clamp(24px,3.5vh,40px); border-bottom:1px solid oklch(0.12 0 0); display:flex; flex-direction:column; gap:16px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.2s;">
+      <span style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">03 — Human-Centred Concepts</span>
+      <h1 style="margin:0; font-weight:300; font-size:clamp(32px,5.4vw,64px); letter-spacing:-0.01em; line-height:1.02;">Reading Layers <span style="color:#000;">for Outlook</span></h1>
+      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.55; color:oklch(0.3 0 0);">A speculative concept for Outlook's composer: a calm, monochrome way to show what matters in an email — without adding more bold, colour, or clutter.</p>
+      <div style="display:flex; gap:28px; flex-wrap:wrap; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0); padding-top:6px;">
+        <span>Role: Product Designer</span>
+        <span>Year: 2026</span>
+        <span>Type: Independent Concept</span>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.5s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Observation</h2>
+      <div style="display:flex; flex-direction:column; gap:16px; max-width:68ch;">
+        <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">Writing a long email, I kept reaching for bold, italics, underline, bullet points, and extra spacing to explain what mattered most. The more I used, the noisier the email got — and the harder it became to tell what actually needed attention versus what was just there for context.</p>
+        <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">This is a small, independent product-design concept exploring that one moment — not a shipped Microsoft feature, and not based on formal user research.</p>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0 0; display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.6s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">The Problem</h2>
+      <div style="display:flex; flex-direction:column; gap:16px; max-width:100%; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">
+        <p style="margin:0; max-width:90ch;">Outlook gives writers plenty of formatting tools, but no shared sense of hierarchy. So everyone invents their own: some bold the deadline, some underline it too, some add a bracketed aside in italics "just in case." Stack enough of these decisions in one email and every sentence starts competing for the same amount of attention.</p>
+        <p style="margin:0; max-width:90ch;">The reader has to decode formatting choices instead of just reading the message — and the writer has no simple way to say "this matters more" or "this is just context" without reaching for more emphasis.</p>
+      </div>
+    </div>
+
+    <div style="padding:24px 0 clamp(28px,4.5vh,56px); border-bottom:1px solid oklch(0.12 0 0); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.65s;">
+      <div style="border-radius:14px; overflow:hidden; box-shadow:0 24px 56px -26px rgba(0,0,0,0.4); background:linear-gradient(150deg, oklch(0.8 0.06 250) 0%, oklch(0.62 0.09 260) 55%, oklch(0.5 0.08 265) 100%); margin-top:4px; width:100%;">
+          <div style="height:24px; display:flex; align-items:center; justify-content:space-between; padding:0 14px; background:rgba(255,255,255,0.55); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); font-size:10px;">
+            <div style="display:flex; align-items:center; gap:12px; color:oklch(0.2 0 0);">
+              <span style="font-size:8px;">●</span>
+              <span style="font-weight:700;">Outlook</span>
+              <span style="font-weight:300; color:oklch(0.4 0 0);">File</span>
+              <span style="font-weight:300; color:oklch(0.4 0 0);">Edit</span>
+              <span style="font-weight:300; color:oklch(0.4 0 0);">View</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; color:oklch(0.35 0 0); font-weight:300;">
+              <span style="display:flex;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 8.5a16 16 0 0120 0"></path><path d="M5.5 12.5a11 11 0 0113 0"></path><path d="M9 16.5a6 6 0 016 0"></path><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"></circle></svg></span>
+              <span>9:41</span>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:center; padding:24px 20px 28px;">
+          <div style="border-radius:6px; overflow:hidden; background:#fff; box-shadow:0 16px 32px -20px rgba(0,0,0,0.4); width:100%; font-family:Helvetica,Arial,sans-serif;">
+            <div style="display:flex; align-items:center; padding:6px 10px; background:#f3f2f1; border-bottom:1px solid oklch(0.88 0 0);">
+              <x-import component-from-global-scope="MacTrafficLights" from="../js/macos-window.jsx" hint-size="46,14"></x-import>
+            </div>
+          <div style="display:flex; align-items:center; gap:14px; padding:7px 14px; background:#0F6CBD;">
+            <span style="display:grid; grid-template-columns:repeat(3,3px); gap:2px;"><span style="width:3px; height:3px; background:#fff; opacity:0.85;"></span><span style="width:3px; height:3px; background:#fff; opacity:0.85;"></span><span style="width:3px; height:3px; background:#fff; opacity:0.85;"></span><span style="width:3px; height:3px; background:#fff; opacity:0.85;"></span><span style="width:3px; height:3px; background:#fff; opacity:0.85;"></span><span style="width:3px; height:3px; background:#fff; opacity:0.85;"></span><span style="width:3px; height:3px; background:#fff; opacity:0.85;"></span><span style="width:3px; height:3px; background:#fff; opacity:0.85;"></span><span style="width:3px; height:3px; background:#fff; opacity:0.85;"></span></span>
+            <span style="font-size:13px; font-weight:500; color:#fff;">Outlook</span>
+            <span style="flex:1; max-width:280px; display:flex; align-items:center; gap:6px; background:rgba(255,255,255,0.15); border-radius:5px; padding:4px 10px;">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="10" cy="10" r="7"></circle><path d="M20 20l-4.5-4.5"></path></svg>
+              <span style="font-size:11px; color:rgba(255,255,255,0.85);">Search</span>
+            </span>
+            <span style="flex:1;"></span>
+            <span style="width:16px; height:16px; border-radius:3px; background:rgba(255,255,255,0.2);"></span>
+          </div>
+          <div style="display:flex; align-items:center; gap:16px; padding:6px 14px; background:#fff; border-bottom:1px solid oklch(0.88 0 0); font-size:11px; color:oklch(0.4 0 0);">
+            <span>File</span>
+            <span style="color:#0078D4; font-weight:500; border-bottom:2px solid #0078D4; padding-bottom:5px;">Home</span>
+            <span>View</span>
+            <span>Help</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:18px; padding:7px 14px; background:#faf9f8; border-bottom:1px solid oklch(0.88 0 0); font-size:10px; color:oklch(0.4 0 0);">
+            <span style="display:flex; align-items:center; gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z"></path><path d="M4 9h16"></path></svg>View settings</span>
+            <span style="display:flex; align-items:center; gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h16v12H4z"></path><path d="M4 7l8 6 8-6"></path></svg>Messages</span>
+            <span style="display:flex; align-items:center; gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10" cy="10" r="7"></circle><path d="M20 20l-4.5-4.5"></path></svg>Zoom</span>
+            <span style="display:flex; align-items:center; gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="7" height="16"></rect><rect x="13" y="4" width="7" height="7"></rect></svg>Layout</span>
+          </div>
+          <div style="display:flex;">
+            <div style="width:38px; flex-shrink:0; background:#faf9f8; border-right:1px solid oklch(0.9 0 0); display:flex; flex-direction:column; align-items:center; gap:16px; padding:12px 0;">
+              <span style="color:#0078D4;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"></path><path d="M4 7l8 6 8-6"></path></svg></span>
+              <span style="color:oklch(0.6 0 0);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="1.5"></rect><path d="M4 9h16"></path></svg></span>
+              <span style="color:oklch(0.6 0 0);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"></circle><path d="M5 20c1.5-4 5-5 7-5s5.5 1 7 5"></path></svg></span>
+              <span style="color:oklch(0.6 0 0);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4 10-10"></path></svg></span>
+            </div>
+            <div style="width:150px; flex-shrink:0; background:#faf9f8; border-right:1px solid oklch(0.9 0 0); padding:12px 12px; display:flex; flex-direction:column; gap:8px; font-size:11px; color:oklch(0.35 0 0);">
+              <span style="font-weight:500; color:oklch(0.2 0 0);">Favorites</span>
+              <span style="display:flex; justify-content:space-between; color:#0078D4; font-weight:500;">Inbox <span>24</span></span>
+              <span>Sent Items</span>
+              <span>Drafts</span>
+              <span style="margin-top:8px; font-weight:500; color:oklch(0.2 0 0);">design-team@co…</span>
+            </div>
+            <div style="width:220px; flex-shrink:0; border-right:1px solid oklch(0.9 0 0); display:flex; flex-direction:column; overflow:hidden;">
+              <div style="display:flex; gap:14px; padding:8px 12px; font-size:11px; color:oklch(0.4 0 0); border-bottom:1px solid oklch(0.9 0 0);"><span style="color:oklch(0.1 0 0); font-weight:500; border-bottom:2px solid #0078D4; padding-bottom:5px;">Focused</span><span>Other</span></div>
+              <div style="background:oklch(0.95 0.02 250); border-left:3px solid #0078D4; padding:8px 12px; display:flex; flex-direction:column; gap:2px;">
+                <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="font-weight:500; color:oklch(0.1 0 0);">Sam Rivera</span><span style="color:oklch(0.5 0 0);">1:45 PM</span></div>
+                <span style="font-size:10.5px; font-weight:500; color:oklch(0.15 0 0);">Q3 Launch Readiness — Action…</span>
+                <span style="font-size:10px; color:oklch(0.5 0 0); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Quick update on Q3 launch readiness…</span>
+              </div>
+              <div style="padding:8px 12px; display:flex; flex-direction:column; gap:2px; border-top:1px solid oklch(0.93 0 0);">
+                <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:oklch(0.2 0 0);">Jordan Lee</span><span style="color:oklch(0.5 0 0);">11:20 AM</span></div>
+                <span style="font-size:10.5px; color:oklch(0.3 0 0);">Re: Staging environment</span>
+                <span style="font-size:10px; color:oklch(0.5 0 0); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Confirmed — locking 8/5 morn…</span>
+              </div>
+              <div style="padding:8px 12px; display:flex; flex-direction:column; gap:2px; border-top:1px solid oklch(0.93 0 0);">
+                <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:oklch(0.2 0 0);">Design Team</span><span style="color:oklch(0.5 0 0);">Yesterday</span></div>
+                <span style="font-size:10.5px; color:oklch(0.3 0 0);">Asset export status</span>
+                <span style="font-size:10px; color:oklch(0.5 0 0); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Final exports queued for 8/7…</span>
+              </div>
+            </div>
+            <div style="flex:1; display:flex; flex-direction:column;">
+              <div style="padding:14px 20px 10px; border-bottom:1px solid oklch(0.9 0 0);">
+                <div style="font-size:14px; font-weight:500; color:oklch(0.1 0 0); margin-bottom:8px;">Q3 Launch Readiness — Action Needed by 8/7</div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span style="width:26px; height:26px; border-radius:50%; background:#0078D4; color:#fff; font-size:10px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">SR</span>
+                  <div style="display:flex; flex-direction:column;">
+                    <span style="font-size:11.5px; color:oklch(0.15 0 0);">Sam Rivera</span>
+                    <span style="font-size:10px; color:oklch(0.5 0 0);">To: design-team@company.com</span>
+                  </div>
+                  <span style="flex:1;"></span>
+                  <span style="display:flex; align-items:center; gap:4px; font-size:10.5px; color:#0078D4;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6L3 12l6 6"></path><path d="M3 12h13a5 5 0 000-10"></path></svg>Reply</span>
+                </div>
+              </div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:9px; padding:14px 20px; font-size:11.5px; line-height:1.65; color:oklch(0.12 0 0); font-weight:300;">
+                <p style="margin:0;">Hi team,</p>
+                <p style="margin:0;"><strong style="font-weight:500; color:#c0362c;">Urgent</strong> — <strong style="font-weight:500;">quick update</strong> on the <u>Q3 launch</u> — we're <em>mostly</em> on track, but <strong style="font-weight:500;"><u>a few things need attention</u></strong> <span style="background:#fdf1a8; padding:0 2px;">this week</span>.</p>
+                <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:3px;">
+                  <li><strong style="font-weight:500;">Engineering:</strong> confirm staging is locked by <u>8/5</u></li>
+                  <li><strong style="font-weight:500;">Design:</strong> final assets due <u><em>8/7, 10am</em></u></li>
+                  <li><strong style="font-weight:500;">Marketing:</strong> <em>(optional)</em> social copy — no rush</li>
+                </ul>
+                <p style="margin:0;">Here's where things stand:</p>
+                <div style="border:1px solid oklch(0.85 0 0); border-radius:4px; overflow:hidden; font-size:11px;">
+                  <div style="display:grid; grid-template-columns:1.4fr 1fr 0.8fr; background:oklch(0.96 0 0); font-weight:500; padding:5px 10px;"><span>Item</span><span>Owner</span><span>Due</span></div>
+                  <div style="display:grid; grid-template-columns:1.4fr 1fr 0.8fr; padding:5px 10px; border-top:1px solid oklch(0.9 0 0);"><span>Staging lock</span><span>Engineering</span><span style="color:#c0362c; font-weight:500;"><u>8/5</u></span></div>
+                  <div style="display:grid; grid-template-columns:1.4fr 1fr 0.8fr; padding:5px 10px; border-top:1px solid oklch(0.9 0 0);"><span>Asset export</span><span>Design</span><span><u>8/7</u></span></div>
+                  <div style="display:grid; grid-template-columns:1.4fr 1fr 0.8fr; padding:5px 10px; border-top:1px solid oklch(0.9 0 0);"><span>Social copy</span><span>Marketing</span><span><em>(optional)</em></span></div>
+                </div>
+                <p style="margin:0;"><em>(Reminder: the launch retro is still TBD — I'll send a separate invite once dates are confirmed.)</em></p>
+                <p style="margin:14px 0;"><strong style="font-weight:500; color:#c0362c;"><u>Please confirm your part by EOD 8/6.</u></strong></p>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+        </div>
+      <span style="font-size:11px; line-height:1.5; color:oklch(0.5 0 0); margin-top:20px; display:block;">A real sentence, formatted the way most of us actually write under pressure — bold, underline, and italics all doing the same job at once.</span>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.7s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Design Question</h2>
+      <p style="margin:0; max-width:68ch; font-size:12px; font-weight:300; line-height:1.4; color:oklch(0.15 0 0);">How might Outlook help writers create clear visual hierarchy in an email without filling it with more competing formatting?</p>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.8s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">The Concept</h2>
+      <div style="display:flex; flex-direction:column; gap:32px; max-width:100%;">
+        <p style="margin:0; max-width:68ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">Reading Layers adds one optional hierarchy system alongside Outlook's existing formatting: three tonal levels a writer can assign to any selection, based on how important it is — not how it should look.</p>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+          <div style="border:1px solid #000; border-radius:10px; padding:26px; display:flex; flex-direction:column; gap:10px;">
+            <span style="font-size:11.5px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; color:#0078D4;">Primary</span>
+            <span style="font-size:11.5px; line-height:1.5; color:oklch(0.3 0 0);">The main message, action, or deadline. Highest contrast, unmissable.</span>
+            <div style="margin-top:auto; padding:14px 16px; border-radius:8px; background:oklch(0.95 0.025 250); transition:transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease;" style-hover="transform:translateY(-2px); box-shadow:0 8px 20px -10px rgba(0,120,212,0.35);"><span style="font-size:17px; font-weight:500; color:oklch(0.15 0 0);">Reply needed by Friday.</span></div>
+          </div>
+          <div style="border:1px solid #000; border-radius:10px; padding:26px; display:flex; flex-direction:column; gap:10px;">
+            <span style="font-size:11.5px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; color:#0078D4;">Standard</span>
+            <span style="font-size:11.5px; line-height:1.5; color:oklch(0.3 0 0);">The main body of the email. The default, readable tone.</span>
+            <div style="margin-top:auto; padding:14px 16px; border-radius:8px; background:oklch(0.97 0 0); transition:transform 0.25s cubic-bezier(0.16,1,0.3,1), background 0.25s ease;" style-hover="transform:translateY(-2px); background:oklch(0.95 0 0);"><span style="font-size:14.5px; font-weight:300; color:oklch(0.32 0 0);">Here's the plan for next week.</span></div>
+          </div>
+          <div style="border:1px solid #000; border-radius:10px; padding:26px; display:flex; flex-direction:column; gap:10px;">
+            <span style="font-size:11.5px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; color:#0078D4;">Supporting</span>
+            <span style="font-size:11.5px; line-height:1.5; color:oklch(0.3 0 0);">Context, asides, references — present, but clearly secondary.</span>
+            <div style="margin-top:auto; padding:14px 16px 14px 18px; border-left:3px solid oklch(0.75 0 0); border-radius:0 8px 8px 0; background:oklch(0.96 0 0); transition:transform 0.25s cubic-bezier(0.16,1,0.3,1), border-color 0.25s ease;" style-hover="transform:translateY(-2px); border-left-color:#0078D4;"><span style="font-size:13px; font-weight:300; font-style:italic; color:oklch(0.42 0 0);">(Optional: see attached notes.)</span></div>
+          </div>
+        </div>
+        <p style="margin:0; font-size:11.5px; line-height:1.6; color:oklch(0.4 0 0);">Bold, italics, underline, and bullet points remain exactly where they are. Reading Layers sits alongside them as a hierarchy system, not a replacement.</p>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.85s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Interaction Model</h2>
+      <div style="display:grid; grid-template-columns:1fr; gap:28px; max-width:100%;">
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.95 0.02 250); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:13px; font-weight:500; color:#0078D4;">1</span>
+          <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:center;">
+            <div>
+              <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Just type the email</h3>
+              <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">No selecting, no tagging as you go. Write the way you always do — bold, bullets, and all — with zero extra steps while composing.</p>
+            </div>
+            <div style="display:inline-flex; flex-direction:column; gap:6px; padding:10px 12px; background:oklch(0.97 0 0); border-radius:8px; width:fit-content;">
+              <span style="font-size:11.5px; color:oklch(0.3 0 0);">Hi team, quick update on the launch…</span>
+              <span style="font-size:11.5px; color:oklch(0.3 0 0);"><strong style="font-weight:500;">confirm staging is locked by 8/5</strong></span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.95 0.02 250); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:13px; font-weight:500; color:#0078D4;">2</span>
+          <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:center;">
+            <div>
+              <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">One click: Auto-balance</h3>
+              <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">When it's ready, Outlook reads the whole message and assigns Primary, Standard, and Supporting automatically — no line-by-line work required.</p>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; padding:8px 12px; background:oklch(0.95 0.03 250); border-radius:8px; width:fit-content;">
+              <span style="font-size:11px; color:oklch(0.25 0.03 250);">Balanced — updated 2 lines for a calmer hierarchy.</span>
+              <span style="font-size:12px; color:oklch(0.5 0.03 250);">✕</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.95 0.02 250); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:13px; font-weight:500; color:#0078D4;">3</span>
+          <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:center;">
+            <div>
+              <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Preview, never surprise</h3>
+              <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">Light, dark, and an accessible fallback view are one tap away, so the hierarchy can be checked the way a recipient will actually see it.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.9s;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Accessibility</h2>
+      <div style="display:flex; flex-direction:column; gap:26px; max-width:68ch;">
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.95 0.02 250); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 010 18z" fill="#0078D4" stroke="none"></path></svg></span>
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Contrast is never sacrificed</h3>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">Supporting text stays within accessible contrast ratios. Hierarchy comes from size, weight, spacing, and a subtle side marker — not from making text harder to read.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.95 0.02 250); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.7" stroke-linecap="round"><rect x="4" y="4" width="6" height="6"></rect><circle cx="17" cy="7" r="3"></circle><path d="M4 18l6-8 4 5 3-3 3 6"></path></svg></span>
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Colour is never the only signal</h3>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">A left-edge marker on Supporting text, plus a wider background-fill and font-size spread in the accessible view, mean the hierarchy still reads for anyone who can't rely on colour or subtle contrast.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.95 0.02 250); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="1.7"><path d="M4 6h16v12H4z"></path><path d="M4 6l8 7 8-7"></path></svg></span>
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Falls back cleanly</h3>
+            <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">Recipients on other clients see standard formatted text — bold, italics, bullets — with no broken layout. Reading Layers is a sender-side view, not a dependency.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="try-it" style="padding:clamp(28px,4.5vh,56px) 0; display:flex; flex-direction:column; gap:20px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:1s;">
+      <h2 style="margin:0; font-weight:300; font-size:clamp(22px,2.8vw,32px); letter-spacing:-0.01em; line-height:1.15;">Try assigning hierarchy to a real email</h2>
+      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">Type as normal, then click "Auto-balance" to assign the hierarchy in one go. Select any line to override it, preview in Light, Dark, or Accessible, or reset at any time.</p>
+      <span style="display:inline-flex; align-items:center; gap:8px; width:fit-content; font-size:12px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:#0078D4; background:transparent; border:1px solid oklch(0.85 0.05 250); border-radius:999px; padding:6px 14px;"><span style="position:relative; display:inline-flex; width:6px; height:6px; flex-shrink:0;"><span style="position:absolute; inset:0; border-radius:50%; background:#0078D4; animation:rl-ping 1.8s cubic-bezier(0,0,0.2,1) infinite;"></span><span style="position:relative; width:6px; height:6px; border-radius:50%; background:#0078D4;"></span></span>Try It — Live Prototype</span>
+
+      <div style="display:flex; gap:6px; background:oklch(0.94 0 0); border-radius:8px; padding:4px; width:fit-content; flex-wrap:wrap;">
+        <sc-for list="{{ modeTabs }}" as="tab" hint-placeholder-count="3">
+          <button onClick="{{ tab.onSelect }}" style="{{ tab.style }}">
+            <sc-if value="{{ tab.showIcon }}" hint-placeholder-val="{{ false }}">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><circle cx="17.5" cy="17.5" r="4" fill="#0078D4" stroke="none"></circle></svg>
+            </sc-if>
+            {{ tab.label }}
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="border-radius:16px; overflow:hidden; box-shadow:0 24px 60px -30px rgba(0,0,0,0.35); background:linear-gradient(150deg, oklch(0.8 0.06 250) 0%, oklch(0.62 0.09 260) 55%, oklch(0.5 0.08 265) 100%); margin-top:28px;">
+        <div style="height:26px; display:flex; align-items:center; justify-content:space-between; padding:0 16px; background:rgba(255,255,255,0.55); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); font-size:11px;">
+          <div style="display:flex; align-items:center; gap:14px; color:oklch(0.2 0 0);">
+            <span style="font-size:9px;">●</span>
+            <span style="font-weight:700;">Outlook</span>
+            <span style="font-weight:300; color:oklch(0.4 0 0);">File</span>
+            <span style="font-weight:300; color:oklch(0.4 0 0);">Edit</span>
+            <span style="font-weight:300; color:oklch(0.4 0 0);">View</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px; color:oklch(0.35 0 0); font-weight:300;">
+            <span style="display:flex;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 8.5a16 16 0 0120 0"></path><path d="M5.5 12.5a11 11 0 0113 0"></path><path d="M9 16.5a6 6 0 016 0"></path><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"></circle></svg></span>
+            <span>9:41</span>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:center; padding:32px 20px 40px;">
+        <div style="{{ composerShellStyle }}">
+        <div style="{{ composerTitlebarStyle }}">
+          <x-import component-from-global-scope="MacTrafficLights" from="../js/macos-window.jsx" hint-size="46,14"></x-import>
+          <span style="{{ composerTitleTextStyle }}">New Message</span>
+          <sc-if value="{{ isComposing }}" hint-placeholder-val="{{ true }}">
+            <span onClick="{{ reset }}" style="font-size:10.5px; letter-spacing:0.04em; text-transform:uppercase; color:#0078D4; cursor:pointer; padding:4px 8px; border:1px solid oklch(0.75 0.06 250); border-radius:999px;">Reset</span>
+          </sc-if>
+        </div>
+
+        <div style="{{ composerFieldsStyle }}">
+          <div style="display:flex; align-items:center; gap:8px; font-size:11.5px;"><span style="{{ composerLabelStyle }}">To</span><span style="{{ recipientChipStyle }}"><span style="{{ avatarStyle }}">DT</span>design-team@company.com</span></div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:11.5px;"><span style="{{ composerLabelStyle }}">Subject</span><span style="{{ composerSubjectStyle }}">Q3 Launch Readiness — Action Needed by 8/7</span></div>
+        </div>
+
+        <sc-if value="{{ isComposing }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ composerRibbonStyle }}">
+          <span style="{{ ribbonIconStyle }}"><strong>B</strong></span>
+          <span style="{{ ribbonIconStyle }}"><em>I</em></span>
+          <span style="{{ ribbonIconStyle }}"><span style="text-decoration:underline;">U</span></span>
+          <span style="{{ ribbonIconStyle }}">☰</span>
+          <span style="width:1px; height:16px; background:oklch(0.8 0 0); margin:0 4px;"></span>
+          <span onClick="{{ balanceEmail }}" style="font-size:11px; font-weight:500; letter-spacing:0.02em; color:#0078D4; cursor:pointer; padding:5px 10px; border-radius:6px; border:1px solid oklch(0.75 0.06 250); animation:rl-glow 2.2s ease-in-out infinite;">Auto-balance</span>
+          <span onClick="{{ togglePreview }}" style="font-size:11px; font-weight:500; letter-spacing:0.02em; color:oklch(0.4 0 0); cursor:pointer; padding:5px 10px; border-radius:6px; border:1px solid oklch(0.8 0 0); margin-left:auto;">Preview email</span>
+        </div>
+        </sc-if>
+        <sc-if value="{{ isPreview }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 16px; background:oklch(0.96 0 0); border-bottom:1px solid oklch(0.9 0 0);">
+            <span style="font-size:10.5px; letter-spacing:0.04em; text-transform:uppercase; color:oklch(0.45 0 0);">Preview — as the recipient will see it</span>
+            <span onClick="{{ togglePreview }}" style="font-size:10.5px; letter-spacing:0.04em; text-transform:uppercase; color:#0078D4; cursor:pointer; padding:4px 8px; border:1px solid oklch(0.75 0.06 250); border-radius:999px;">Back to Editing</span>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ balanceOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:10px 16px; background:oklch(0.95 0.03 250); border-bottom:1px solid oklch(0.85 0.05 250); animation:rl-fade 0.3s ease both;">
+            <span style="font-size:11.5px; color:oklch(0.25 0.03 250); line-height:1.5;">{{ balanceMessage }}</span>
+            <span onClick="{{ dismissBalanceBanner }}" style="font-size:14px; color:oklch(0.5 0.03 250); cursor:pointer; line-height:1; flex-shrink:0;">✕</span>
+          </div>
+        </sc-if>
+
+        <div style="{{ composerBodyStyle }}">
+          <sc-for list="{{ blocks }}" as="block" hint-placeholder-count="7">
+            <div onClick="{{ block.onSelect }}" style="{{ block.wrapStyle }}">
+              <sc-if value="{{ block.suggestedFlag }}" hint-placeholder-val="{{ false }}">
+                <span style="position:absolute; top:-9px; right:0; font-size:9px; letter-spacing:0.04em; text-transform:uppercase; color:#0078D4; background:#fff; border:1px solid #0078D4; border-radius:999px; padding:2px 8px;">Suggests {{ block.suggestedLabel }}</span>
+              </sc-if>
+              <sc-if value="{{ block.isBullets }}" hint-placeholder-val="{{ false }}">
+                <ul style="margin:0; padding-left:16px; display:flex; flex-direction:column; gap:6px;">
+                  <sc-for list="{{ block.items }}" as="item" hint-placeholder-count="3">
+                    <li style="{{ block.textStyle }}">
+                      <sc-for list="{{ item.parts }}" as="p" hint-placeholder-count="2">
+                        <span style="{{ p.style }}">{{ p.text }}</span>
+                      </sc-for>
+                    </li>
+                  </sc-for>
+                </ul>
+              </sc-if>
+              <sc-if value="{{ block.isParagraph }}" hint-placeholder-val="{{ true }}">
+                <p style="{{ block.textStyle }}">
+                  <sc-for list="{{ block.parts }}" as="p" hint-placeholder-count="3">
+                    <span style="{{ p.style }}">{{ p.text }}</span>
+                  </sc-for>
+                </p>
+              </sc-if>
+
+              <sc-if value="{{ block.selected }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-top:8px; padding:6px; background:oklch(0.97 0 0); border-radius:8px; width:fit-content; animation:rl-fade 0.2s ease both;" onClick="{{ stop }}">
+                  <sc-for list="{{ block.pills }}" as="pill" hint-placeholder-count="3">
+                    <span onClick="{{ pill.onSelect }}" style="{{ pill.style }}">{{ pill.label }}</span>
+                  </sc-for>
+                  <span style="width:1px; height:14px; background:oklch(0.8 0 0); margin:0 2px;"></span>
+                  <span onClick="{{ block.onClear }}" style="font-size:10.5px; color:oklch(0.5 0 0); cursor:pointer; padding:5px 8px;">Clear</span>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        </div>
+        </div>
+      </div>
+
+      <p style="margin:0; max-width:64ch; font-size:11.5px; line-height:1.6; color:oklch(0.4 0 0);">{{ previewCaption }}</p>
+    </div>
+
+    <div style="padding:clamp(28px,4.5vh,56px) 0 0; display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both;">
+      <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Reflection</h2>
+      <div style="display:flex; flex-direction:column; gap:14px; max-width:68ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">
+        <p style="margin:0;">This isn't about making email more decorative — it's about giving writers one calm way to say "this matters more" without stacking on more bold, more colour, or more bullets to get there.</p>
+        <p style="margin:0;">Reading Layers is a speculative, independent concept. It doesn't reflect a real Outlook roadmap, and no formal research informed it — just a repeated, small frustration worth designing around.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    previewMode: 'light',
+    isPreview: false,
+    selectedId: null,
+    balanceOpen: false,
+    blocks: [
+      { id: 'greeting', kind: 'p', layer: null, parts: [{ text: 'Hi team,' }] },
+      { id: 'intro', kind: 'p', layer: null, suggested: 'standard', parts: [
+        { text: 'Quick update on Q3 launch readiness', bold: true },
+        { text: " — we're in good shape overall, but there are a few things I need from each of you " },
+        { text: 'this week', italic: true },
+        { text: '.' }
+      ]},
+      { id: 'deadline', kind: 'p', layer: null, suggested: 'primary', parts: [
+        { text: 'Please review the attached deck and reply with comments by 8/6 EOD.', bold: true, underline: true }
+      ]},
+      { id: 'tasks', kind: 'ul', layer: null, suggested: 'standard', items: [
+        { parts: [{ text: 'Engineering:', bold: true }, { text: ' confirm the staging environment is locked by 8/5' }] },
+        { parts: [{ text: 'Design:', bold: true }, { text: ' final asset export, ' }, { text: 'due 8/7, 10am', underline: true }] },
+        { parts: [{ text: 'Marketing:', bold: true }, { text: ' the ' }, { text: '(optional)', italic: true }, { text: ' social copy draft — no rush, just nice to have before launch' }] }
+      ]},
+      { id: 'aside', kind: 'p', layer: null, suggested: 'supporting', parts: [
+        { text: "(Reminder: the launch retro is still TBD — I'll send a separate invite once dates are confirmed.)", italic: true }
+      ]},
+      { id: 'closing', kind: 'p', layer: null, parts: [{ text: 'Thanks all — appreciate everyone moving fast on this.' }] },
+      { id: 'signoff', kind: 'p', layer: null, parts: [{ text: 'Sam' }] }
+    ]
+  };
+
+  MODES = { light: 'Light', dark: 'Dark', accessible: 'Accessible' };
+
+  LAYER_COLORS = {
+    light: { primary: 'oklch(0.15 0 0)', standard: 'oklch(0.32 0 0)', supporting: 'oklch(0.42 0 0)' },
+    dark: { primary: 'oklch(0.98 0 0)', standard: 'oklch(0.75 0 0)', supporting: 'oklch(0.58 0 0)' },
+    accessible: { primary: 'oklch(0.05 0 0)', standard: 'oklch(0.15 0 0)', supporting: 'oklch(0.22 0 0)' }
+  };
+  LAYER_SIZE = { primary: '13.5px', standard: '12px', supporting: '11.5px' };
+  LAYER_SIZE_ACCESSIBLE = { primary: '16px', standard: '12.5px', supporting: '10.5px' };
+  LAYER_BG = {
+    light: { primary: 'oklch(0.95 0.025 250)', standard: 'transparent', supporting: 'oklch(0.96 0 0)' },
+    dark: { primary: 'oklch(0.28 0.04 250)', standard: 'transparent', supporting: 'oklch(0.24 0 0)' },
+    accessible: { primary: 'oklch(0.93 0.04 250)', standard: 'transparent', supporting: 'oklch(0.94 0 0)' }
+  };
+  MARKER_COLOR = { light: 'oklch(0.75 0 0)', dark: 'oklch(0.4 0 0)', accessible: 'oklch(0.6 0 0)' };
+
+  selectBlock = (id) => this.setState((s) => ({ selectedId: s.selectedId === id ? null : id, balanceOpen: false }));
+  clearBlock = (id) => this.setState((s) => ({ blocks: s.blocks.map((b) => (b.id === id ? { ...b, layer: null } : b)) }));
+  assignLayer = (id, layer) => this.setState((s) => ({ blocks: s.blocks.map((b) => (b.id === id ? { ...b, layer } : b)), selectedId: null }));
+  reset = () => this.setState((s) => ({ blocks: s.blocks.map((b) => ({ ...b, layer: null })), selectedId: null, balanceOpen: false }));
+  setMode = (mode) => this.setState({ previewMode: mode, selectedId: null, balanceOpen: false });
+  togglePreview = () => this.setState((s) => ({ isPreview: !s.isPreview, selectedId: null, balanceOpen: false }));
+  balanceEmail = () => {
+    this.setState((s) => {
+      const count = s.blocks.filter((b) => b.suggested && b.suggested !== (b.layer || 'standard')).length;
+      return {
+        blocks: s.blocks.map((b) => (b.suggested && b.suggested !== (b.layer || 'standard') ? { ...b, layer: b.suggested } : b)),
+        balanceOpen: true, balanceCount: count, selectedId: null
+      };
+    });
+    clearTimeout(this._balanceTimer);
+    this._balanceTimer = setTimeout(() => this.setState({ balanceOpen: false }), 2600);
+  };
+  dismissBalanceBanner = () => { clearTimeout(this._balanceTimer); this.setState({ balanceOpen: false }); };
+  stop = (e) => e.stopPropagation && e.stopPropagation();
+
+  renderVals() {
+    const { previewMode, isPreview, selectedId, balanceOpen, blocks } = this.state;
+    const isDark = previewMode === 'dark';
+    const isAccessible = previewMode === 'accessible';
+    const colors = this.LAYER_COLORS[previewMode];
+    const marker = this.MARKER_COLOR[previewMode];
+    const isComposing = !isPreview;
+
+    const modeTabs = Object.keys(this.MODES).map((key) => {
+      const active = key === previewMode;
+      return {
+        label: this.MODES[key],
+        showIcon: key === 'accessible',
+        onSelect: () => this.setMode(key),
+        style: {
+          all: 'unset', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 500, padding: '8px 16px', borderRadius: '6px',
+          background: active ? '#fff' : 'transparent', color: active ? '#171018' : 'oklch(0.45 0 0)',
+          boxShadow: active ? '0 2px 6px rgba(0,0,0,0.12)' : 'none'
+        }
+      };
+    });
+
+    const LAYER_KEYS = ['primary', 'standard', 'supporting'];
+
+    const balanceCount = this.state.balanceCount || 0;
+
+    const partStyle = (p) => ({
+      fontWeight: p.bold ? 500 : 300,
+      fontStyle: p.italic ? 'italic' : 'normal',
+      textDecoration: p.underline ? 'underline' : 'none'
+    });
+
+    const renderedBlocks = blocks.map((b) => {
+      const layer = b.layer || 'standard';
+      const selected = selectedId === b.id;
+      const suggestedFlag = balanceOpen && b.suggested && b.suggested !== layer;
+      const isSupporting = layer === 'supporting';
+      const pills = LAYER_KEYS.map((key) => {
+        const active = layer === key;
+        return {
+          label: key[0].toUpperCase() + key.slice(1),
+          onSelect: () => this.assignLayer(b.id, key),
+          style: {
+            fontSize: '10.5px', fontWeight: 500, letterSpacing: '0.02em', cursor: 'pointer', padding: '5px 10px', borderRadius: '999px',
+            color: active ? '#fff' : 'oklch(0.35 0 0)', background: active ? '#0078D4' : 'transparent',
+            border: active ? '1px solid #0078D4' : '1px solid oklch(0.8 0 0)'
+          }
+        };
+      });
+      return {
+        id: b.id,
+        pills,
+        isBullets: b.kind === 'ul',
+        isParagraph: b.kind === 'p',
+        items: b.kind === 'ul' ? b.items.map((it) => ({ parts: it.parts.map((p) => ({ text: p.text, style: partStyle(p) })) })) : [],
+        parts: b.kind === 'p' ? b.parts.map((p) => ({ text: p.text, style: partStyle(p) })) : [],
+        onSelect: isComposing ? (() => this.selectBlock(b.id)) : (() => {}),
+        onClear: (e) => { e.stopPropagation && e.stopPropagation(); this.clearBlock(b.id); },
+        selected: isComposing && selected,
+        suggestedFlag: isComposing && suggestedFlag,
+        suggestedLabel: b.suggested ? (b.suggested[0].toUpperCase() + b.suggested.slice(1)) : '',
+        wrapStyle: {
+          position: 'relative', cursor: isComposing ? 'pointer' : 'default', padding: isSupporting ? '10px 14px 10px 18px' : '10px 16px',
+          borderLeft: isSupporting ? `2px solid ${marker}` : '2px solid transparent',
+          borderRadius: '6px',
+          background: this.LAYER_BG[previewMode][layer],
+          outline: (isComposing && selected) ? '1.5px solid #0078D4' : (isComposing && suggestedFlag) ? '1.5px dashed #0078D4' : 'none',
+          outlineOffset: '2px',
+          transition: 'outline 0.15s ease, background 0.2s ease'
+        },
+        textStyle: { margin: 0, color: colors[layer], fontSize: isAccessible ? this.LAYER_SIZE_ACCESSIBLE[layer] : this.LAYER_SIZE[layer], lineHeight: 1.6 }
+      };
+    });
+
+    return {
+      modeTabs, blocks: renderedBlocks, reset: this.reset, stop: this.stop,
+      balanceOpen, balanceEmail: this.balanceEmail, dismissBalanceBanner: this.dismissBalanceBanner,
+      balanceMessage: balanceCount > 0
+        ? `Balanced — updated ${balanceCount} line${balanceCount > 1 ? 's' : ''} for a calmer hierarchy.`
+        : 'The email already reads as balanced — no changes made.',
+      composerShellStyle: {
+        borderRadius: '10px', overflow: 'hidden', border: `1px solid ${isDark ? 'oklch(0.25 0 0)' : 'oklch(0.88 0 0)'}`,
+        boxShadow: '0 20px 44px -20px rgba(0,0,0,0.45)', background: isDark ? '#1c1c1f' : '#fff',
+        width: '100%', maxWidth: '640px'
+      },
+      composerTitlebarStyle: {
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', padding: '10px 16px',
+        borderBottom: `1px solid ${isDark ? 'oklch(0.28 0 0)' : 'oklch(0.92 0 0)'}`, background: isDark ? '#222225' : '#fafafa'
+      },
+      composerTitleTextStyle: { fontSize: '11.5px', fontWeight: 500, color: isDark ? 'oklch(0.85 0 0)' : 'oklch(0.35 0 0)' },
+      composerFieldsStyle: {
+        display: 'flex', flexDirection: 'column', gap: '8px', padding: '12px 16px',
+        borderBottom: `1px solid ${isDark ? 'oklch(0.28 0 0)' : 'oklch(0.92 0 0)'}`, background: isDark ? '#1f1f22' : 'oklch(0.99 0.002 90)'
+      },
+      composerLabelStyle: { color: isDark ? 'oklch(0.55 0 0)' : 'oklch(0.5 0 0)', width: '52px', flexShrink: 0 },
+      composerValueStyle: { color: isDark ? 'oklch(0.8 0 0)' : 'oklch(0.25 0 0)' },
+      recipientChipStyle: {
+        display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '3px 10px 3px 4px', borderRadius: '999px',
+        background: isDark ? 'oklch(0.3 0.04 250)' : 'oklch(0.93 0.035 250)', color: isDark ? 'oklch(0.88 0.05 250)' : '#0078D4', fontWeight: 500
+      },
+      avatarStyle: {
+        width: '18px', height: '18px', borderRadius: '50%', background: '#0078D4', color: '#fff',
+        fontSize: '8.5px', fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
+      },
+      composerSubjectStyle: {
+        color: isDark ? 'oklch(0.95 0 0)' : 'oklch(0.1 0 0)', fontWeight: 500, background: isDark ? 'oklch(0.28 0.02 250)' : 'oklch(0.96 0.02 250)',
+        padding: '3px 10px', borderRadius: '5px'
+      },
+      composerRibbonStyle: {
+        display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px',
+        borderBottom: `1px solid ${isDark ? 'oklch(0.28 0 0)' : 'oklch(0.92 0 0)'}`, background: isDark ? '#1c1c1f' : '#fff'
+      },
+      ribbonIconStyle: {
+        fontSize: '12px', color: isDark ? 'oklch(0.7 0 0)' : 'oklch(0.4 0 0)', width: '24px', height: '22px',
+        display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px',
+        background: isDark ? 'oklch(0.27 0 0)' : 'oklch(0.95 0 0)'
+      },
+      composerBodyStyle: { display: 'flex', flexDirection: 'column', gap: '4px', padding: '18px 16px 22px' },
+      isComposing, isPreview, togglePreview: this.togglePreview,
+      previewCaption: isAccessible
+        ? 'Accessible fallback: hierarchy is carried by background fill and a wider spread in font size, not by grey-scale tone alone.'
+        : isDark
+          ? 'Dark mode: the same hierarchy, recomputed for contrast against a dark background.'
+          : 'Light mode: the default reading view — tone and spacing carry the hierarchy.'
+    };
+  }
+}
+</script>
+</body>
+</html>
