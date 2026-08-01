@@ -22,6 +22,8 @@
   @keyframes av-wave { from { transform:scaleY(0.4); } to { transform:scaleY(1); } }
   @keyframes av-pulse { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
   @keyframes av-ping { 0% { transform:scale(1); opacity:0.55; } 100% { transform:scale(3.2); opacity:0; } }
+  @keyframes av-toast-slide { 0%, 15% { transform:translateY(100%); opacity:0; } 30%, 75% { transform:translateY(0); opacity:1; } 90%, 100% { transform:translateY(100%); opacity:0; } }
+  @keyframes av-dim { 0%, 40% { background:oklch(0.93 0 0); } 60%, 100% { background:oklch(0.18 0 0); } }
 </style>
 </helmet>
 
@@ -64,8 +66,8 @@
       </div>
     </div>
 
-    <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:flex; flex-direction:column; gap:14px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.65s;">
-      <span style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">Today vs. Adaptive View</span>
+    <div style="margin:clamp(28px,4.5vh,56px) 0; padding:clamp(28px,4.5vh,56px) clamp(20px,3vw,40px); background:radial-gradient(65% 55% at 28% 15%, #fff0ee 0%, rgba(255,240,238,0) 62%), radial-gradient(60% 55% at 62% 42%, #e8595d 0%, rgba(232,89,93,0) 68%), radial-gradient(70% 60% at 30% 92%, #8a1418 0%, rgba(138,20,24,0) 65%), linear-gradient(165deg, #b7292e 0%, #d9464a 45%, #ef7175 100%); border-radius:16px; display:flex; flex-direction:column; gap:14px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.65s;">
+      <span style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:12px;">Today vs. Adaptive View</span>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:920px; align-items:start;">
         <div style="display:flex; flex-direction:column; gap:8px;">
           <div style="position:relative;">
@@ -107,8 +109,8 @@
             <span style="position:absolute; bottom:6px; left:44%; width:18px; height:18px; border-radius:50%; background:#E5262B; color:#fff; font-size:10px; font-weight:500; display:flex; align-items:center; justify-content:center;">4</span>
           </div>
           <div>
-            <div style="font-size:13px; font-weight:500; letter-spacing:0.02em; line-height:1.6; color:oklch(0.15 0 0);">Today</div>
-            <div style="font-size:11.5px; line-height:1.6; color:oklch(0.4 0 0);">Same bright, high-density interface whether someone's watching closely or just half-listening from across the room.</div>
+            <div style="font-size:13px; font-weight:500; letter-spacing:0.02em; line-height:1.6; color:#fff;">Today</div>
+            <div style="font-size:11.5px; line-height:1.6; color:rgba(255,255,255,0.9);">Same bright, high-density interface whether someone's watching closely or just half-listening from across the room.</div>
           </div>
         </div>
         <div style="display:flex; flex-direction:column; background:#fff; border:1px solid oklch(0.9 0 0); border-radius:10px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
@@ -116,14 +118,14 @@
           <div style="display:flex; gap:12px; padding:16px 18px; border-bottom:1px solid oklch(0.93 0 0);"><span style="width:20px; height:20px; border-radius:50%; background:#E5262B; color:#fff; font-size:10.5px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</span><span style="font-size:12px; line-height:1.6; color:oklch(0.25 0 0); padding-top:1px;">Video plays at full brightness regardless of whether it's the focus or background noise.</span></div>
           <div style="display:flex; gap:12px; padding:16px 18px; border-bottom:1px solid oklch(0.93 0 0);"><span style="width:20px; height:20px; border-radius:50%; background:#E5262B; color:#fff; font-size:10.5px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</span><span style="font-size:12px; line-height:1.6; color:oklch(0.25 0 0); padding-top:1px;">Dense up-next rail stays visible, competing for attention even when nobody's browsing.</span></div>
           <div style="display:flex; gap:12px; padding:16px 18px;"><span style="width:20px; height:20px; border-radius:50%; background:#E5262B; color:#fff; font-size:10.5px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">4</span><span style="font-size:12px; line-height:1.6; color:oklch(0.25 0 0); padding-top:1px;">Full control row (scrub, skip, volume) shown at all times, cluttering low-attention moments.</span></div>
-          <div style="display:flex; gap:12px; padding:16px 18px; background:oklch(0.97 0.025 25); border-top:1px solid oklch(0.9 0.03 25);"><span style="width:20px; height:20px; border-radius:50%; background:transparent; border:1.5px solid #E5262B; color:#E5262B; font-size:11px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">!</span><span style="font-size:12px; line-height:1.6; color:oklch(0.25 0 0); padding-top:1px;"><strong style="font-weight:500;">Note:</strong> YouTube does have an existing "Ambient Mode" — but it's only a cosmetic glow that colors the screen edges to match the video, with no change to brightness, layout, or controls. It doesn't address the attention problem this concept targets.</span></div>
+          <div style="display:flex; gap:12px; padding:16px 18px; background:oklch(0.97 0.025 25); border-top:1px solid oklch(0.9 0.03 25);"><span style="width:20px; height:20px; border-radius:50%; background:transparent; background:oklch(0.35 0 0); border:none; color:#fff; font-size:11px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0;">!</span><span style="font-size:12px; line-height:1.6; color:oklch(0.25 0 0); padding-top:1px;"><strong style="font-weight:500;">Note:</strong> YouTube does have an existing "Ambient Mode" — but it's only a cosmetic glow that colors the screen edges to match the video, with no change to brightness, layout, or controls. It doesn't address the attention problem this concept targets.</span></div>
         </div>
       </div>
     </div>
 
     <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.7s;">
       <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Design Opportunity</h2>
-      <p style="margin:0; max-width:68ch; font-size:12px; font-weight:300; line-height:1.4; color:oklch(0.15 0 0);">How might a player recognise different levels of attention — focused, background, listening, night-time — and adjust itself accordingly, instead of asking the viewer to constantly manage brightness, volume, and clutter by hand?</p>
+      <p style="margin:0; max-width:68ch; font-size:20px; font-weight:300; line-height:1.4; color:oklch(0.15 0 0);">How might a player recognise different levels of attention — focused, background, listening, night-time — and adjust itself accordingly, instead of asking the viewer to constantly manage brightness, volume, and clutter by hand?</p>
     </div>
 
     <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.8s;">
@@ -149,22 +151,61 @@
 
     <div style="padding:clamp(28px,4.5vh,56px) 0; border-bottom:1px solid oklch(0.12 0 0); display:grid; grid-template-columns:200px 1fr; gap:clamp(20px,3vw,40px); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.85s;">
       <h2 style="margin:0; font-weight:400; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:#000;">Making It Adaptive</h2>
-      <div style="display:flex; flex-direction:column; gap:26px; max-width:68ch;">
-        <div style="display:flex; gap:14px; align-items:flex-start;">
+      <div style="display:flex; flex-direction:column; gap:26px; max-width:100%;">
+
+        <div style="display:flex; gap:0; align-items:stretch;">
+
+          <div style="flex:1; display:flex; flex-direction:column; gap:12px; padding:18px; border:1px solid oklch(0.9 0 0); border-radius:12px 0 0 12px; border-right:none;">
+            <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.5 0 0);">Signals</span>
+            <div style="display:flex; gap:10px; align-items:center; justify-content:center; flex:1;">
+              <span style="width:26px; height:26px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; animation:av-pulse 2.4s ease-in-out infinite;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+              <span style="width:26px; height:26px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; animation:av-pulse 2.4s ease-in-out infinite; animation-delay:0.4s;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.8"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></span>
+              <span style="width:26px; height:26px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; animation:av-pulse 2.4s ease-in-out infinite; animation-delay:0.8s;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.8"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"></path><circle cx="12" cy="12" r="2.6"></circle></svg></span>
+            </div>
+            <p style="margin:0; font-size:11px; line-height:1.5; color:oklch(0.45 0 0);">Remote idle time, time of day, foreground state</p>
+          </div>
+
+          <div style="width:44px; flex-shrink:0; display:flex; align-items:center; justify-content:center; border-top:1px solid oklch(0.9 0 0); border-bottom:1px solid oklch(0.9 0 0); background:oklch(0.98 0 0);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0 0)" stroke-width="1.8"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+          </div>
+
+          <div style="flex:1; display:flex; flex-direction:column; gap:12px; padding:18px; border:1px solid oklch(0.9 0 0); border-right:none;">
+            <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.5 0 0);">Gentle suggestion</span>
+            <div style="position:relative; flex:1; min-height:56px; border-radius:6px; background:oklch(0.15 0 0); overflow:hidden;">
+              <div style="position:absolute; left:6px; right:6px; bottom:6px; padding:6px 8px; border-radius:5px; background:oklch(0.94 0 0); font-size:9.5px; color:oklch(0.2 0 0); display:flex; align-items:center; justify-content:space-between; gap:6px; animation:av-toast-slide 4s ease-in-out infinite;">
+                <span>Switch to Sleep?</span>
+                <span style="color:#E5262B; font-weight:600;">Switch</span>
+              </div>
+            </div>
+            <p style="margin:0; font-size:11px; line-height:1.5; color:oklch(0.45 0 0);">Dismissible prompt, never automatic</p>
+          </div>
+
+          <div style="width:44px; flex-shrink:0; display:flex; align-items:center; justify-content:center; border-top:1px solid oklch(0.9 0 0); border-bottom:1px solid oklch(0.9 0 0); background:oklch(0.98 0 0);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0 0)" stroke-width="1.8"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+          </div>
+
+          <div style="flex:1; display:flex; flex-direction:column; gap:12px; padding:18px; border:1px solid oklch(0.9 0 0); border-radius:0 12px 12px 0;">
+            <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.5 0 0);">Smooth fade</span>
+            <div style="flex:1; min-height:56px; border-radius:6px; animation:av-dim 4s ease-in-out infinite;"></div>
+            <p style="margin:0; font-size:11px; line-height:1.5; color:oklch(0.45 0 0);">Brightness cross-fades, never cuts</p>
+          </div>
+
+        </div>
+        <div style="display:flex; gap:14px; align-items:flex-start; max-width:68ch;">
           <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"></path><circle cx="12" cy="12" r="2.6"></circle></svg></span>
           <div style="flex:1;">
             <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Detecting the mode</h3>
             <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">No new hardware — just signals a connected TV already has: time since the last remote press, time of day, an ambient-light reading if the TV exposes one, and whether the app is in the foreground. Together they suggest Ambient, Audio, or Sleep without the viewer doing anything.</p>
           </div>
         </div>
-        <div style="display:flex; gap:14px; align-items:flex-start;">
+        <div style="display:flex; gap:14px; align-items:flex-start; max-width:68ch;">
           <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5a4 4 0 00-4 4v2.6c0 1.3-.5 2.6-1.6 3.9h11.2c-1.1-1.3-1.6-2.6-1.6-3.9V8.5a4 4 0 00-4-4z"></path><path d="M9.6 18.5a2.6 2.6 0 004.8 0"></path></svg></span>
           <div style="flex:1;">
             <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Suggested, never forced</h3>
             <p style="margin:0; font-size:12px; line-height:1.6; color:oklch(0.25 0 0);">A detected change surfaces as a brief, dismissible prompt — "Settling in for the night? Switch to Sleep" — never an automatic takeover. The same view-mode switch shown in the prototype below is always there to pick a mode directly.</p>
           </div>
         </div>
-        <div style="display:flex; gap:14px; align-items:flex-start;">
+        <div style="display:flex; gap:14px; align-items:flex-start; max-width:68ch;">
           <span style="width:30px; height:30px; border-radius:50%; background:oklch(0.96 0.03 25); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E5262B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="6" opacity="0.45"></circle><circle cx="15" cy="12" r="6"></circle></svg></span>
           <div style="flex:1;">
             <h3 style="margin:0 0 6px; font-size:15px; font-weight:500; letter-spacing:-0.01em;">Transitions fade, they don't snap</h3>
