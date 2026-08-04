@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../js/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../js/image-slot.js"></script>
+<script src="../js/cursor-dot.js"></script>
+<style>
+  html, body { margin:0; padding:0; box-sizing:border-box; cursor:none; }
+  *, *::before, *::after { box-sizing:inherit; }
+  a, button, [draggable="true"], [role="button"] { cursor:none; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+  }
+  @keyframes hcc-pulse-ring {
+    0% { transform:scale(1); opacity:0.7; }
+    100% { transform:scale(2.6); opacity:0; }
+  }
+</style>
+</helmet>
+
+<div style="min-height:100vh; width:100%; background:oklch(0.985 0.002 90); color:oklch(0.12 0 0); font-family:Helvetica,Arial,sans-serif;">
+  <div style="max-width:1400px; margin:0 auto; padding:clamp(16px,2.4vh,28px) clamp(20px,3vw,40px) clamp(60px,8vh,100px);">
+
+    <header style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-bottom:clamp(16px,2.4vh,28px); border-bottom:1px solid oklch(0.12 0 0);">
+      <a href="emerging-intelligence.html" style="display:flex; align-items:center; gap:10px; color:inherit; text-decoration:none; font-weight:700; font-size:clamp(16px,1.6vw,20px); letter-spacing:-0.8px;" style-hover="color:oklch(0.75 0.22 40);" style-focus="outline:2px solid currentColor; outline-offset:3px;">
+        <span aria-hidden="true">←</span> 03 — Emerging Intelligence
+      </a>
+      <nav style="display:flex; gap:18px; font-size:12px; letter-spacing:0.05em; text-transform:uppercase;">
+        <a href="https://www.linkedin.com/in/thaiveppilgopishruthi" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:oklch(0.75 0.22 40); color:oklch(0.75 0.22 40);" style-focus="outline:2px solid currentColor; outline-offset:3px;">LinkedIn ↗</a>
+        <a href="mailto:thaiveppil.gopi.shruthi@gmail.com" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:oklch(0.75 0.22 40); color:oklch(0.75 0.22 40);" style-focus="outline:2px solid currentColor; outline-offset:3px;">Email ↗</a>
+      </nav>
+    </header>
+
+    <div data-reveal-key="overview" style="{{ overviewStyle }}">
+      <div style="max-width:720px; padding:clamp(28px,4.4vh,52px) 0 clamp(16px,2.4vh,28px);">
+        <div style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.4 0 0); margin-bottom:14px;">AI Interaction Study</div>
+        <h1 style="margin:0 0 18px; font-weight:300; font-size:clamp(34px,5.4vw,64px); letter-spacing:-0.02em; line-height:1.02;">PRESS.</h1>
+        <p style="margin:0; font-size:clamp(15px,1.6vw,18px); line-height:1.6; color:oklch(0.3 0 0); max-width:60ch;">An AI-directed study of how buttons should behave, not just how they should look — twelve behaviours interpreted from a single word each.</p>
+      </div>
+    </div>
+
+    <div data-reveal-key="focus" style="{{ focusStyle }}">
+      <div style="max-width:900px; padding:clamp(20px,3vh,32px) 0;">
+        <h2 style="margin:0 0 14px; font-weight:400; font-size:clamp(18px,2vw,22px);">The premise</h2>
+        <p style="margin:0 0 12px; font-size:14px; line-height:1.7; color:oklch(0.3 0 0);">A single button, twelve words. Each word — hesitate, commit, urgent, undo, danger, celebrate, wait, quiet, heavy, fragile, curious, done — was handed to an AI as the only instruction, with no visual spec attached. The goal was to see what a model infers about motion, timing, and feedback purely from the emotional shape of a word.</p>
+        <p style="margin:0; font-size:14px; line-height:1.7; color:oklch(0.3 0 0);">The process for each behaviour followed the same loop:</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;">
+          <sc-for list="{{ processSteps }}" as="step" hint-placeholder-count="6">
+            <span style="font-size:11px; letter-spacing:0.05em; text-transform:uppercase; padding:6px 14px; border:1px solid oklch(0.12 0 0 / 0.25); border-radius:999px; color:oklch(0.3 0 0);">{{ step }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal-key="tags" style="{{ tagsStyle }}">
+      <div style="max-width:900px; padding:clamp(16px,2.4vh,24px) 0;">
+        <div style="display:flex; flex-wrap:wrap; gap:18px; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">
+          <span>Role — Product Designer</span>
+          <span>Type — AI Interaction Study</span>
+          <span>Behaviours — 12</span>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal-key="tryIt" style="{{ tryItStyle }}">
+      <div style="padding:clamp(20px,3vh,32px) 0 clamp(28px,4vh,44px);">
+        <span style="display:flex; align-items:center; gap:10px; width:fit-content; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.6 0.19 250); font-weight:400; border:1px solid oklch(0.6 0.19 250 / 0.4); border-radius:999px; padding:8px 18px;">
+          <span style="position:relative; display:inline-flex; width:8px; height:8px;">
+            <span style="position:absolute; inset:0; border-radius:50%; background:oklch(0.6 0.19 250); animation:hcc-pulse-ring 1.8s cubic-bezier(0.4,0,0.6,1) infinite;"></span>
+            <span style="position:relative; width:8px; height:8px; border-radius:50%; background:oklch(0.6 0.19 250);"></span>
+          </span>
+          Try It — All 12 Behaviours
+        </span>
+      </div>
+    </div>
+
+    <div data-reveal-key="proto" style="{{ protoStyle }}">
+      <div onMouseEnter="{{ hideCursorDot }}" onMouseLeave="{{ showCursorDot }}" style="width:100%; max-width:1000px; margin:0 auto; border-radius:12px; overflow:hidden; box-shadow:0 30px 80px oklch(0.12 0 0 / 0.25); transition:transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);" style-hover="transform:translateY(-4px) scale(1.006); box-shadow:0 40px 100px oklch(0.12 0 0 / 0.3);">
+        <div style="height:38px; display:flex; align-items:center; padding:0 14px; background:#e8e8e8; position:relative;">
+          <x-import component-from-global-scope="MacTrafficLights" from="../js/macos-window.jsx" hint-size="46px,14px"></x-import>
+          <span style="position:absolute; left:50%; transform:translateX(-50%); font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:12px; font-weight:600; color:rgba(0,0,0,0.55);">press.app</span>
+        </div>
+        <div style="width:100%; height:clamp(640px,86vh,840px); overflow:hidden;">
+          <iframe src="press-prototype.html" title="PRESS interactive prototype" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal-key="findings" style="{{ findingsStyle }}">
+      <div style="max-width:900px; padding:clamp(28px,4.4vh,52px) 0 0;">
+        <h2 style="margin:0 0 14px; font-weight:400; font-size:clamp(18px,2vw,22px);">What came out of it</h2>
+        <p style="margin:0; font-size:14px; line-height:1.7; color:oklch(0.3 0 0);">The AI consistently reached for motion as the primary vocabulary — dodging, jittering, pulsing, freezing — before it reached for color. Words with an implied consequence ("danger," "commit") produced confirmation states; words with an implied absence ("quiet," "wait") produced restraint. The exercise reframed the button not as a static object but as a short performance triggered by a single word.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { revealed: {} };
+
+  checkReveal = () => {
+    const keys = ['overview', 'focus', 'tags', 'tryIt', 'proto', 'findings'];
+    const threshold = window.innerHeight * 0.88;
+    let changed = false;
+    const next = { ...this.state.revealed };
+    keys.forEach(key => {
+      if (next[key]) return;
+      const el = document.querySelector(`[data-reveal-key="${key}"]`);
+      if (el && el.getBoundingClientRect().top < threshold) {
+        next[key] = true;
+        changed = true;
+      }
+    });
+    if (changed) this.setState({ revealed: next });
+  };
+
+  componentDidMount() {
+    this.checkReveal();
+    window.addEventListener('scroll', this.checkReveal, { passive: true });
+    window.addEventListener('resize', this.checkReveal);
+    this._pollId = setInterval(this.checkReveal, 300);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.checkReveal);
+    window.removeEventListener('resize', this.checkReveal);
+    clearInterval(this._pollId);
+  }
+
+  revealStyle(key, base, big) {
+    const revealed = !!this.state.revealed[key];
+    return {
+      opacity: revealed ? 1 : 0,
+      transform: revealed ? 'translateY(0)' : `translateY(${big ? 32 : 20}px)`,
+      transition: 'opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)',
+    };
+  }
+
+  hideCursorDot = () => {
+    const dot = document.querySelector('[data-cursor-dot]');
+    if (dot) dot.style.display = 'none';
+  };
+  showCursorDot = () => {
+    const dot = document.querySelector('[data-cursor-dot]');
+    if (dot) dot.style.display = '';
+  };
+
+  renderVals() {
+    return {
+      processSteps: ['Word', 'Prompt', 'AI interpretation', 'Critique', 'Refinement', 'Code'],
+      overviewStyle: this.revealStyle('overview', null, true),
+      focusStyle: this.revealStyle('focus', null, false),
+      tagsStyle: this.revealStyle('tags', null, false),
+      tryItStyle: this.revealStyle('tryIt', null, false),
+      protoStyle: this.revealStyle('proto', null, true),
+      findingsStyle: this.revealStyle('findings', null, false),
+      hideCursorDot: this.hideCursorDot,
+      showCursorDot: this.showCursorDot,
+    };
+  }
+}
+</script>
+</body>
+</html>
