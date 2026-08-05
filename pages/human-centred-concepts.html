@@ -44,13 +44,13 @@
 
     <div style="display:flex; flex-direction:column;">
       <sc-for list="{{ projects }}" as="proj" hint-placeholder-count="3">
-        <a href="{{ proj.route }}" style="display:block; text-decoration:none; color:inherit; border-top:1px solid oklch(0.12 0 0); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:calc(0.4s + {{ $index }} * 0.2s); transition:background 0.5s cubic-bezier(0.16,1,0.3,1);" style-hover="background:oklch(0.12 0 0);">
+        <a href="{{ proj.route }}" style="display:block; text-decoration:none; color:inherit; border-top:1px solid oklch(0.12 0 0); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:calc(0.4s + {{ $index }} * 0.2s); transition:background 0.5s cubic-bezier(0.16,1,0.3,1);" style-hover="background:oklch(0.12 0 0); --proj-num:oklch(0.65 0 0); --proj-title:oklch(1 0 0); --proj-desc:oklch(0.8 0 0); --proj-meta:oklch(0.6 0 0);">
           <div style="max-width:1400px; margin:0 auto; padding:clamp(24px,3.6vh,40px) clamp(20px,3vw,40px); display:grid; grid-template-columns:120px 1fr; align-items:center; gap:clamp(20px,3vw,40px); transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);" style-hover="transform:translateX(14px);">
-            <span style="font-size:14px; letter-spacing:0.05em; color:oklch(0.4 0 0); font-variant-numeric:tabular-nums; transition:color 0.5s ease;" style-hover="color:oklch(0.65 0 0);">{{ proj.number }}</span>
+            <span style="font-size:14px; letter-spacing:0.05em; color:var(--proj-num, oklch(0.4 0 0)); font-variant-numeric:tabular-nums; transition:color 0.5s ease;">{{ proj.number }}</span>
             <div style="display:flex; flex-direction:column; gap:10px; min-width:0;">
-              <h2 style="margin: 0; font-weight: 300; font-size: clamp(22px,2.6vw,34px); letter-spacing: -0.01em; line-height: 1.1; transition:color 0.5s ease;" style-hover="color:oklch(1 0 0);">{{ proj.title }}</h2>
-              <p style="margin: 0; max-width: 52ch; font-size: 11px; line-height: 1.5; color: oklch(0.3 0 0); transition:color 0.5s ease;" style-hover="color:oklch(0.8 0 0);">{{ proj.oneLiner }}</p>
-              <div style="display:flex; gap:18px; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0); transition:color 0.5s ease;" style-hover="color:oklch(0.6 0 0);">
+              <h2 style="margin: 0; font-weight: 300; font-size: clamp(22px,2.6vw,34px); letter-spacing: -0.01em; line-height: 1.1; color:var(--proj-title, oklch(0.12 0 0)); transition:color 0.5s ease;">{{ proj.title }}</h2>
+              <p style="margin: 0; max-width: 52ch; font-size: 11px; line-height: 1.5; color:var(--proj-desc, oklch(0.3 0 0)); transition:color 0.5s ease;">{{ proj.oneLiner }}</p>
+              <div style="display:flex; gap:18px; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--proj-meta, oklch(0.45 0 0)); transition:color 0.5s ease;">
                 <span>{{ proj.type }}</span>
                 <span>{{ proj.role }}</span>
               </div>
