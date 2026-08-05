@@ -6,6 +6,7 @@
     document.body.__cursorDotInit = true;
     var dot = document.createElement('div');
     dot.setAttribute('aria-hidden', 'true');
+    dot.setAttribute('data-cursor-dot', '');
     dot.style.cssText = [
       'position:fixed', 'top:0', 'left:0', 'width:16px', 'height:16px',
       'border-radius:50%', 'background:#000', 'pointer-events:none',
