@@ -36,13 +36,13 @@
         <span aria-hidden="true">←</span> 01 — Human-Centred Concepts
       </a>
       <nav style="display:flex; gap:18px; font-size:12px; letter-spacing:0.05em; text-transform:uppercase;">
-        <a href="https://www.linkedin.com/in/shruthi" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:#E5262B; color:#E5262B;" style-focus="outline:2px solid currentColor; outline-offset:3px;">LinkedIn ↗</a>
-        <a href="mailto:hello@brutalmuse.studio" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:#E5262B; color:#E5262B;" style-focus="outline:2px solid currentColor; outline-offset:3px;">Email ↗</a>
+        <a href="https://www.linkedin.com/in/thaiveppilgopishruthi" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:#E5262B; color:#E5262B;" style-focus="outline:2px solid currentColor; outline-offset:3px;">LinkedIn ↗</a>
+        <a href="mailto:thaiveppil.gopi.shruthi@gmail.com" style="color:inherit; text-decoration:none; border-bottom:1px solid transparent;" style-hover="border-bottom-color:#E5262B; color:#E5262B;" style-focus="outline:2px solid currentColor; outline-offset:3px;">Email ↗</a>
       </nav>
     </header>
 
     <div style="padding:clamp(28px,4.5vh,56px) 0 clamp(24px,3.5vh,40px); border-bottom:1px solid oklch(0.12 0 0); display:flex; flex-direction:column; gap:16px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:0.2s;">
-      <span style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">01 — Human-Centred Concepts</span>
+      <span style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">02 — Human-Centred Concepts</span>
       <h1 style="margin:0; font-weight:300; font-size:clamp(32px,5.4vw,64px); letter-spacing:-0.01em; line-height:1.02;">Adaptive View <span style="color:#000;">for YouTube TV</span></h1>
       <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.55; color:oklch(0.3 0 0);">A concept for YouTube TV's video player: one player that adjusts itself to how attentively you're actually watching.</p>
       <div style="display:flex; gap:28px; flex-wrap:wrap; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0); padding-top:6px;">
@@ -252,13 +252,16 @@
 
     <div id="try-it" style="padding:clamp(28px,4.5vh,56px) 0; display:flex; flex-direction:column; gap:20px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay:1s;">
       <h2 style="margin:0; font-weight:300; font-size:clamp(22px,2.8vw,32px); letter-spacing:-0.01em; line-height:1.15;">One player, four ways of watching</h2>
-      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">Click a mode below, then use the seek bar, skip, and mute controls — they respond just like the real player.</p>
-      <span style="display:inline-flex; align-items:center; gap:8px; width:fit-content; font-size:12px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:#E5262B; background:transparent; border:1px solid oklch(0.9 0.05 25); border-radius:999px; padding:6px 14px;"><span style="position:relative; display:inline-flex; width:6px; height:6px; flex-shrink:0;"><span style="position:absolute; inset:0; border-radius:50%; background:#E5262B; animation:av-ping 1.8s cubic-bezier(0,0,0.2,1) infinite;"></span><span style="position:relative; width:6px; height:6px; border-radius:50%; background:#E5262B;"></span></span>Try It — Live Prototype</span>
+      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">Each mode changes what the player shows and how brightly it runs. The demo moves through them on its own — the seek bar, skip and mute controls stay live if you'd rather drive.</p>
 
-      <div style="display:flex; gap:6px; background:oklch(0.94 0 0); border-radius:8px; padding:4px; width:fit-content; flex-wrap:wrap;">
+      <div ref="{{ tabRowRef }}" style="position:relative; display:flex; gap:6px; background:#E5262B; border-radius:8px; padding:4px; width:fit-content; align-self:center; flex-wrap:wrap;">
         <sc-for list="{{ modeTabs }}" as="tab" hint-placeholder-count="4">
           <button onClick="{{ tab.onSelect }}" style="{{ tab.style }}">{{ tab.label }}</button>
         </sc-for>
+        <span style="position:absolute; left:{{ ghostX }}; top:{{ ghostY }}; width:0; height:0; z-index:6; pointer-events:none; opacity:{{ ghostOpacity }}; transition:left 0.75s cubic-bezier(0.32,0.72,0,1), top 0.75s cubic-bezier(0.32,0.72,0,1), opacity 0.45s ease;">
+          <span style="position:absolute; left:-16px; top:-16px; width:32px; height:32px; border-radius:50%; border:1.5px solid #fff; opacity:{{ ghostRingOpacity }}; transform:scale({{ ghostRingScale }}); transition:opacity 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1);"></span>
+          <svg width="15" height="19" viewBox="0 0 15 19" style="position:absolute; left:1px; top:0; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.28));"><path d="M1 1.2 L1 15.4 L4.7 12.1 L7.1 17.6 L9.6 16.5 L7.2 11.2 L12.1 11.1 Z" fill="#fff" stroke="#14141a" stroke-width="1.1" stroke-linejoin="round"></path></svg>
+        </span>
       </div>
 
       <div id="tv-bezel" style="background:linear-gradient(160deg, #1c1c1f, #0a0a0c); border-radius:18px; padding:14px 14px 22px; box-shadow:0 30px 60px -20px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05);">
@@ -269,7 +272,7 @@
         <sc-if value="{{ isActive }}" hint-placeholder-val="{{ true }}">
           <div style="position:absolute; top:20px; left:20px; right:20px; display:flex; justify-content:space-between; align-items:center;">
             <div style="display:flex; align-items:center; gap:8px;">
-              <image-slot id="av-avatar" shape="circle" placeholder="Avatar" src="../assets/images/Screenshot 2026-07-27 at 23.15.29.png" style="width:24px; height:24px; flex-shrink:0;"></image-slot>
+              <span style="width:24px; height:24px; border-radius:50%; flex-shrink:0; background-image:url('../assets/images/Screenshot 2026-07-27 at 23.15.29.png'); background-size:cover; background-position:center 30%;"></span>
               <span style="font-size:12px; font-weight:500; color:#fff;">Whispers &amp; Triggers ASMR</span>
             </div>
             <span onClick="{{ toggleSettings }}" style="width:26px; height:26px; border-radius:50%; background:oklch(1 0 0 / 0.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; cursor:pointer;">
@@ -501,9 +504,7 @@
     <div style="padding:clamp(28px,4.5vh,56px) 0; display:flex; flex-direction:column; gap:20px; animation:hcc-in 1.4s cubic-bezier(0.16,1,0.3,1) both;">
       <span style="font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(0.45 0 0);">See It In The Room</span>
       <h2 style="margin:0; font-weight:300; font-size:clamp(22px,2.8vw,32px); letter-spacing:-0.01em; line-height:1.15;">How each mode feels in a real space</h2>
-      <p style="margin:0; max-width:64ch; font-size:12px; line-height:1.6; color:oklch(0.2 0 0); font-weight:300;">Pick a mode to play its room recording.</p>
-
-      <div style="display:flex; gap:6px; background:oklch(0.94 0 0); border-radius:8px; padding:4px; width:fit-content; flex-wrap:wrap;">
+      <div style="display:flex; gap:6px; background:#E5262B; border-radius:8px; padding:4px; width:fit-content; align-self:center; flex-wrap:wrap;">
         <sc-for list="{{ modeTabs }}" as="tab" hint-placeholder-count="4">
           <button onClick="{{ tab.onSelect }}" style="{{ tab.style }}">{{ tab.label }}</button>
         </sc-for>
@@ -584,6 +585,40 @@ class Component extends DCLogic {
 
   setPlaylistHover = (v) => this.setState({ hoverPlaylist: v });
 
+  tabRowRef = React.createRef();
+  DEMO_ORDER = ['ambient', 'audio', 'sleep', 'active'];
+  _demoStep = 0;
+  runDemoStep = () => {
+    if (this._demoStopped) return;
+    const row = this.tabRowRef.current;
+    if (!row) return;
+    const btns = row.querySelectorAll('button');
+    const key = this.DEMO_ORDER[this._demoStep % this.DEMO_ORDER.length];
+    const btn = btns[Object.keys(this.MODES).indexOf(key)];
+    if (!btn) return;
+    const rr = row.getBoundingClientRect();
+    const br = btn.getBoundingClientRect();
+    this.setState({
+      ghostX: br.left - rr.left + br.width / 2 - 4,
+      ghostY: br.top - rr.top + br.height / 2 - 4,
+      ghostOn: true
+    });
+    this._d1 = setTimeout(() => {
+      if (this._demoStopped) return;
+      this.setState({ ghostPress: true });
+      this.selectMode(key);
+      this._demoStep++;
+      this._d2 = setTimeout(() => this.setState({ ghostPress: false }), 500);
+      this._d3 = setTimeout(this.runDemoStep, 3600);
+    }, 950);
+  };
+  stopDemo = () => {
+    if (this._demoStopped) return;
+    this._demoStopped = true;
+    [this._d0, this._d1, this._d2, this._d3].forEach(clearTimeout);
+    this.setState({ ghostOn: false, ghostPress: false });
+  };
+
   componentDidMount() {
     const v = this.videoRef.current;
     if (!v) return;
@@ -596,8 +631,16 @@ class Component extends DCLogic {
     this._tutorialTimer = setTimeout(() => this.setState({ tutorialOpen: false }), 4500);
     this.playAllVideos();
     setTimeout(this.playAllVideos, 500);
+    this._d0 = setTimeout(this.runDemoStep, 2200);
+    const section = document.getElementById('try-it');
+    if (section) section.addEventListener('pointerdown', this.stopDemo);
   }
-  componentWillUnmount() { clearTimeout(this._tutorialTimer); }
+  componentWillUnmount() {
+    clearTimeout(this._tutorialTimer);
+    this.stopDemo();
+    const section = document.getElementById('try-it');
+    if (section) section.removeEventListener('pointerdown', this.stopDemo);
+  }
   componentDidUpdate() { this.playAllVideos(); }
   playAllVideos = () => {
     document.querySelectorAll('video').forEach((v) => { v.muted = true; v.play().catch(() => {}); });
@@ -664,8 +707,8 @@ class Component extends DCLogic {
         onSelect: () => this.selectMode(key),
         style: {
           all: 'unset', cursor: 'pointer', fontSize: '12px', fontWeight: 500, padding: '8px 16px', borderRadius: '6px',
-          background: active ? '#fff' : 'transparent', color: active ? '#171018' : 'oklch(0.45 0 0)',
-          boxShadow: active ? '0 2px 6px rgba(0,0,0,0.12)' : 'none'
+          background: active ? '#fff' : 'transparent', color: active ? '#E5262B' : 'oklch(1 0 0 / 0.75)',
+          boxShadow: active ? '0 2px 6px rgba(0,0,0,0.18)' : 'none'
         }
       };
     });
@@ -675,6 +718,11 @@ class Component extends DCLogic {
     }));
     return {
       modeTabs, player, settingsOpen: this.state.settingsOpen, toggleSettings: this.toggleSettings, settingsItems,
+      tabRowRef: this.tabRowRef,
+      ghostX: (this.state.ghostX || 0) + 'px', ghostY: (this.state.ghostY || 0) + 'px',
+      ghostOpacity: this.state.ghostOn ? 1 : 0,
+      ghostRingOpacity: this.state.ghostPress ? 0.85 : 0,
+      ghostRingScale: this.state.ghostPress ? 1.5 : 0.35,
       isActive: mode === 'active', isAmbient: mode === 'ambient', isAudio: mode === 'audio', isSleep: mode === 'sleep',
       isPlaying: this.state.isPlaying, isPaused: !this.state.isPlaying, videoRef: this.videoRef, togglePlay: this.togglePlay,
       onPlaylistEnter: () => this.setPlaylistHover(true), onPlaylistLeave: () => this.setPlaylistHover(false),
