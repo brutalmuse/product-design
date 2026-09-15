@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script src="../js/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../js/cursor-dot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; box-sizing:border-box; cursor:none; background:#fff; }
+  *, *::before, *::after { box-sizing:inherit; }
+  a, button, [draggable="true"], [role="button"] { cursor:none; }
+  a { color:#1a73e8; }
+  a:hover { color:#174ea6; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+  }
+  h1, h2 { font-family:'Google Sans','Product Sans','DM Sans',Roboto,Helvetica,Arial,sans-serif; }
+  @keyframes cg-in { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes cg-pulse { 0%,100% { opacity:0.28; } 50% { opacity:0.5; } }
+</style>
+</helmet>
+
+<div style="min-height:100vh; width:100%; background:#fff; color:#202124; font-family:Roboto,Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased;">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="cgm" viewBox="0 0 272 560">
+      <rect width="272" height="560" fill="#f1f3f4"></rect>
+      <path d="M0 330 C50 322 95 350 140 356 C186 362 232 344 272 334 L272 366 L232 376 C186 386 140 368 95 362 C50 356 24 368 0 374 Z" fill="#aadaff"></path>
+      <ellipse cx="66" cy="118" rx="28" ry="17" fill="#cdeac0"></ellipse>
+      <path d="M32 440 L90 434 L97 492 L37 500 Z" fill="#cdeac0"></path>
+      <g stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round">
+        <path d="M0 276 L202 250"></path><path d="M44 0 L74 560"></path><path d="M0 440 L218 414"></path><path d="M136 0 L155 560"></path><path d="M0 150 L184 126"></path>
+      </g>
+      <g stroke="#e8eaed" stroke-width="3" fill="none">
+        <path d="M95 0 L110 560"></path><path d="M0 210 L196 186"></path><path d="M0 356 L212 332"></path>
+      </g>
+    </symbol>
+    <symbol id="cgz" viewBox="0 0 272 560">
+      <path d="M104 200 C126 180 158 186 170 212 C182 240 174 280 150 300 C124 320 95 310 84 280 C74 250 83 220 104 200 Z" fill="#1a73e8" fill-opacity="0.16" stroke="#1a73e8" stroke-width="1.5" stroke-dasharray="5 4"></path>
+    </symbol>
+    <symbol id="cgp" viewBox="0 0 272 560">
+      <g>
+        <path d="M0 0 c-7 0 -12.6 5.7 -12.6 12.7 c0 9.3 12.6 20.5 12.6 20.5 s12.6 -11.2 12.6 -20.5 c0 -7 -5.6 -12.7 -12.6 -12.7 z" transform="translate(142,206)" fill="#1a73e8" stroke="#fff" stroke-width="2"></path>
+        <path d="M0 0 c-7 0 -12.6 5.7 -12.6 12.7 c0 9.3 12.6 20.5 12.6 20.5 s12.6 -11.2 12.6 -20.5 c0 -7 -5.6 -12.7 -12.6 -12.7 z" transform="translate(96,272)" fill="#5f6368" stroke="#fff" stroke-width="2"></path>
+        <path d="M0 0 c-7 0 -12.6 5.7 -12.6 12.7 c0 9.3 12.6 20.5 12.6 20.5 s12.6 -11.2 12.6 -20.5 c0 -7 -5.6 -12.7 -12.6 -12.7 z" transform="translate(64,250)" fill="#5f6368" stroke="#fff" stroke-width="2"></path>
+      </g>
+    </symbol>
+    <symbol id="cgr" viewBox="0 0 272 560">
+      <g fill="none" stroke="#1a73e8" stroke-width="3.6" stroke-linecap="round" stroke-opacity="0.85">
+        <path d="M44 212 C78 212 112 210 138 208"></path>
+        <path d="M54 466 C80 396 112 292 138 218"></path>
+        <path d="M226 458 C214 386 178 280 150 220"></path>
+        <path d="M102 74 C118 120 130 164 140 200"></path>
+      </g>
+    </symbol>
+  </svg>
+
+  <header style="position:sticky; top:0; z-index:40; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:12px clamp(16px,3vw,32px); background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); border-bottom:1px solid #dadce0;">
+    <a href="human-centred-concepts.html" style="display:flex; align-items:center; gap:10px; color:#202124; text-decoration:none; font-weight:500; font-size:14px;" style-hover="color:#1a73e8;" style-focus="outline:2px solid #1a73e8; outline-offset:3px;">
+      <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:20px; line-height:1;">arrow_back</span> 01 — Human-Centred Concepts
+    </a>
+    <nav style="display:flex; gap:8px; align-items:center;">
+      <a href="https://www.linkedin.com/in/thaiveppilgopishruthi" target="_blank" rel="noopener noreferrer" style="color:#5f6368; text-decoration:none; font-size:13px; font-weight:500; padding:8px 12px; border-radius:100px;" style-hover="background:#f1f3f4; color:#202124;" style-focus="outline:2px solid #1a73e8; outline-offset:2px;">LinkedIn</a>
+      <a href="mailto:thaiveppil.gopi.shruthi@gmail.com" style="color:#fff; background:#1a73e8; text-decoration:none; font-size:13px; font-weight:500; padding:8px 16px; border-radius:100px;" style-hover="background:#174ea6;" style-focus="outline:2px solid #202124; outline-offset:2px;">Email</a>
+    </nav>
+  </header>
+
+  <section style="max-width:1100px; margin:0 auto; padding:clamp(40px,8vh,88px) clamp(20px,4vw,40px) clamp(28px,5vh,56px); animation:cg-in 0.9s cubic-bezier(0.2,0,0,1) both;">
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:28px;">
+      <span style="display:inline-flex; align-items:center; gap:8px; padding:7px 16px 7px 12px; background:#e8f0fe; border-radius:100px; font-size:12px; font-weight:500; color:#174ea6;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:16px; line-height:1;">add_location_alt</span>A feature concept for Google Maps</span>
+      <span style="display:inline-flex; align-items:center; gap:8px; padding:7px 16px 7px 12px; border:1px solid #dadce0; border-radius:100px; font-size:12px; color:#5f6368;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:16px; line-height:1; color:#f29900;">info</span>Independent concept. Not affiliated with Google.</span>
+    </div>
+    <h1 style="margin:0 0 20px; font-weight:400; font-size:clamp(40px,7vw,80px); line-height:1.02; letter-spacing:-0.005em;">Where&nbsp;to&nbsp;meet</h1>
+    <p style="margin:0 0 20px; max-width:20ch; font-family:'Google Sans','Product Sans','DM Sans',Roboto,sans-serif; font-size:clamp(20px,2.4vw,30px); line-height:1.3; font-weight:400; color:#3c4043;">Maps gets you there. This gets everyone there.</p>
+    <p style="margin:0; max-width:52ch; font-size:16px; line-height:1.65; color:#5f6368;">A Maps feature for picking a place with everyone's journey already on the table, instead of finding out afterwards who got the long trip.</p>
+
+    <figure style="margin:36px 0 0; border:1px solid #dadce0; border-radius:20px; overflow:hidden; box-shadow:0 1px 3px 1px rgba(60,64,67,0.15); background:#fff;">
+      <div style="position:relative; container-type:inline-size;">
+        <svg viewBox="0 0 1200 560" style="display:block; width:100%; height:auto;" role="img" aria-label="Four people starting in different parts of London, with a shared area where all four can meet">
+          <rect x="0" y="0" width="1200" height="560" fill="#f1f3f4"></rect>
+          <path d="M0 300 C180 276 340 350 540 362 C740 374 890 306 1060 276 L1200 264 L1200 326 L1060 338 C890 368 740 436 540 424 C340 412 180 338 0 362 Z" fill="#aadaff"></path>
+          <path d="M300 122 L470 134 L458 212 L288 198 Z" fill="#cdeac0"></path>
+          <path d="M812 452 L960 442 L972 520 L824 530 Z" fill="#cdeac0"></path>
+          <g stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round">
+            <path d="M0 202 L1200 162"></path><path d="M180 0 L240 560"></path><path d="M624 0 L664 560"></path><path d="M0 470 L1200 438"></path><path d="M902 0 L942 560"></path>
+          </g>
+          <g stroke="#e8eaed" stroke-width="4.5" fill="none">
+            <path d="M0 112 L1200 78"></path><path d="M404 0 L444 560"></path><path d="M0 262 L1200 224"></path><path d="M764 0 L804 560"></path>
+          </g>
+          <path d="M600 150 C700 124 790 148 820 206 C850 264 820 320 740 340 C658 360 588 338 562 282 C538 224 554 174 600 150 Z" fill="#1a73e8" fill-opacity="0.16" stroke="#1a73e8" stroke-width="2.4" stroke-dasharray="8 7" style="animation:cg-pulse 3.6s ease-in-out infinite;"></path>
+          <g font-family="Roboto, sans-serif">
+            <g><circle cx="130" cy="150" r="44" fill="#3c4043" fill-opacity="0.08"></circle><text x="130" y="226" font-size="27" font-weight="500" fill="#202124" text-anchor="middle">Ava</text><text x="130" y="253" font-size="23" fill="#5f6368" text-anchor="middle">Hammersmith</text></g>
+            <g><circle cx="330" cy="60" r="44" fill="#3c4043" fill-opacity="0.08"></circle><text x="330" y="136" font-size="27" font-weight="500" fill="#202124" text-anchor="middle">Mia</text><text x="330" y="163" font-size="23" fill="#5f6368" text-anchor="middle">Shepherd's Bush</text></g>
+            <g><circle cx="240" cy="450" r="44" fill="#3c4043" fill-opacity="0.08"></circle><text x="240" y="526" font-size="27" font-weight="500" fill="#202124" text-anchor="middle">Ben</text><text x="240" y="553" font-size="23" fill="#5f6368" text-anchor="middle">Wimbledon</text></g>
+            <g><circle cx="1032" cy="428" r="44" fill="#3c4043" fill-opacity="0.08"></circle><text x="1032" y="504" font-size="27" font-weight="500" fill="#202124" text-anchor="middle">Tom</text><text x="1032" y="531" font-size="23" fill="#5f6368" text-anchor="middle">Greenwich</text></g>
+            <g>
+              <path d="M0 0 c-11 0 -19.6 8.9 -19.6 19.8 c0 14.5 19.6 32 19.6 32 s19.6 -17.5 19.6 -32 c0 -10.9 -8.6 -19.8 -19.6 -19.8 z" transform="translate(700,196)" fill="#1a73e8" stroke="#fff" stroke-width="3"></path>
+              <circle cx="700" cy="217" r="6.2" fill="#fff"></circle>
+              <text x="700" y="292" font-size="27" font-weight="500" fill="#174ea6" text-anchor="middle">Where you can all meet</text>
+            </g>
+          </g>
+        </svg>
+        <span style="position:absolute; left:10.83%; top:26.8%; transform:translate(-50%,-50%); width:5.5cqw; height:5.5cqw; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.3); display:grid; place-items:center;"><img src="../assets/images/avatar-2.png" alt="Ava" style="width:86%; height:86%; border-radius:50%; object-fit:cover; display:block;"><span aria-hidden="true" style="position:absolute; right:-6%; bottom:-6%; width:2.6cqw; height:2.6cqw; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(60,64,67,0.35); display:grid; place-items:center; font-family:'Material Symbols Outlined'; font-size:1.6cqw; line-height:1; color:#202124;">directions_bus</span></span>
+        <span style="position:absolute; left:27.5%; top:10.7%; transform:translate(-50%,-50%); width:5.5cqw; height:5.5cqw; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.3); display:grid; place-items:center;"><img src="../assets/images/avatar-4.png" alt="Mia" style="width:86%; height:86%; border-radius:50%; object-fit:cover; display:block;"><span aria-hidden="true" style="position:absolute; right:-6%; bottom:-6%; width:2.6cqw; height:2.6cqw; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(60,64,67,0.35); display:grid; place-items:center; font-family:'Material Symbols Outlined'; font-size:1.6cqw; line-height:1; color:#202124;">directions_bus</span></span>
+        <span style="position:absolute; left:20%; top:80.4%; transform:translate(-50%,-50%); width:5.5cqw; height:5.5cqw; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.3); display:grid; place-items:center;"><img src="../assets/images/avatar-3.png" alt="Ben" style="width:86%; height:86%; border-radius:50%; object-fit:cover; display:block;"><span aria-hidden="true" style="position:absolute; right:-6%; bottom:-6%; width:2.6cqw; height:2.6cqw; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(60,64,67,0.35); display:grid; place-items:center; font-family:'Material Symbols Outlined'; font-size:1.6cqw; line-height:1; color:#202124;">train</span></span>
+        <span style="position:absolute; left:86%; top:76.4%; transform:translate(-50%,-50%); width:5.5cqw; height:5.5cqw; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.3); display:grid; place-items:center;"><img src="../assets/images/avatar-1.png" alt="Tom" style="width:86%; height:86%; border-radius:50%; object-fit:cover; display:block;"><span aria-hidden="true" style="position:absolute; right:-6%; bottom:-6%; width:2.6cqw; height:2.6cqw; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(60,64,67,0.35); display:grid; place-items:center; font-family:'Material Symbols Outlined'; font-size:1.6cqw; line-height:1; color:#202124;">two_wheeler</span></span>
+        <div style="position:absolute; top:3%; left:2.5%; display:flex; align-items:center; gap:8px; padding:8px 14px; background:#fff; border-radius:100px; box-shadow:0 1px 3px 1px rgba(60,64,67,0.18); max-width:70%;">
+          <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:16px; color:#5f6368; line-height:1;">search</span>
+          <span style="font-size:12px; color:#3c4043; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Dinner, around 7:00 PM</span>
+        </div>
+      </div>
+    </figure>
+
+    <div style="display:flex; gap:40px; flex-wrap:wrap; margin-top:32px; padding-top:24px; border-top:1px solid #dadce0;">
+      <div style="display:flex; flex-direction:column; gap:4px;"><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#80868b;">Role</span><span style="font-size:14px;">Product &amp; interaction design</span></div>
+      <div style="display:flex; flex-direction:column; gap:4px;"><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#80868b;">Year</span><span style="font-size:14px;">2026</span></div>
+      <div style="display:flex; flex-direction:column; gap:4px;"><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#80868b;">Scope</span><span style="font-size:14px;">12 screens, 1 flow</span></div>
+      <div style="display:flex; flex-direction:column; gap:4px;"><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#80868b;">Status</span><span style="font-size:14px;">Prototype tested with groups</span></div>
+    </div>
+  </section>
+
+  <section style="max-width:1100px; margin:0 auto; padding:clamp(40px,7vh,80px) clamp(20px,4vw,40px); border-top:1px solid #dadce0;">
+    <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#1a73e8; font-weight:500;">01 — The problem</span>
+    <h2 style="margin:16px 0 20px; font-weight:400; font-size:clamp(26px,3.4vw,40px); line-height:1.15; letter-spacing:0.002em; max-width:22ch;">The place gets picked before anyone knows what it costs.</h2>
+    <p style="margin:0 0 36px; max-width:54ch; font-size:16px; line-height:1.7; color:#3c4043;">Four colleagues, four parts of London, dinner at seven. Someone suggests a place near her office and everyone says yes, because saying yes is faster than working it out.</p>
+
+    <h3 style="margin:0 0 16px; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:#5f6368; font-weight:500;">Who it's for</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-bottom:40px;">
+      <div style="border:1px solid #1a73e8; border-radius:16px; padding:22px; background:#e8f0fe; display:flex; flex-direction:column; gap:10px;">
+        <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#1a73e8;">groups</span>
+        <h4 style="margin:0; font-size:15px; font-weight:500; color:#174ea6;">Primary — city groups of three to six</h4>
+        <p style="margin:0; font-size:13px; line-height:1.6; color:#174ea6;">Colleagues after work, friends spread across boroughs, families meeting in the middle. Different starting points, different ways of travelling, one time everyone has to hit.</p>
+      </div>
+      <div style="border:1px solid #dadce0; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:10px;">
+        <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#5f6368;">swap_horiz</span>
+        <h4 style="margin:0; font-size:15px; font-weight:500;">Secondary — two people meeting halfway</h4>
+        <p style="margin:0; font-size:13px; line-height:1.6; color:#5f6368;">The same calculation with the simplest input. A first date, a handover, a catch-up between two parts of town.</p>
+      </div>
+      <div style="border:1px solid #dadce0; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:10px;">
+        <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#5f6368;">block</span>
+        <h4 style="margin:0; font-size:15px; font-weight:500;">Not for</h4>
+        <p style="margin:0; font-size:13px; line-height:1.6; color:#5f6368;">Getting one person to a place that's already fixed — an office, a venue, a booked table. Maps does that well and nothing here touches it.</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(20px,3vw,32px); align-items:start;">
+      <div style="border:1px solid #dadce0; border-radius:16px; padding:22px; background:#f8f9fa; display:flex; flex-direction:column; gap:10px;">
+        <span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#80868b;">In the group chat</span>
+        <div style="align-self:flex-start; max-width:80%; padding:10px 14px; border-radius:16px 16px 16px 4px; background:#fff; border:1px solid #dadce0; font-size:14px; line-height:1.5;">Dinner Thursday? Somewhere near mine is easy</div>
+        <div style="align-self:flex-end; max-width:80%; padding:10px 14px; border-radius:16px 16px 4px 16px; background:#1a73e8; color:#fff; font-size:14px; line-height:1.5;">works for me</div>
+        <div style="align-self:flex-end; max-width:80%; padding:10px 14px; border-radius:16px 16px 4px 16px; background:#1a73e8; color:#fff; font-size:14px; line-height:1.5;">yep, book it</div>
+        <div style="align-self:flex-start; max-width:80%; padding:10px 14px; border-radius:16px 16px 16px 4px; background:#fff; border:1px solid #dadce0; font-size:14px; line-height:1.5; color:#5f6368;">sure 👍</div>
+      </div>
+      <div style="border:1px solid #dadce0; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#80868b;">What that meant</span>
+        <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Ava</span><span style="height:8px; border-radius:4px; background:#dadce0; width:31%;"></span><span style="font-family:'Roboto Mono',monospace;">12 min</span></div>
+        <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Ben</span><span style="height:8px; border-radius:4px; background:#dadce0; width:36%;"></span><span style="font-family:'Roboto Mono',monospace;">14 min</span></div>
+        <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Mia</span><span style="height:8px; border-radius:4px; background:#dadce0; width:41%;"></span><span style="font-family:'Roboto Mono',monospace;">16 min</span></div>
+        <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368; font-weight:500;">Tom</span><span style="height:8px; border-radius:4px; background:#d93025; width:100%;"></span><span style="font-family:'Roboto Mono',monospace; color:#c5221f; font-weight:500;">39 min</span></div>
+        <p style="margin:4px 0 0; font-size:14px; line-height:1.65; color:#3c4043;">Nobody saw this number when it mattered. So the imbalance never got discussed, and it lands on the same person next time too.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#202124; color:#fff;">
+    <div style="max-width:1100px; margin:0 auto; padding:clamp(48px,9vh,104px) clamp(20px,4vw,40px);">
+      <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8ab4f8; font-weight:500;">02 — The shift</span>
+      <h2 style="margin:16px 0 40px; font-weight:400; font-size:clamp(26px,3.4vw,40px); line-height:1.15; letter-spacing:0.002em; max-width:26ch;">Today the destination is the input. It should be the answer.</h2>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="padding:24px; border:1px solid #3c4043; border-radius:16px; background:#292a2d;">
+          <span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#9aa0a6;">Today</span>
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:14px;">
+            <span style="padding:10px 18px; border-radius:100px; background:#3c4043; font-size:15px; font-weight:500;">Pick a place</span>
+            <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#9aa0a6;">arrow_forward</span>
+            <span style="padding:10px 18px; border-radius:100px; background:#3c4043; font-size:15px;">Everyone checks their own route</span>
+            <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#9aa0a6;">arrow_forward</span>
+            <span style="padding:10px 18px; border-radius:100px; border:1px dashed #5f6368; font-size:15px; color:#9aa0a6;">One person quietly absorbs it</span>
+          </div>
+        </div>
+        <div style="padding:24px; border:1px solid #8ab4f8; border-radius:16px; background:#1f2733;">
+          <span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#8ab4f8;">With Where to meet</span>
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:14px;">
+            <span style="padding:10px 18px; border-radius:100px; background:#8ab4f8; color:#202124; font-size:15px; font-weight:500;">Start with the journeys</span>
+            <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#8ab4f8;">arrow_forward</span>
+            <span style="padding:10px 18px; border-radius:100px; background:#3c4043; font-size:15px;">See where you can all get to</span>
+            <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#8ab4f8;">arrow_forward</span>
+            <span style="padding:10px 18px; border-radius:100px; background:#3c4043; font-size:15px;">Pick a place, trade-off in view</span>
+          </div>
+        </div>
+      </div>
+      <p style="margin:28px 0 0; max-width:56ch; font-size:15px; line-height:1.7; color:#bdc1c6;">Everything it needs already exists in Maps: multimodal routing, transit alerts, place data, shared ETAs. What's missing is a surface where those answer a group's question instead of one person's.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1100px; margin:0 auto; padding:clamp(40px,7vh,80px) clamp(20px,4vw,40px);">
+    <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#1a73e8; font-weight:500;">03 — What fair means</span>
+    <h2 style="margin:16px 0 20px; font-weight:400; font-size:clamp(26px,3.4vw,40px); line-height:1.15; letter-spacing:0.002em; max-width:20ch;">The midpoint is not the fair point.</h2>
+    <p style="margin:0 0 32px; max-width:54ch; font-size:16px; line-height:1.7; color:#3c4043;">A river, a missing bus route and a long transfer all look like open road on a map. Fairness has to be measured in travel time, not distance.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px;">
+      <div style="border:1px solid #dadce0; border-radius:16px; padding:24px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px;">
+          <h3 style="margin:0; font-size:17px; font-weight:500;">Option A — Soho</h3>
+          <span style="font-size:12px; padding:4px 10px; border-radius:100px; background:#e6f4ea; color:#188038; font-weight:500;">6 min apart</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Ava</span><span style="height:8px; border-radius:4px; background:#1a73e8; width:61%;"></span><span style="font-family:'Roboto Mono',monospace;">24 min</span></div>
+          <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Ben</span><span style="height:8px; border-radius:4px; background:#1a73e8; width:69%;"></span><span style="font-family:'Roboto Mono',monospace;">27 min</span></div>
+          <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Tom</span><span style="height:8px; border-radius:4px; background:#1a73e8; width:54%;"></span><span style="font-family:'Roboto Mono',monospace;">21 min</span></div>
+          <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Mia</span><span style="height:8px; border-radius:4px; background:#1a73e8; width:67%;"></span><span style="font-family:'Roboto Mono',monospace;">26 min</span></div>
+        </div>
+        <p style="margin:16px 0 0; font-size:13px; color:#5f6368;">Slower on average. Nobody singled out.</p>
+      </div>
+      <div style="border:1px solid #dadce0; border-radius:16px; padding:24px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px;">
+          <h3 style="margin:0; font-size:17px; font-weight:500;">Option B — Hammersmith</h3>
+          <span style="font-size:12px; padding:4px 10px; border-radius:100px; background:#fce8e6; color:#c5221f; font-weight:500;">27 min apart</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Ava</span><span style="height:8px; border-radius:4px; background:#dadce0; width:31%;"></span><span style="font-family:'Roboto Mono',monospace;">12 min</span></div>
+          <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Ben</span><span style="height:8px; border-radius:4px; background:#dadce0; width:36%;"></span><span style="font-family:'Roboto Mono',monospace;">14 min</span></div>
+          <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Tom</span><span style="height:8px; border-radius:4px; background:#d93025; width:100%;"></span><span style="font-family:'Roboto Mono',monospace; color:#c5221f; font-weight:500;">39 min</span></div>
+          <div style="display:grid; grid-template-columns:52px 1fr 54px; align-items:center; gap:12px; font-size:13px;"><span style="color:#5f6368;">Mia</span><span style="height:8px; border-radius:4px; background:#dadce0; width:41%;"></span><span style="font-family:'Roboto Mono',monospace;">16 min</span></div>
+        </div>
+        <p style="margin:16px 0 0; font-size:13px; color:#5f6368;">17 minutes less travel overall. One person carries it.</p>
+      </div>
+    </div>
+    <div style="margin-top:20px; padding:20px 24px; background:#e8f0fe; border-radius:12px; display:flex; gap:14px; align-items:flex-start;">
+      <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:20px; color:#1a73e8; margin-top:1px;">lightbulb</span>
+      <p style="margin:0; font-size:15px; line-height:1.65; color:#174ea6; max-width:64ch;">No formula says which one a group should want. The job is to make the trade-off visible, not to settle it.</p>
+    </div>
+
+    <div style="margin-top:40px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;">
+      <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
+        <div style="background:#fff; border:1px solid #dadce0; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:8px;">
+          <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#1a73e8;">{{ p.icon }}</span>
+          <h3 style="margin:0; font-size:15px; font-weight:500; line-height:1.35;">{{ p.title }}</h3>
+          <p style="margin:0; font-size:13px; line-height:1.6; color:#5f6368;">{{ p.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#f8f9fa;">
+    <div style="max-width:1240px; margin:0 auto; padding:clamp(40px,7vh,80px) clamp(20px,4vw,40px);">
+      <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#1a73e8; font-weight:500;">04 — The flow</span>
+      <h2 style="margin:16px 0 12px; font-weight:400; font-size:clamp(26px,3.4vw,40px); line-height:1.15; letter-spacing:0.002em; max-width:22ch;">Set up, decide, go — and cope when it changes.</h2>
+      <p style="margin:0 0 8px; max-width:54ch; font-size:16px; line-height:1.7; color:#3c4043;">Twelve screens. The map never leaves; only the sheet changes, so the group keeps its bearings while the decision moves.</p>
+
+      <div style="margin-top:36px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+        <h3 style="margin:0; font-size:18px; font-weight:500;">Act 1 · Set up</h3>
+        <span style="font-size:13px; color:#5f6368;">Four taps and whatever you're willing to share.</span>
+      </div>
+      <div style="display:flex; gap:20px; overflow-x:auto; padding:20px 4px 24px; scroll-snap-type:x proximity;">
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use></svg>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:12</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:10px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div style="display:flex; align-items:center; gap:10px; padding:10px 14px; border-radius:100px; border:1px solid #dadce0;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:18px; color:#5f6368;">search</span><span style="font-size:13px; color:#80868b;">Search here</span></div>
+                <div style="display:flex; gap:6px;"><span style="padding:6px 11px; border-radius:100px; border:1px solid #dadce0; font-size:12px; color:#3c4043;">Restaurants</span><span style="padding:6px 11px; border-radius:100px; border:1px solid #dadce0; font-size:12px; color:#3c4043;">Coffee</span><span style="padding:6px 11px; border-radius:100px; border:1px solid #dadce0; font-size:12px; color:#3c4043;">Transit</span></div>
+                <div style="display:flex; align-items:center; gap:12px; padding:13px; border-radius:12px; background:#e8f0fe;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#1a73e8;">group_add</span><div><div style="font-size:14px; font-weight:500; color:#174ea6;">Where to meet</div><div style="font-size:12px; color:#1a73e8;">Find a place that works for everyone</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">01 · Entry</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">“Where to meet” sits with the plan-and-share actions. Single-user Maps is untouched.</div></div>
+        </div>
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use></svg>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:12</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:10px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div style="font-size:15px; font-weight:500;">New meetup</div>
+                <div style="display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid #1a73e8; border-radius:10px;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:18px; color:#1a73e8;">restaurant</span><span style="font-size:14px;">Dinner</span></div>
+                <div style="display:flex; flex-direction:column; gap:8px; padding:12px 13px; border:1px solid #dadce0; border-radius:10px;">
+                  <div style="display:flex; align-items:center; gap:10px;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:18px; color:#5f6368;">schedule</span><span style="font-size:13px; color:#5f6368;">Meet around</span></div>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                    <span aria-hidden="true" style="width:34px; height:34px; border-radius:50%; border:1px solid #dadce0; display:grid; place-items:center; font-family:'Material Symbols Outlined'; font-size:18px; color:#3c4043;">remove</span>
+                    <span style="font-size:20px; font-weight:500; font-family:'Roboto Mono',monospace;">7:00 PM</span>
+                    <span aria-hidden="true" style="width:34px; height:34px; border-radius:50%; border:1px solid #dadce0; display:grid; place-items:center; font-family:'Material Symbols Outlined'; font-size:18px; color:#3c4043;">add</span>
+                  </div>
+                  <div style="display:flex; gap:6px;"><span style="flex:1; padding:6px 0; border-radius:100px; border:1px solid #dadce0; font-size:12px; color:#3c4043; text-align:center;">6:30</span><span style="flex:1; padding:6px 0; border-radius:100px; background:#e8f0fe; border:1px solid #1a73e8; font-size:12px; color:#174ea6; font-weight:500; text-align:center;">7:00</span><span style="flex:1; padding:6px 0; border-radius:100px; border:1px solid #dadce0; font-size:12px; color:#3c4043; text-align:center;">7:30</span><span style="flex:1; padding:6px 0; border-radius:100px; border:1px solid #dadce0; font-size:12px; color:#3c4043; text-align:center;">8:00</span></div>
+                </div>
+                <div style="display:flex; gap:6px;"><span style="padding:6px 11px; border-radius:100px; border:1px solid #dadce0; font-size:12px; color:#3c4043;">Budget</span><span style="padding:6px 11px; border-radius:100px; border:1px solid #dadce0; font-size:12px; color:#3c4043;">Area to avoid</span></div>
+                <div style="padding:12px 18px; border-radius:100px; background:#1a73e8; color:#fff; font-size:14px; font-weight:500; text-align:center;">Create and invite</div>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">02 · Create</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">No typing. Tap a common time or nudge it in 15-minute steps — a keyboard here would cost more than the decision is worth.</div></div>
+        </div>
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use></svg><span style="position:absolute; left:16.18%; top:37.86%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-2.png" alt="Ava" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:37.50%; top:13.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-3.png" alt="Ben" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:19.85%; top:83.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-4.png" alt="Mia" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:83.09%; top:81.79%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-1.png" alt="Tom" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:14</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:10px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div><div style="font-size:15px; font-weight:500;">Dinner · 7:00 PM</div><div style="font-size:12px; color:#5f6368;">Waiting for everyone's journey</div></div>
+                <div style="height:4px; border-radius:2px; background:#e8f0fe; overflow:hidden;"><span style="display:block; height:100%; width:50%; background:#1a73e8;"></span></div>
+                <div style="display:grid; grid-template-columns:1fr auto; gap:6px; align-items:center; font-size:13px;"><span>Ava · you</span><span style="font-size:11px; padding:3px 9px; border-radius:100px; background:#e6f4ea; color:#188038; font-weight:500;">Accepted</span></div>
+                <div style="display:grid; grid-template-columns:1fr auto; gap:6px; align-items:center; font-size:13px;"><span>Ben</span><span style="font-size:11px; padding:3px 9px; border-radius:100px; background:#e6f4ea; color:#188038; font-weight:500;">Accepted</span></div>
+                <div style="display:grid; grid-template-columns:1fr auto; gap:6px; align-items:center; font-size:13px;"><span>Mia</span><span style="font-size:11px; padding:3px 9px; border-radius:100px; background:#e6f4ea; color:#188038; font-weight:500;">Accepted</span></div>
+                <div style="display:grid; grid-template-columns:1fr auto; gap:6px; align-items:center; font-size:13px; color:#5f6368;"><span>Tom</span><span style="font-size:11px; padding:3px 9px; border-radius:100px; background:#f1f3f4;">Invited</span></div>
+                <div style="display:grid; grid-template-columns:1fr auto; gap:6px; align-items:center; font-size:13px; color:#80868b;"><span>Priya</span><span style="font-size:11px; padding:3px 9px; border-radius:100px; background:#fce8e6; color:#c5221f; font-weight:500;">Declined</span></div>
+                <div style="display:flex; align-items:center; gap:10px; padding:11px; border-radius:10px; background:#f8f9fa;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:18px; color:#5f6368;">link</span><span style="font-size:13px; color:#3c4043;">Copy invite link</span></div>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">03 · Who's in</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">Four statuses: accepted, declined, invited (no reply yet), and on the way once people travel. Declining drops you out of the maths, silence doesn't.</div></div>
+        </div>
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use></svg><span style="position:absolute; left:16.18%; top:37.86%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-2.png" alt="Ava" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:37.50%; top:13.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-3.png" alt="Ben" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:19.85%; top:83.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-4.png" alt="Mia" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:83.09%; top:81.79%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-1.png" alt="Tom" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:15</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:10px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div><div style="font-size:15px; font-weight:500;">Your journey</div><div style="font-size:12px; color:#5f6368;">Only you see this screen</div></div>
+                <div style="display:flex; align-items:center; gap:12px; padding:11px 14px; border:1px solid #dadce0; border-radius:10px;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:18px; color:#5f6368;">my_location</span><span style="font-size:14px;">Hammersmith</span></div>
+                <div style="display:flex; gap:6px;">
+                  <span style="flex:1; display:grid; place-items:center; padding:10px 0; border-radius:10px; background:#e8f0fe; border:1px solid #1a73e8;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:20px; color:#1a73e8;">directions_bus</span></span>
+                  <span style="flex:1; display:grid; place-items:center; padding:10px 0; border-radius:10px; border:1px solid #dadce0;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:20px; color:#5f6368;">train</span></span>
+                  <span style="flex:1; display:grid; place-items:center; padding:10px 0; border-radius:10px; border:1px solid #dadce0;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:20px; color:#5f6368;">two_wheeler</span></span>
+                  <span style="flex:1; display:grid; place-items:center; padding:10px 0; border-radius:10px; border:1px solid #dadce0;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:20px; color:#5f6368;">directions_walk</span></span>
+                </div>
+                <div style="padding:13px; border-radius:12px; background:#f8f9fa; display:flex; flex-direction:column; gap:9px;">
+                  <div style="display:flex; align-items:center; gap:9px;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#5f6368;">lock</span><span style="font-size:13px; font-weight:500;">What the group sees</span></div>
+                  <div style="display:flex; gap:6px;"><span style="flex:1 1 auto; padding:9px 14px; border-radius:100px; background:#1a73e8; color:#fff; font-size:12px; font-weight:500; text-align:center; white-space:nowrap;">Approximate area</span><span style="flex:0 1 auto; padding:9px 18px; border-radius:100px; border:1px solid #dadce0; font-size:12px; font-weight:500; text-align:center; color:#3c4043; white-space:nowrap;">Exact</span></div>
+                  <p style="margin:0; font-size:11px; line-height:1.5; color:#5f6368;">They see "Hammersmith". Routing still uses your real position.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">04 · Your journey</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">Private per person. Mode, earliest departure, and how much location you share.</div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+        <h3 style="margin:0; font-size:18px; font-weight:500;">Act 2 · Decide</h3>
+        <span style="font-size:13px; color:#5f6368;">Feasibility first, opinions second.</span>
+      </div>
+      <div style="display:flex; gap:20px; overflow-x:auto; padding:20px 4px 24px; scroll-snap-type:x proximity;">
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use><use href="#cgz"></use></svg><span style="position:absolute; left:16.18%; top:37.86%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-2.png" alt="Ava" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:37.50%; top:13.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-3.png" alt="Ben" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:19.85%; top:83.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-4.png" alt="Mia" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:83.09%; top:81.79%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-1.png" alt="Tom" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:17</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:10px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div><div style="font-size:15px; font-weight:500;">Where you can all meet</div><div style="font-size:12px; color:#5f6368;">Reachable by all four before 7:00 PM</div></div>
+                <div style="display:grid; grid-template-columns:20px 1fr auto; gap:9px; align-items:center;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#5f6368;">directions_bus</span><span style="font-size:13px;">Ava</span><span style="font-size:12px; color:#5f6368; font-family:'Roboto Mono',monospace;">18–31 min</span></div>
+                <div style="display:grid; grid-template-columns:20px 1fr auto; gap:9px; align-items:center;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#5f6368;">train</span><span style="font-size:13px;">Ben</span><span style="font-size:12px; color:#5f6368; font-family:'Roboto Mono',monospace;">16–29 min</span></div>
+                <div style="display:grid; grid-template-columns:20px 1fr auto; gap:9px; align-items:center;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#5f6368;">two_wheeler</span><span style="font-size:13px;">Tom</span><span style="font-size:12px; color:#5f6368; font-family:'Roboto Mono',monospace;">19–34 min</span></div>
+                <div style="display:grid; grid-template-columns:20px 1fr auto; gap:9px; align-items:center;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#5f6368;">directions_walk</span><span style="font-size:13px;">Mia</span><span style="font-size:12px; color:#5f6368; font-family:'Roboto Mono',monospace;">20–33 min</span></div>
+                <div style="padding:12px 18px; border-radius:100px; background:#1a73e8; color:#fff; font-size:14px; font-weight:500; text-align:center;">See suggested areas</div>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">05 · The shared area</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">What's possible, before the product has an opinion about what's best.</div></div>
+        </div>
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use><use href="#cgz"></use><use href="#cgp"></use></svg>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:18</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:9px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div style="font-size:15px; font-weight:500;">Suggested areas</div>
+                <div style="padding:11px 13px; border-radius:12px; border:1px solid #1a73e8; background:#e8f0fe;">
+                  <div style="display:flex; justify-content:space-between; gap:8px; align-items:baseline;"><span style="font-size:14px; font-weight:500; color:#174ea6;">Soho</span><span style="font-size:11px; color:#1a73e8;">21–27 min each</span></div>
+                  <p style="margin:5px 0 0; font-size:11px; line-height:1.5; color:#1a73e8;">Most balanced. Six minutes between the longest and shortest trip.</p>
+                </div>
+                <div style="padding:11px 13px; border-radius:12px; border:1px solid #dadce0;">
+                  <div style="display:flex; justify-content:space-between; gap:8px; align-items:baseline;"><span style="font-size:14px; font-weight:500;">Victoria</span><span style="font-size:11px; color:#5f6368;">16–31 min</span></div>
+                  <p style="margin:5px 0 0; font-size:11px; line-height:1.5; color:#5f6368;">Simplest transit — one change across the whole group.</p>
+                </div>
+                <div style="padding:11px 13px; border-radius:12px; border:1px solid #dadce0;">
+                  <div style="display:flex; justify-content:space-between; gap:8px; align-items:baseline;"><span style="font-size:14px; font-weight:500;">Hammersmith</span><span style="font-size:11px; color:#5f6368;">12–39 min</span></div>
+                  <p style="margin:5px 0 0; font-size:11px; line-height:1.5; color:#5f6368;">Least travel overall, but Tom rides 39 minutes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">06 · Suggested areas</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">Three areas, each with its reason and its cost said out loud.</div></div>
+        </div>
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use><use href="#cgz"></use><use href="#cgp"></use></svg>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:19</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:9px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div><div style="font-size:15px; font-weight:500;">Compare places</div><div style="font-size:12px; color:#5f6368;">Soho · 3 open at 7:00 PM</div></div>
+                <div style="padding:13px; border-radius:12px; border:1px solid #1a73e8;">
+                  <div style="font-size:14px; font-weight:500;">The Copper Table</div>
+                  <div style="font-size:11px; color:#5f6368; margin:3px 0 9px;">Modern British · ££ · 4.5 ★</div>
+                  <div style="font-size:12px; font-weight:500; color:#188038; margin-bottom:9px;">Everyone arrives 18:55–19:05</div>
+                  <div style="display:flex; flex-direction:column; gap:5px; font-size:12px; color:#3c4043;">
+                    <div style="display:grid; grid-template-columns:1fr auto;"><span>Ava · Bus</span><span style="font-family:'Roboto Mono',monospace;">24 min</span></div>
+                    <div style="display:grid; grid-template-columns:1fr auto;"><span>Ben · Tube</span><span style="font-family:'Roboto Mono',monospace;">27 min</span></div>
+                    <div style="display:grid; grid-template-columns:1fr auto;"><span>Tom · Motorbike</span><span style="font-family:'Roboto Mono',monospace;">21 min</span></div>
+                    <div style="display:grid; grid-template-columns:1fr auto;"><span>Mia · Bus + walk</span><span style="font-family:'Roboto Mono',monospace;">26 min</span></div>
+                  </div>
+                </div>
+                <div style="padding:11px 13px; border-radius:12px; border:1px solid #dadce0; display:grid; grid-template-columns:1fr auto; gap:8px; align-items:center;"><div><div style="font-size:13px; font-weight:500;">Riverside Kitchen</div><div style="font-size:11px; color:#5f6368;">4.7 ★ · one 39-min trip</div></div><span style="font-size:11px; padding:3px 9px; border-radius:100px; background:#fef7e0; color:#b06000; font-weight:500;">Uneven</span></div>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">07 · Compare places</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">Group journey sits above rating and price. That relationship is the new content.</div></div>
+        </div>
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use><use href="#cgz"></use><use href="#cgp"></use></svg>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:21</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:10px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div><div style="font-size:15px; font-weight:500;">Vote on where to go</div><div style="font-size:12px; color:#5f6368;">3 of 4 voted · closes at 6:45 PM</div></div>
+                <div style="padding:11px 13px; border-radius:12px; border:1px solid #1a73e8; background:#e8f0fe;">
+                  <div style="display:flex; justify-content:space-between; gap:8px; align-items:center;"><span style="font-size:14px; font-weight:500; color:#174ea6;">The Copper Table</span><span style="display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:500; color:#174ea6;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:16px;">thumb_up</span>2</span></div>
+                  <div style="display:flex; gap:4px; margin-top:7px;"><img src="../assets/images/avatar-3.png" alt="" style="width:20px; height:20px; border-radius:50%; object-fit:cover;"><img src="../assets/images/avatar-1.png" alt="" style="width:20px; height:20px; border-radius:50%; object-fit:cover;"></div>
+                  <p style="margin:7px 0 0; font-size:11px; line-height:1.5; color:#1a73e8;">21–27 min each · most balanced</p>
+                </div>
+                <div style="padding:11px 13px; border-radius:12px; border:1px solid #dadce0;">
+                  <div style="display:flex; justify-content:space-between; gap:8px; align-items:center;"><span style="font-size:14px; font-weight:500;">Riverside Kitchen</span><span style="display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:500; color:#5f6368;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:16px;">thumb_up</span>1</span></div>
+                  <div style="display:flex; gap:4px; margin-top:7px;"><img src="../assets/images/avatar-4.png" alt="" style="width:20px; height:20px; border-radius:50%; object-fit:cover;"></div>
+                  <p style="margin:7px 0 0; font-size:11px; line-height:1.5; color:#5f6368;">12–39 min · Tom rides 39</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:7px; font-size:11px; color:#80868b;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:15px;">schedule</span>Waiting on Mia</div>
+                <div style="display:flex; gap:8px;"><span style="flex:1; padding:11px 0; border-radius:100px; border:1px solid #dadce0; font-size:13px; font-weight:500; text-align:center; color:#3c4043;">Add a place</span><span style="flex:1; padding:11px 0; border-radius:100px; background:#1a73e8; color:#fff; font-size:13px; font-weight:500; text-align:center;">Vote</span></div>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">08 · Vote</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">The same thumbs-up vote Maps already has, except every option carries what it costs each person. Anyone can add a place; disagreeing sends you back to compare, not into a thread.</div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+        <h3 style="margin:0; font-size:18px; font-weight:500;">Act 3 · Go, and when it changes</h3>
+        <span style="font-size:13px; color:#5f6368;">Plans move. The product keeps the plan and adjusts around it.</span>
+      </div>
+      <div style="display:flex; gap:20px; overflow-x:auto; padding:20px 4px 4px; scroll-snap-type:x proximity;">
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use><use href="#cgr"></use><use href="#cgp"></use></svg><span style="position:absolute; left:34.93%; top:37.68%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><span aria-hidden="true" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:170%; height:170%; border-radius:50%; background:#1a73e8; opacity:0.22; animation:cg-pulse 2s ease-in-out infinite;"></span><img src="../assets/images/avatar-2.png" alt="Ava" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:44.12%; top:25.00%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><span aria-hidden="true" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:170%; height:170%; border-radius:50%; background:#1a73e8; opacity:0.22; animation:cg-pulse 2s ease-in-out infinite;"></span><img src="../assets/images/avatar-3.png" alt="Ben" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:19.85%; top:83.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-4.png" alt="Mia" style="width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:83.09%; top:81.79%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1; opacity:0.5; filter:grayscale(1);"><img src="../assets/images/avatar-1.png" alt="Tom" style="width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:32</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:10px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;"><span style="display:inline-flex; align-items:center; gap:7px;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#188038;">check_circle</span><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#188038; font-weight:500;">Get there together</span></span><span style="display:inline-flex; align-items:center; gap:5px; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:#1a73e8; font-weight:500;"><span style="width:7px; height:7px; border-radius:50%; background:#1a73e8; animation:cg-pulse 2s ease-in-out infinite;"></span>Live</span></div>
+                <div><div style="font-size:15px; font-weight:500;">The Copper Table · 7:00 PM</div><div style="font-size:12px; color:#5f6368;">Everyone expected 18:51–19:03</div></div>
+                <div style="display:grid; grid-template-columns:20px 1fr auto; gap:9px; align-items:center;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#1a73e8;">directions_bus</span><span style="font-size:13px;">Ava · on the way<span style="display:block; font-size:11px; color:#5f6368;">Bus 27, 4 stops away</span></span><span style="font-size:12px; font-family:'Roboto Mono',monospace; color:#1a73e8;">18:56</span></div>
+                <div style="display:grid; grid-template-columns:20px 1fr auto; gap:9px; align-items:center;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#1a73e8;">train</span><span style="font-size:13px;">Ben · on the way<span style="display:block; font-size:11px; color:#5f6368;">Northern line, 2 min faster</span></span><span style="font-size:12px; font-family:'Roboto Mono',monospace; color:#1a73e8;">18:51</span></div>
+                <div style="display:grid; grid-template-columns:20px 1fr auto; gap:9px; align-items:center;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#5f6368;">directions_walk</span><span style="font-size:13px;">Mia · not left yet<span style="display:block; font-size:11px; color:#5f6368;">Leave by 18:33</span></span><span style="font-size:12px; font-family:'Roboto Mono',monospace;">18:59</span></div>
+                <div style="display:grid; grid-template-columns:20px 1fr auto; gap:9px; align-items:center;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#5f6368;">two_wheeler</span><span style="font-size:13px; color:#5f6368;">Tom · sharing off</span><span style="font-size:12px; color:#80868b;">—</span></div>
+                <div style="padding:12px 18px; border-radius:100px; background:#1a73e8; color:#fff; font-size:14px; font-weight:500; text-align:center; display:flex; align-items:center; justify-content:center; gap:8px;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:18px;">navigation</span>Start your route</div>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">09 · On the way</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">As each person sets off, their marker moves and their ETA updates on everyone's map. Sharing stays opt-in — Tom's row holds its place without leaking where he is.</div></div>
+        </div>
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use><use href="#cgz"></use><use href="#cgp"></use></svg>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:24</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:10px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div style="display:flex; align-items:center; gap:9px; padding:10px 12px; border-radius:10px; background:#fef7e0;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:18px; color:#b06000;">person_add</span><span style="font-size:13px; color:#b06000; font-weight:500;">Gautham joined</span></div>
+                <div style="padding:12px 13px; border-radius:12px; border:1px solid #dadce0;"><div style="font-size:13px; font-weight:500;">Keep The Copper Table</div><p style="margin:5px 0 0; font-size:11px; line-height:1.5; color:#5f6368;">Gautham travels 47 min. Nobody else is affected.</p></div>
+                <div style="padding:12px 13px; border-radius:12px; border:1px solid #1a73e8; background:#e8f0fe;"><div style="font-size:13px; font-weight:500; color:#174ea6;">Look again</div><p style="margin:5px 0 0; font-size:11px; line-height:1.5; color:#174ea6;">Bloomsbury gives all five a 22–31 min trip.</p></div>
+                <p style="margin:0; font-size:11px; line-height:1.5; color:#80868b;">The cost belongs to the choice, never to the person who joined late.</p>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">10 · Someone joins late</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">State the consequence, then stop. The group re-decides, not the system.</div></div>
+        </div>
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use><use href="#cgr"></use><use href="#cgp"></use></svg><span style="position:absolute; left:16.18%; top:37.86%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-2.png" alt="Ava" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:37.50%; top:13.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-3.png" alt="Ben" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:19.85%; top:83.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-4.png" alt="Mia" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:83.09%; top:81.79%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-1.png" alt="Tom" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:36</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:10px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div style="display:flex; align-items:center; gap:9px; padding:10px 12px; border-radius:10px; background:#fce8e6;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:18px; color:#c5221f;">report</span><span style="font-size:12px; color:#c5221f; font-weight:500; line-height:1.4;">Northern line part-suspended</span></div>
+                <div style="padding:12px 13px; border-radius:12px; border:1px solid #1a73e8; background:#e8f0fe;"><div style="font-size:13px; font-weight:500; color:#174ea6;">Reroute Ben</div><p style="margin:5px 0 0; font-size:11px; line-height:1.5; color:#174ea6;">Bus instead of tube. He arrives 19:14.</p></div>
+                <div style="padding:12px 13px; border-radius:12px; border:1px solid #dadce0;"><div style="font-size:13px; font-weight:500;">Move to 7:15 PM</div><p style="margin:5px 0 0; font-size:11px; line-height:1.5; color:#5f6368;">Same place, everyone's route unchanged.</p></div>
+                <div style="padding:12px 13px; border-radius:12px; border:1px solid #dadce0;"><div style="font-size:13px; font-weight:500; color:#5f6368;">Choose somewhere else</div><p style="margin:5px 0 0; font-size:11px; line-height:1.5; color:#80868b;">Offered last. A plan that keeps re-planning is worse than one late arrival.</p></div>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">11 · Transit disruption</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">After commitment the bias flips: defend the plan, adjust around it.</div></div>
+        </div>
+
+        <div style="flex:0 0 auto; width:272px; display:flex; flex-direction:column; gap:12px; scroll-snap-align:start;">
+          <div style="border-radius:30px; background:#202124; padding:8px; box-shadow:0 8px 24px -8px rgba(60,64,67,0.45);">
+            <div style="position:relative; border-radius:23px; overflow:hidden; background:#f1f3f4; aspect-ratio:272/560; display:flex; flex-direction:column;">
+              <svg viewBox="0 0 272 560" style="position:absolute; inset:0; width:100%; height:100%;" aria-hidden="true"><use href="#cgm"></use></svg><span style="position:absolute; left:16.18%; top:37.86%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-2.png" alt="Ava" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:37.50%; top:13.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-3.png" alt="Ben" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:19.85%; top:83.21%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-4.png" alt="Mia" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span><span style="position:absolute; left:83.09%; top:81.79%; transform:translate(-50%,-50%); width:10%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.35); display:grid; place-items:center; z-index:1;"><img src="../assets/images/avatar-1.png" alt="Tom" style="position:relative; width:85%; height:85%; border-radius:50%; object-fit:cover; display:block;"></span>
+              <div style="position:relative; z-index:2; display:flex; justify-content:space-between; padding:10px 16px 0; font-size:11px; font-weight:500; color:#202124;"><span style="font-family:'Roboto Mono',monospace;">18:16</span><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:13px;">battery_full</span></div>
+              <div style="flex:1;"></div>
+              <div style="position:relative; z-index:3; background:#fff; border-radius:16px 16px 0 0; box-shadow:0 -2px 10px rgba(60,64,67,0.14); padding:10px 14px 16px; display:flex; flex-direction:column; gap:10px;">
+                <div style="width:28px; height:4px; border-radius:2px; background:#dadce0; margin:0 auto;"></div>
+                <div><div style="font-size:15px; font-weight:500;">Nothing works at 7:00</div><div style="font-size:12px; color:#5f6368; line-height:1.45;">Tom can't reach any shared area in time from Greenwich.</div></div>
+                <div style="padding:12px 13px; border-radius:12px; border:1px solid #1a73e8; background:#e8f0fe;"><div style="font-size:13px; font-weight:500; color:#174ea6;">Meet at 7:20 PM</div><p style="margin:5px 0 0; font-size:11px; line-height:1.5; color:#174ea6;">Opens 14 areas for all four.</p></div>
+                <div style="padding:12px 13px; border-radius:12px; border:1px solid #dadce0;"><div style="font-size:13px; font-weight:500;">Tom joins at 7:25</div><p style="margin:5px 0 0; font-size:11px; line-height:1.5; color:#5f6368;">Keeps 7:00 for everyone else.</p></div>
+                <p style="margin:0; font-size:11px; line-height:1.5; color:#80868b;">An empty result is a real answer. It names who can't make it and what would fix it.</p>
+              </div>
+            </div>
+          </div>
+          <div><div style="font-size:14px; font-weight:500;">12 · No place fits</div><div style="font-size:13px; line-height:1.55; color:#5f6368;">The failure state gets designed too, with the constraint named.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#202124; color:#fff;">
+    <div style="max-width:1240px; margin:0 auto; padding:clamp(40px,7vh,80px) clamp(20px,4vw,40px);">
+      <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8ab4f8; font-weight:500;">05 — The core interaction</span>
+      <h2 style="margin:16px 0 12px; font-weight:400; font-size:clamp(26px,3.4vw,40px); line-height:1.15; letter-spacing:0.002em; max-width:22ch;">Fairness is a lens, not a score.</h2>
+      <p style="margin:0 0 28px; max-width:56ch; font-size:16px; line-height:1.7; color:#bdc1c6;">Instead of publishing one number, the group switches what "best" means and watches the order change. Try it — the ring follows the lens.</p>
+
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+        <sc-for list="{{ lenses }}" as="l" hint-placeholder-count="4">
+          <button type="button" onClick="{{ l.select }}" aria-pressed="{{ l.active }}" style="display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:100px; font-family:inherit; font-size:14px; font-weight:500; border:1px solid; background:{{ l.bg }}; color:{{ l.fg }}; border-color:{{ l.bc }};" style-focus="outline:2px solid #8ab4f8; outline-offset:3px;">
+            <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:18px; line-height:1;">{{ l.icon }}</span>{{ l.label }}
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:24px; align-items:start;">
+        <div style="border-radius:16px; overflow:hidden; border:1px solid #3c4043; background:#f8f9fa; position:relative; container-type:inline-size;">
+          <svg viewBox="0 0 800 560" style="display:block; width:100%; height:auto;" role="img" aria-label="City map with four starting points, the shared area, and three candidate venues">
+            <rect x="0" y="0" width="800" height="560" fill="#f1f3f4"></rect>
+            <path d="M0 320 C140 305 250 360 400 370 C550 380 660 335 790 315 L800 313 L800 360 L790 362 C660 382 550 428 400 418 C250 408 140 353 0 368 Z" fill="#aadaff"></path>
+            <ellipse cx="186" cy="86" rx="62" ry="34" fill="#cdeac0"></ellipse>
+            <ellipse cx="648" cy="122" rx="42" ry="24" fill="#cdeac0"></ellipse>
+            <path d="M420 470 L562 460 L576 536 L434 546 Z" fill="#cdeac0"></path>
+            <g stroke="#ffffff" stroke-width="11" fill="none" stroke-linecap="round">
+              <path d="M0 300 L596 258"></path><path d="M120 0 L200 560"></path><path d="M0 470 L640 420"></path><path d="M380 0 L420 560"></path><path d="M0 150 L540 96"></path><path d="M660 150 L800 170"></path>
+            </g>
+            <g stroke="#e8eaed" stroke-width="5" fill="none">
+              <path d="M60 0 L100 560"></path><path d="M260 0 L300 560"></path><path d="M500 0 L520 560"></path><path d="M0 220 L580 180"></path><path d="M0 380 L620 340"></path>
+            </g>
+            <path d="M360 150 C440 122 520 145 545 205 C572 268 540 330 465 350 C385 370 330 340 312 280 C296 222 320 178 360 150 Z" fill="#1a73e8" fill-opacity="0.16" stroke="#1a73e8" stroke-width="2" stroke-dasharray="7 6" style="animation:cg-pulse 3.6s ease-in-out infinite;"></path>
+            <circle cx="{{ spot.x }}" cy="{{ spot.y }}" r="54" fill="#1a73e8" fill-opacity="0.1" stroke="#1a73e8" stroke-width="3"></circle>
+            <g font-family="Roboto, sans-serif">
+              <g><circle cx="70" cy="130" r="46" fill="#3c4043" fill-opacity="0.08"></circle><text x="92" y="46" font-size="28" font-weight="500" fill="#202124" text-anchor="middle">Ava</text><text x="92" y="74" font-size="24" fill="#5f6368" text-anchor="middle">Hammersmith</text></g>
+              <g><circle cx="130" cy="440" r="46" fill="#3c4043" fill-opacity="0.08"></circle><text x="130" y="518" font-size="28" font-weight="500" fill="#202124" text-anchor="middle">Ben</text><text x="130" y="546" font-size="24" fill="#5f6368" text-anchor="middle">Wimbledon</text></g>
+              <g><circle cx="700" cy="440" r="46" fill="#3c4043" fill-opacity="0.08"></circle><text x="700" y="518" font-size="28" font-weight="500" fill="#202124" text-anchor="middle">Tom</text><text x="700" y="546" font-size="24" fill="#5f6368" text-anchor="middle">Greenwich</text></g>
+              <g><circle cx="245" cy="58" r="46" fill="#3c4043" fill-opacity="0.08"></circle><text x="245" y="136" font-size="28" font-weight="500" fill="#202124" text-anchor="middle">Mia</text><text x="245" y="164" font-size="24" fill="#5f6368" text-anchor="middle">Shepherd's Bush</text></g>
+              <g>
+                <path d="M0 0 c-9.5 0 -17 7.7 -17 17.2 c0 12.6 17 27.8 17 27.8 s17 -15.2 17 -27.8 c0 -9.5 -7.5 -17.2 -17 -17.2 z" transform="translate(440,175)" fill="{{ pinSen.color }}" stroke="#fff" stroke-width="2.5"></path>
+                <circle cx="440" cy="193" r="5.4" fill="#fff"></circle>
+                <text x="470" y="300" font-size="26" font-weight="500" fill="{{ pinSen.labelFill }}" text-anchor="middle">The Copper Table</text>
+              </g>
+              <g>
+                <path d="M0 0 c-9.5 0 -17 7.7 -17 17.2 c0 12.6 17 27.8 17 27.8 s17 -15.2 17 -27.8 c0 -9.5 -7.5 -17.2 -17 -17.2 z" transform="translate(170,225)" fill="{{ pinBep.color }}" stroke="#fff" stroke-width="2.5"></path>
+                <circle cx="170" cy="243" r="5.4" fill="#fff"></circle>
+                <text x="170" y="298" font-size="26" font-weight="500" fill="{{ pinBep.labelFill }}" text-anchor="middle">Riverside Kitchen</text>
+              </g>
+              <g>
+                <path d="M0 0 c-9.5 0 -17 7.7 -17 17.2 c0 12.6 17 27.8 17 27.8 s17 -15.2 17 -27.8 c0 -9.5 -7.5 -17.2 -17 -17.2 z" transform="translate(380,235)" fill="{{ pinCha.color }}" stroke="#fff" stroke-width="2.5"></path>
+                <circle cx="380" cy="253" r="5.4" fill="#fff"></circle>
+                <text x="330" y="336" font-size="26" font-weight="500" fill="{{ pinCha.labelFill }}" text-anchor="middle">The Belgrave</text>
+              </g>
+            </g>
+          </svg>
+          <span style="position:absolute; left:8.75%; top:23.2%; transform:translate(-50%,-50%); width:8.25cqw; height:8.25cqw; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.3); display:grid; place-items:center;"><img src="../assets/images/avatar-2.png" alt="Ava" style="width:86%; height:86%; border-radius:50%; object-fit:cover; display:block;"><span aria-hidden="true" style="position:absolute; right:-6%; bottom:-6%; width:4.6cqw; height:4.6cqw; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(60,64,67,0.35); display:grid; place-items:center; font-family:'Material Symbols Outlined'; font-size:3cqw; line-height:1; color:#202124;">directions_bus</span></span>
+          <span style="position:absolute; left:16.25%; top:78.6%; transform:translate(-50%,-50%); width:8.25cqw; height:8.25cqw; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.3); display:grid; place-items:center;"><img src="../assets/images/avatar-3.png" alt="Ben" style="width:86%; height:86%; border-radius:50%; object-fit:cover; display:block;"><span aria-hidden="true" style="position:absolute; right:-6%; bottom:-6%; width:4.6cqw; height:4.6cqw; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(60,64,67,0.35); display:grid; place-items:center; font-family:'Material Symbols Outlined'; font-size:3cqw; line-height:1; color:#202124;">train</span></span>
+          <span style="position:absolute; left:87.5%; top:78.6%; transform:translate(-50%,-50%); width:8.25cqw; height:8.25cqw; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.3); display:grid; place-items:center;"><img src="../assets/images/avatar-1.png" alt="Tom" style="width:86%; height:86%; border-radius:50%; object-fit:cover; display:block;"><span aria-hidden="true" style="position:absolute; right:-6%; bottom:-6%; width:4.6cqw; height:4.6cqw; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(60,64,67,0.35); display:grid; place-items:center; font-family:'Material Symbols Outlined'; font-size:3cqw; line-height:1; color:#202124;">two_wheeler</span></span>
+          <span style="position:absolute; left:30.6%; top:10.4%; transform:translate(-50%,-50%); width:8.25cqw; height:8.25cqw; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(60,64,67,0.3); display:grid; place-items:center;"><img src="../assets/images/avatar-4.png" alt="Mia" style="width:86%; height:86%; border-radius:50%; object-fit:cover; display:block;"><span aria-hidden="true" style="position:absolute; right:-6%; bottom:-6%; width:4.6cqw; height:4.6cqw; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(60,64,67,0.35); display:grid; place-items:center; font-family:'Material Symbols Outlined'; font-size:3cqw; line-height:1; color:#202124;">directions_walk</span></span>
+          <div style="position:absolute; right:12px; top:12px; display:flex; flex-direction:column; gap:6px; padding:10px 12px; background:rgba(255,255,255,0.94); border-radius:8px; box-shadow:0 1px 3px 1px rgba(60,64,67,0.15);">
+            <span style="display:flex; align-items:center; gap:8px; font-size:11px; color:#3c4043;"><span style="width:14px; height:10px; border-radius:2px; background:rgba(26,115,232,0.2); border:1px dashed #1a73e8;"></span>Everyone can arrive by 7:00</span>
+            <span style="display:flex; align-items:center; gap:8px; font-size:11px; color:#3c4043;"><span style="width:14px; height:14px; border-radius:50%; border:2px solid #1a73e8;"></span>Where this lens points</span>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="padding:16px 20px; border-radius:12px; background:#292a2d; border:1px solid #3c4043;">
+            <span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#9aa0a6;">{{ lensLabel }}</span>
+            <p style="margin:8px 0 0; font-size:15px; line-height:1.6; color:#e8eaed;">{{ lensExplain }}</p>
+          </div>
+          <sc-for list="{{ ranked }}" as="v" hint-placeholder-count="3">
+            <div style="border-radius:16px; padding:20px; background:{{ v.cardBg }}; border:1px solid {{ v.cardBorder }};">
+              <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
+                <div style="min-width:0;">
+                  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                    <span style="font-family:'Roboto Mono',monospace; font-size:12px; color:{{ v.rankFg }};">{{ v.rankLabel }}</span>
+                    <h3 style="margin:0; font-size:17px; font-weight:500; color:#fff;">{{ v.name }}</h3>
+                  </div>
+                  <p style="margin:6px 0 0; font-size:13px; color:#9aa0a6;">{{ v.meta }}</p>
+                </div>
+                <div style="text-align:right; flex-shrink:0;">
+                  <div style="font-family:'Roboto Mono',monospace; font-size:20px; color:#fff;">{{ v.metricValue }}</div>
+                  <div style="font-size:11px; color:#9aa0a6; letter-spacing:0.04em; text-transform:uppercase;">{{ v.metricLabel }}</div>
+                </div>
+              </div>
+              <p style="margin:14px 0; font-size:13px; line-height:1.6; color:#bdc1c6;">{{ v.why }}</p>
+              <div style="display:flex; flex-direction:column; gap:8px; padding-top:14px; border-top:1px solid #3c4043;">
+                <sc-for list="{{ v.legs }}" as="leg" hint-placeholder-count="4">
+                  <div style="display:grid; grid-template-columns:22px 56px 1fr 54px; align-items:center; gap:10px;">
+                    <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:17px; color:#9aa0a6; line-height:1;">{{ leg.icon }}</span>
+                    <span style="font-size:13px; color:#bdc1c6;">{{ leg.name }}</span>
+                    <span style="height:6px; border-radius:3px; background:{{ leg.barColor }}; width:{{ leg.pct }};"></span>
+                    <span style="font-family:'Roboto Mono',monospace; font-size:13px; color:{{ leg.timeColor }}; text-align:right;">{{ leg.mins }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <p style="margin:24px 0 0; max-width:62ch; font-size:14px; line-height:1.7; color:#9aa0a6;">No lens is marked correct, and nothing gets hidden when you switch. The one position I took is order: balanced comes first, because efficiency is already well served by the single-person product.</p>
+    </div>
+  </section>
+
+  <section style="background:#f8f9fa;">
+    <div style="max-width:1100px; margin:0 auto; padding:clamp(40px,7vh,80px) clamp(20px,4vw,40px);">
+      <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#1a73e8; font-weight:500;">06 — Sharing</span>
+      <h2 style="margin:16px 0 12px; font-weight:400; font-size:clamp(26px,3.4vw,40px); line-height:1.15; letter-spacing:0.002em; max-width:22ch;">The output leaks more than the input.</h2>
+      <p style="margin:0 0 28px; max-width:56ch; font-size:16px; line-height:1.7; color:#3c4043;">Hiding someone's location is the easy half. Published travel times to three known venues can be worked backwards into where they started, so the control belongs on what the group sees.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;">
+        <div style="background:#fff; border:1px solid #dadce0; border-radius:16px; padding:22px;">
+          <h3 style="margin:0 0 8px; font-size:15px; font-weight:500;">Exact</h3>
+          <p style="margin:0 0 12px; font-size:13px; line-height:1.6; color:#5f6368;">Your starting point and your minutes.</p>
+          <span style="font-size:12px; color:#188038;">Most accurate ranking</span>
+        </div>
+        <div style="background:#fff; border:2px solid #1a73e8; border-radius:16px; padding:22px;">
+          <h3 style="margin:0 0 8px; font-size:15px; font-weight:500; color:#174ea6;">Approximate area <span style="font-size:11px; font-weight:400; color:#1a73e8;">— default</span></h3>
+          <p style="margin:0 0 12px; font-size:13px; line-height:1.6; color:#174ea6;">A district and your minutes. Routing still uses your real position.</p>
+          <span style="font-size:12px; color:#1a73e8;">No accuracy lost</span>
+        </div>
+        <div style="background:#fff; border:1px solid #dadce0; border-radius:16px; padding:22px;">
+          <h3 style="margin:0 0 8px; font-size:15px; font-weight:500;">Banded</h3>
+          <p style="margin:0 0 12px; font-size:13px; line-height:1.6; color:#5f6368;">"About 20–30 min" instead of a figure. Blocks working backwards.</p>
+          <span style="font-size:12px; color:#b06000;">Weaker comparison</span>
+        </div>
+      </div>
+      <p style="margin:20px 0 0; max-width:60ch; font-size:14px; line-height:1.7; color:#5f6368;">The trade-off is real: coarser display, less to reason about. Banding is offered, not imposed, and research should set the default.</p>
+    </div>
+  </section>
+
+  <sc-if value="{{ showResearch }}" hint-placeholder-val="{{ true }}">
+    <section style="max-width:1100px; margin:0 auto; padding:clamp(40px,7vh,80px) clamp(20px,4vw,40px);">
+      <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#1a73e8; font-weight:500;">07 — Testing</span>
+      <h2 style="margin:16px 0 12px; font-weight:400; font-size:clamp(26px,3.4vw,40px); line-height:1.15; letter-spacing:0.002em; max-width:22ch;">The idea held up in front of real groups.</h2>
+      <p style="margin:0 0 28px; max-width:56ch; font-size:16px; line-height:1.7; color:#3c4043;">I started from what already exists, then gave small groups real starting points, watched them choose a place the way they normally would, and walked them through the prototype cold.</p>
+
+      <h3 style="margin:0 0 16px; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:#5f6368; font-weight:500;">Where the gap is</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-bottom:24px;">
+        <div style="border:1px solid #dadce0; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:10px;">
+          <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#1a73e8;">how_to_vote</span>
+          <h4 style="margin:0; font-size:15px; font-weight:500;">Maps already lets groups vote</h4>
+          <p style="margin:0; font-size:13px; line-height:1.6; color:#5f6368;">Group planning shares a shortlist and collects thumbs-up votes, and a later update moved list planning further out of the group chat. The votes carry ratings and price — never what the place costs each person to reach.</p>
+          <span style="font-size:12px; line-height:1.6; color:#80868b;">Google, <a href="https://blog.google/products/maps/all-together-now-group-planning-google-maps/" target="_blank" rel="noopener noreferrer">All together now: group planning on Google Maps</a> · TechCrunch, <a href="https://techcrunch.com/2023/11/15/google-maps-gets-more-social-feature-help-you-collaborate-with-friends" target="_blank" rel="noopener noreferrer">Maps gets more social</a></span>
+        </div>
+        <div style="border:1px solid #dadce0; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:10px;">
+          <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#1a73e8;">functions</span>
+          <h4 style="margin:0; font-size:15px; font-weight:500;">The maths is settled</h4>
+          <p style="margin:0; font-size:13px; line-height:1.6; color:#5f6368;">Optimal meeting point work on road networks separates min-sum, which minimises total travel, from min-max, which protects the worst-off person. That split is exactly the choice I put in front of the group as a lens.</p>
+          <span style="font-size:12px; line-height:1.6; color:#80868b;">Yan et al., <a href="https://homes.luddy.indiana.edu/yanda/papers/road.pdf" target="_blank" rel="noopener noreferrer">Efficient Algorithms for Finding Optimal Meeting Point on Road Networks</a> (VLDB) · <a href="https://link.springer.com/chapter/10.1007/978-3-032-23187-1_11" target="_blank" rel="noopener noreferrer">Optimal Meeting Points in Multi-modal Ride-Sharing Networks</a></span>
+        </div>
+        <div style="border:1px solid #dadce0; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:10px;">
+          <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#1a73e8;">pin_drop</span>
+          <h4 style="margin:0; font-size:15px; font-weight:500;">Consumer tools stop at halfway</h4>
+          <p style="margin:0; font-size:13px; line-height:1.6; color:#5f6368;">Midpoint finders average coordinates, then minimise total distance. A handful of newer tools do per-person multimodal times, which shows the demand — and that it lives outside the app where the journey actually happens.</p>
+          <span style="font-size:12px; line-height:1.6; color:#80868b;">Mappr, <a href="https://www.mappr.co/midpoint-finder/" target="_blank" rel="noopener noreferrer">Midpoint Finder</a> · <a href="https://meettogather.com/" target="_blank" rel="noopener noreferrer">togather</a></span>
+        </div>
+      </div>
+      <p style="margin:0 0 28px; max-width:60ch; font-size:15px; line-height:1.7; color:#3c4043;">So: voting exists without travel cost attached, and fair-point routing exists without a consumer surface. Where to meet joins the two. Three claims were on the table, written so they could fail.</p>
+      <div style="display:flex; flex-direction:column; gap:1px; background:#dadce0; border:1px solid #dadce0; border-radius:16px; overflow:hidden;">
+        <sc-for list="{{ hypotheses }}" as="h" hint-placeholder-count="3">
+          <div style="display:grid; grid-template-columns:minmax(104px,auto) 1fr; gap:16px; padding:20px 22px; background:#fff; align-items:start;">
+            <span style="font-family:'Roboto Mono',monospace; font-size:13px; color:#1a73e8; font-weight:500; line-height:1.6;">{{ h.id }}</span>
+            <p style="margin:0; font-size:15px; line-height:1.6;">{{ h.claim }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:20px; padding:20px 24px; background:#e6f4ea; border-radius:12px; display:flex; gap:14px; align-items:flex-start;">
+        <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:20px; color:#188038; margin-top:1px;">check_circle</span>
+        <p style="margin:0; font-size:15px; line-height:1.65; color:#0d652d; max-width:64ch;">Groups read the shared area and the lenses without being told what they were, and seeing the numbers changed what they picked. H3 was the useful surprise: comparison carried more weight than recommendation, which shifts the emphasis of the product without changing its architecture.</p>
+      </div>
+    </section>
+  </sc-if>
+
+  <section style="max-width:1100px; margin:0 auto; padding:clamp(40px,7vh,80px) clamp(20px,4vw,40px); border-top:1px solid #dadce0;">
+    <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#1a73e8; font-weight:500;">08 — Next</span>
+    <h2 style="margin:16px 0 20px; font-weight:400; font-size:clamp(26px,3.4vw,40px); line-height:1.15; letter-spacing:0.002em; max-width:22ch;">Four things to resolve before this ships.</h2>
+    <p style="margin:0 0 32px; max-width:56ch; font-size:16px; line-height:1.7; color:#3c4043;">The flow works. These are the open questions I would take into a build, in the order I would take them.</p>
+    <div style="display:flex; flex-direction:column; gap:1px; background:#dadce0; border:1px solid #dadce0; border-radius:16px; overflow:hidden;">
+      <sc-for list="{{ risks }}" as="r" hint-placeholder-count="4">
+        <div style="background:#fff; padding:24px; display:grid; grid-template-columns:minmax(140px,220px) 1fr; gap:clamp(16px,3vw,32px);">
+          <h3 style="margin:0; font-size:15px; font-weight:500; line-height:1.4;">{{ r.title }}</h3>
+          <p style="margin:0; font-size:14px; line-height:1.7; color:#5f6368;">{{ r.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:24px; padding:24px; border-radius:16px; background:#e8f0fe;">
+      <p style="margin:0; max-width:64ch; font-size:15px; line-height:1.7; color:#174ea6;">The first one sets the shape of the rest. Measure the real ETA error bars, then show fairness exactly as coarsely as the data can carry — a rounded range the group can trust beats a precise number it can't.</p>
+    </div>
+  </section>
+
+  <section style="background:#202124; color:#fff;">
+    <div style="max-width:1100px; margin:0 auto; padding:clamp(48px,9vh,104px) clamp(20px,4vw,40px);">
+      <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8ab4f8; font-weight:500;">09 — In closing</span>
+      <h2 style="margin:16px 0 24px; font-weight:400; font-size:clamp(28px,3.8vw,46px); line-height:1.12; letter-spacing:-0.002em; max-width:22ch;">Meeting is a group journey. The product can treat it like one.</h2>
+      <p style="margin:0 0 20px; max-width:58ch; font-size:17px; line-height:1.7; color:#e8eaed;">Where to meet doesn't ask people to plan differently. It puts one missing piece of information — what this place costs each of us — into the moment the group is already deciding, and then gets out of the way.</p>
+      <p style="margin:0 0 40px; max-width:58ch; font-size:16px; line-height:1.7; color:#bdc1c6;">Everything underneath it already exists in Maps. The new part is the surface, and in testing it took people about a minute to understand.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;">
+        <div style="padding:22px; border-radius:16px; background:#292a2d; border:1px solid #3c4043;">
+          <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#8ab4f8;">groups</span>
+          <h3 style="margin:12px 0 8px; font-size:16px; font-weight:500;">For the group</h3>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#bdc1c6;">The compromise gets shared out instead of landing on the same person every time.</p>
+        </div>
+        <div style="padding:22px; border-radius:16px; background:#292a2d; border:1px solid #3c4043;">
+          <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#8ab4f8;">map</span>
+          <h3 style="margin:12px 0 8px; font-size:16px; font-weight:500;">For Maps</h3>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#bdc1c6;">A reason to open the app earlier — while the plan is still being made, not after.</p>
+        </div>
+        <div style="padding:22px; border-radius:16px; background:#292a2d; border:1px solid #3c4043;">
+          <span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:22px; color:#8ab4f8;">rocket_launch</span>
+          <h3 style="margin:12px 0 8px; font-size:16px; font-weight:500;">Where I'd start</h3>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#bdc1c6;">Ship comparison first. It answers the question groups ask most, on data Maps already has.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid #dadce0;">
+    <div style="max-width:1100px; margin:0 auto; padding:40px clamp(20px,4vw,40px) 64px; display:flex; gap:24px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+      <a href="human-centred-concepts.html" style="display:inline-flex; align-items:center; gap:10px; color:#1a73e8; text-decoration:none; font-size:14px; font-weight:500;" style-hover="color:#174ea6;" style-focus="outline:2px solid #1a73e8; outline-offset:3px;"><span aria-hidden="true" style="font-family:'Material Symbols Outlined'; font-size:20px; line-height:1;">arrow_back</span>All Human-Centred Concepts</a>
+      <span style="font-size:12px; color:#80868b; max-width:52ch; line-height:1.6;">Where to meet is an independent feature concept for Google Maps. Not affiliated with, endorsed by, or produced for Google. Venue names, journeys and times are illustrative.</span>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLens&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;balanced&quot;,&quot;fastest&quot;,&quot;transit&quot;,&quot;walking&quot;],&quot;default&quot;:&quot;balanced&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Interaction&quot;},&quot;showResearch&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { lens: props.defaultLens || 'balanced' };
+  }
+
+  venues() {
+    return [
+      { key:'sen', name:'The Copper Table', meta:'Soho · Modern British · ££ · 4.5 ★', total:98, max:27, spread:6, transfers:2, walk:9,
+        legs:[ {name:'Ava', icon:'directions_bus', mins:24}, {name:'Ben', icon:'train', mins:27}, {name:'Tom', icon:'two_wheeler', mins:21}, {name:'Mia', icon:'directions_walk', mins:26} ],
+        why:{ balanced:'Six minutes between the longest and shortest trip. Nobody singled out, nobody gets a bargain.',
+              fastest:'The slowest of the three overall — 98 minutes of travel across the group.',
+              transit:'Two changes across the group. Workable, not the simplest.',
+              walking:'Nine minutes of walking, mostly Mia at the end.' } },
+      { key:'bep', name:'Riverside Kitchen', meta:'Hammersmith · Modern British · ££ · 4.7 ★', total:81, max:39, spread:27, transfers:3, walk:12,
+        legs:[ {name:'Ava', icon:'directions_bus', mins:12}, {name:'Ben', icon:'train', mins:14}, {name:'Tom', icon:'two_wheeler', mins:39}, {name:'Mia', icon:'directions_walk', mins:16} ],
+        why:{ balanced:'Three people barely travel and Tom rides 39 minutes. This is the choice the group would have made anyway.',
+              fastest:'Least travel in the set by 17 minutes, because it sits beside three of the four starting points.',
+              transit:'Three changes, and Tom crosses the river.',
+              walking:'Twelve minutes of walking — the most of the three.' } },
+      { key:'cha', name:'The Belgrave', meta:'Victoria · British · £ · 4.3 ★', total:88, max:31, spread:15, transfers:1, walk:5,
+        legs:[ {name:'Ava', icon:'directions_bus', mins:19}, {name:'Ben', icon:'train', mins:16}, {name:'Tom', icon:'two_wheeler', mins:31}, {name:'Mia', icon:'directions_walk', mins:22} ],
+        why:{ balanced:'Fifteen minutes apart — fairer than the default choice, not as even as Soho.',
+              fastest:'Middle of the set, with no trip over 31 minutes.',
+              transit:'One change for the whole group. Three of four arrive on a single line.',
+              walking:'Five minutes of walking. The station exit is on the same block.' } }
+    ];
+  }
+
+  lensDefs() {
+    return {
+      balanced: { label:'Most balanced', icon:'balance', sort:'spread', metric:'Spread', unit:' min',
+        explain:'Sorted by the gap between the longest and shortest trip. It asks who is worst off, not what the average is.',
+        spot:{ x:440, y:220 } },
+      fastest: { label:'Fastest overall', icon:'bolt', sort:'total', metric:'Group total', unit:' min',
+        explain:'Sorted by combined travel time. Efficient for the group as a unit, and the most likely to leave one person carrying it.',
+        spot:{ x:170, y:225 } },
+      transit: { label:'Best transit', icon:'train', sort:'transfers', metric:'Changes', unit:'',
+        explain:'Sorted by changes across the group. Fewer changes usually beats a faster route for arriving on time.',
+        spot:{ x:380, y:235 } },
+      walking: { label:'Least walking', icon:'directions_walk', sort:'walk', metric:'Walking', unit:' min',
+        explain:'Sorted by total walking. Matters for weather, mobility, and anyone carrying something.',
+        spot:{ x:384, y:232 } }
+    };
+  }
+
+  renderVals() {
+    const defs = this.lensDefs();
+    const cur = this.state.lens;
+    const def = defs[cur];
+    const sorted = this.venues().slice().sort((a, b) => a[def.sort] - b[def.sort]);
+    const rankWord = ['Best on this lens', 'Second', 'Third'];
+
+    const ranked = sorted.map((v, i) => {
+      const worst = Math.max.apply(null, v.legs.map(l => l.mins));
+      return {
+        name: v.name, meta: v.meta,
+        rankLabel: rankWord[i],
+        rankFg: i === 0 ? '#8ab4f8' : '#9aa0a6',
+        cardBg: i === 0 ? '#1f2733' : '#292a2d',
+        cardBorder: i === 0 ? '#8ab4f8' : '#3c4043',
+        metricLabel: def.metric,
+        metricValue: v[def.sort] + def.unit,
+        why: v.why[cur],
+        legs: v.legs.map(l => ({
+          name: l.name, icon: l.icon, mins: l.mins + ' min',
+          pct: Math.round((l.mins / 39) * 100) + '%',
+          barColor: l.mins === worst && v.spread > 12 ? '#f28b82' : '#8ab4f8',
+          timeColor: l.mins === worst && v.spread > 12 ? '#f28b82' : '#e8eaed'
+        }))
+      };
+    });
+
+    const pinStyle = {};
+    sorted.forEach((v, i) => {
+      pinStyle[v.key] = { color: i === 0 ? '#1a73e8' : '#5f6368', labelFill: i === 0 ? '#174ea6' : '#3c4043' };
+    });
+
+    const lenses = Object.keys(defs).map(k => ({
+      label: defs[k].label, icon: defs[k].icon, active: k === cur,
+      bg: k === cur ? '#8ab4f8' : 'transparent',
+      fg: k === cur ? '#202124' : '#e8eaed',
+      bc: k === cur ? '#8ab4f8' : '#5f6368',
+      select: () => this.setState({ lens: k })
+    }));
+
+    return {
+      lenses, ranked, spot: def.spot, lensExplain: def.explain, lensLabel: def.label,
+      pinSen: pinStyle.sen, pinBep: pinStyle.bep, pinCha: pinStyle.cha,
+      showResearch: this.props.showResearch ?? true,
+
+      principles: [
+        { icon:'balance', title:'Measure burden, not distance', body:'A river or a missing bus route makes geographic distance meaningless.' },
+        { icon:'visibility', title:'Show the trade-off, don\u2019t settle it', body:'The product never quietly decides what "best" means on the group\u2019s behalf.' },
+        { icon:'forum', title:'Inform the conversation, don\u2019t replace it', body:'It supplies the missing numbers. The decision stays with the people having it.' },
+        { icon:'map', title:'Stay recognisably Maps', body:'Map first, bottom sheets, familiar hierarchy. No chat, no feed, no profiles.' }
+      ],
+
+      hypotheses: [
+        { id:'Hypothesis 1', claim:'Groups who see per-person travel time before choosing will change their first choice at least some of the time.' },
+        { id:'Hypothesis 2', claim:'People will accept a lower-rated place for a fairer trip — up to a threshold worth measuring.' },
+        { id:'Hypothesis 3', claim:'Most real meetups already have a place in mind, so comparison gets used far more than recommendation.' }
+      ],
+
+      risks: [
+        { title:'ETA precision may not support the claim', body:'Fairness is only as fine as the routing data beneath it. If per-person error is ±8 minutes, a six-minute spread is noise presented as insight. A data problem, not a design one.' },
+        { title:'Setup could cost more than the problem', body:'Four people entering constraints to avoid one chat message is a bad trade. The design leans on inferred origin and mode, but that needs measuring rather than asserting.' },
+        { title:'Visible fairness can create friction', body:'Naming the imbalance may start arguments the old ambiguity suppressed, and may remove a favour economy groups actually rely on. Transparency isn\u2019t automatically kind.' },
+        { title:'Motorbike routing is the weak mode', body:'The scenario leans on two-wheeler times in dense traffic — the least reliable estimate in the set, belonging to the person the fairness argument is built around.' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
